@@ -22,3 +22,7 @@ pip install pyttsx3
 
 
 Run CBint.py from Thonny
+
+The camera should be positioned directly over the centre of the chess board and lined up pretty well. Then camera calibration asks you to click on the four corners of the playing area of the chessboard (on the image), and you are shown the result. (The robot arm should be be in the way).
+
+Calibrating the robot arm: The lower strut must be vertical and the upper strut horizontal and coming out straight over the board.
