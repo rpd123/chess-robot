@@ -11,13 +11,19 @@ import CBstate
 chessboard = ChessBoard()
 import robotmove as RD
 import playermove_rpd as RDpm
-stockfish = Stockfish()
-dummy = ""
+
+if CBstate.windowsos:
+    stockfish = Stockfish(CBstate.stockfishexe)
+else:
+    stockfish = Stockfish()
+mydir = CBstate.mydir
+RD.speaker("Hello!")
+dummy = "" 
 movelist = []
 
 reasons = (
-	"No reason",
-	"Invalid move",
+    "No reason",
+    "Invalid move",
     "Invalid colour",
     "Invalid 'from' location",
     "Invalid 'to' location",
@@ -27,21 +33,21 @@ reasons = (
     
 
 lastmovetype = (
-	"Normal",
-	"En passant available",
-	"Capture en passant",
-	"Pawn promoted",
-	"Castle on king's side",
-	"Castle on queen's side")
-	
+    "Normal",
+    "En passant available",
+    "Capture en passant",
+    "Pawn promoted",
+    "Castle on king's side",
+    "Castle on queen's side")
+    
 gameresult = (
-	"No result",
-	"Checkmate. You won!",
-	"Checkmate I win!",
-	"Stalemate Game over.",
-	"Draw by 50 moves rule",
-	"Draw by threefold repetition")
-	
+    "No result",
+    "Checkmate. You won!",
+    "Checkmate I win!",
+    "Stalemate Game over.",
+    "Draw by 50 moves rule",
+    "Draw by threefold repetition")
+    
 chessboard.setPromotion(chessboard.QUEEN)
     
 # initiate stockfish chess engine
@@ -52,19 +58,19 @@ engine = subprocess.Popen(
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,)
 '''
-	
-def checkvarious():	
-	
-	if chessboard.getLastMoveType() != -1 and chessboard.getLastMoveType() != 0:
-		print((lastmovetype[chessboard.getLastMoveType()]))
-	if chessboard.isCheck():
-		print ("Check!")
-		RD.speaker("Check!")
-	if chessboard.isGameOver():
-		print((gameresult[chessboard.getGameResult()]))
-		RD.speaker(gameresult[chessboard.getGameResult()])
-		RD.quitter()
-	return()
+    
+def checkvarious(): 
+    
+    if chessboard.getLastMoveType() != -1 and chessboard.getLastMoveType() != 0:
+        print((lastmovetype[chessboard.getLastMoveType()]))
+    if chessboard.isCheck():
+        print ("Check!")
+        RD.speaker("Check!")
+    if chessboard.isGameOver():
+        print((gameresult[chessboard.getGameResult()]))
+        RD.speaker(gameresult[chessboard.getGameResult()])
+        RD.quitter()
+    return()
 
 def get():
     return stockfish.get_best_move()
@@ -106,8 +112,8 @@ def getboard():
     #btxt = raw_input("\nYour move: ").lower()
     kpress = input ("Now play your move, then press a key")
     if kpress == "s":
-	    RD.nudgespecial()  # nudge up/down during game
-	    input ("Now play your move, then press a key")
+        RD.nudgespecial()  # nudge up/down during game
+        input ("Now play your move, then press a key")
 
     validkingmoves = chessboard.getValidMoves((4,7))
     btxt = RDpm.getplayermove(chessboard.getBoard(), validkingmoves)
@@ -153,7 +159,7 @@ def bmove(fmove):
     fmove=fmove
     # Get a move from the board
     brdmove = bmessage[1:5].lower()
-    #brdmove = bmessage[1:6]	# allow for O-O-O, etc
+    #brdmove = bmessage[1:6]    # allow for O-O-O, etc
     # Code added here make computer play white by sending null message "ma9a9" to Stockfish
     if brdmove =="a9a9":
         fmove = ""
@@ -214,7 +220,7 @@ def bmove(fmove):
         checkvarious()
         #RD.movepiece(brdmove[0:2], brdmove[2:4], boardbefore)
         
-        boardbefore = RD.updateboard(brdmove[0:2], brdmove[2:4], boardbefore)	
+        boardbefore = RD.updateboard(brdmove[0:2], brdmove[2:4], boardbefore)   
         movelist.append (fmove[-4:])
         fmove =fmove+" " +brdmove
         movelist.append (brdmove)
@@ -282,32 +288,33 @@ fmove = newgame()
 
 
 try:
-	calcam = input("Calibrate camera? (y/n):")
-	if calcam == "y":
-		RDpm.calibratecamera(chessboard.getBoard())					
-	RD.init()
-	#RD.quitter()	
-	while True:			
-		# Get  message from board
-		bmessage = getboard()		 
-		# Message options   Move, Newgame, level, style
-		if bmessage:
-			code = bmessage[0]
-		else:
-			code = ""
-		
-		# decide which function to call based on first letter of txt
-		fmove=fmove
-		if code == 'm':
-			fmove = bmove(fmove)								
-						
-		elif code == 'n': newgame()
-		elif code == 'l': level()
-		elif code == 's': style()
-		else:
-			sendboard('error at option')
+    calcam = input("Calibrate camera? (y/n):")
+    if calcam == "y":
+        RDpm.calibratecamera(chessboard.getBoard())
+    RDpm.dummymove(chessboard.getBoard())
+    RD.init()
+    #RD.quitter()   
+    while True:         
+        # Get  message from board
+        bmessage = getboard()        
+        # Message options   Move, Newgame, level, style
+        if bmessage:
+            code = bmessage[0]
+        else:
+            code = ""
+        
+        # decide which function to call based on first letter of txt
+        fmove=fmove
+        if code == 'm':
+            fmove = bmove(fmove)                                
+                        
+        elif code == 'n': newgame()
+        elif code == 'l': level()
+        elif code == 's': style()
+        else:
+            sendboard('error at option')
 except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
-	RD.quitter()       # Unconfigure the sensors, disable the motors, and restore the LED to the control of the BrickPi3 firmware.
+    RD.quitter()       # Unconfigure the sensors, disable the motors, and restore the LED to the control of the BrickPi3 firmware.
 
 RD.quitter()
 

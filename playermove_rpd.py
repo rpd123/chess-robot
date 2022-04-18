@@ -9,17 +9,26 @@
 
 import time 
 import os
-#import cv2
+import cv2
 import sys
 import numpy
 import psutil
 from PIL import Image
+import CBstate
+mydir = CBstate.mydir
 
-mydir = "/home/pi/stepperchessrpd/images/"
 firsttimeonly = 1
 firstgbp = 1
 splitwb = 112
+splitwbonb = 112
+splitwbonw = 112
 stdrgb = 23
+squaring = 1 # number of times to look at squaring image
+img_dimension = 319
+pts_src = numpy.array([[100, 100], [100, 100], [100, 100],[100, 100]])
+pts8 = [0,0,0,0,0,0,0,0]
+whereclick = ["top left", "bottom left", "top right", "bottom right"]
+pointscount = 0
 
 xrevtrans = {
     1: "a",
@@ -95,10 +104,42 @@ def drawredlines():
     im.save(mydir + 'redlines.jpg')  # Save the modified pixels
     im = Image.open(mydir + 'redlines.jpg', 'r')
     im.show()   # uncomment to test
-    
+
+def dummymove(board):
+    global firstgbp
+    while True:
+        firstgbp = 1
+        getplayermove (board, ()) # dummy in order to get best number to differentiate between black and white
+        drawredlines()
+        return()    # comment out for testing
+        conti = input("Try again? y/n")
+        if conti == "n":
+            return()
+def takepicwindows():
+    #cv2.namedWindow("preview")
+    try:
+        vc = cv2.VideoCapture(CBstate.cameraportno)
+
+        if vc.isOpened(): # try to get the first frame
+            ret, frame = vc.read()
+        else:
+            print ("Failed to access camera")
+            time.sleep(3)
+        #cv2.imshow('preview',frame)
+        #time.sleep(3)
+        print (mydir + "1.jpg")
+        cv2.imwrite(mydir + "1.jpg", frame)
+    finally:
+        vc.release()
+        cv2.destroyAllWindows()
+
 def takepic():
-    os.system('fswebcam -r 640x480 -S 20 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 2 --set brightness=25% --jpeg 50 --save ' + mydir + '1.jpg')  
-    #os.system('fswebcam -r 640x480 -S 5 -F 5 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 1 --set brightness=50% --set "Exposure, Auto"=False --set "Exposure (absolute)"=400 --jpeg 50 --save /home/pi/stepperchessrpd/images/1.jpg')
+    print ("Take picture ...")
+    if CBstate.windowsos:
+        takepicwindows()
+    else:   
+        os.system('fswebcam -r 640x480 -S 20 --set "Power Line Frequency"="50 Hz" --no-banner --delay 2 --set brightness=25% --jpeg 50 --save ' + mydir + '1.jpg')  
+        #os.system('fswebcam -r 640x480 -S 5 -F 5 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 1 --set brightness=50% --set "Exposure, Auto"=False --set "Exposure (absolute)"=400 --jpeg 50 --save /home/pi/stepperchessrpd/images/1.jpg')
 
 def crop(im):
     nudgecurrsplitint = [0,0,0,0]  # declare
@@ -112,7 +153,7 @@ def crop(im):
             
         cropped_image = im.crop(nudgecurrsplitint) 
         cropped_image.save(mydir + '4.jpg')
-        cropped_image_rot = cropped_image.rotate(90)
+        cropped_image_rot = cropped_image.rotate(90, expand=True)
         # hide previous image
         killit()
         cropped_image_rot.show()   # uncomment for testing  
@@ -126,6 +167,7 @@ def nudgecrop(im):
     print("bottom, left, top, right")
     time.sleep(3)
     mylabels = ("bottom", "left", "top", "right")
+    #imr = im.rotate(90, expand=True)
     nudgecurrsplitint = crop(im)
 
     for i in range(4):          
@@ -136,6 +178,7 @@ def nudgecrop(im):
             while True:
                 takepic()
                 im = Image.open(mydir + '1.jpg', 'r')
+                #image_rot = im.rotate(90, expand=True)
                 nudgecurrsplitint[i] = nudgecurrsplitint[i] + int(ncur)
                 cropped_image = im.crop(nudgecurrsplitint) 
                 cropped_image.save(mydir + '4.jpg')
@@ -153,22 +196,133 @@ def nudgecrop(im):
     try:
         forjoin = ["0","0","0","0"]
         for i in range(4):
-            forjoin[i] = str(nudgecurrsplitint[i]) 
+            forjoin[i] = str(pss[i]) 
             
         joined = ",".join(forjoin)
         f.write(joined)
     finally:        
         f.close()
+
+def homog():
+    global pts_src
+    # read points file
+    pss = [0,0,0,0,0,0,0,0]  # declare
+    f = open(mydir + 'points.txt', 'r')
+    try:
+        pointscurr = f.readline().rstrip()
+        print(pointscurr)
+        pointscurrsplit = pointscurr.split(",")
+        # split points file
+        for i in range(8):
+            pss[i] = int(pointscurrsplit[i])             
+    finally:        
+        f.close()
+    
+    im_src = cv2.imread(mydir + "1.jpg", 1)
+    pts_src = numpy.array([[pss[0],pss[1]],[pss[2],pss[3]],[pss[4],pss[5]],[pss[6],pss[7]]])
+    # Four corners in destination image.
+    pts_dst = numpy.array([[0,0],[0,img_dimension],[img_dimension,0],[img_dimension, img_dimension]])
+
+    # Calculate Homography
+    h, status = cv2.findHomography(pts_src, pts_dst)
+
+    # Warp source image to destination based on homography
+    #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
+    im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+    cv2.imwrite(mydir + "4.jpg", im_out)
+    image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)    
+    cv2.imshow("Straightened Image", image)   
+    #cv2.waitKey(0)
+
+# function to display the coordinates of
+# of the points clicked on the image
+
+def click_event(event, x, y, flags, params):
+    global pointscount, pts_src, im_src, pts8
+    
+    # checking for left mouse clicks    
+    if event == cv2.EVENT_LBUTTONDOWN:                  
         
+        # displaying the coordinates
+        # on the Shell
+        print(x, ' ', y)
+        pts_src [pointscount] = [x,y]
+        pts8[pointscount*2] = x
+        pts8[(pointscount*2)+1] = y
+        # displaying the coordinates
+        # on the image window
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(im_src, str(x) + ',' + str(y), (x,y), font, 1, (255, 0, 0), 2)
+        cv2.imshow('image', im_src)
+        pointscount += 1
+        if pointscount == 4:
+            print (pts_src)
+            # save points to file
+            f = open(mydir + 'points.txt', 'w')
+            try:
+                forjoin = ["0","0","0","0","0","0","0","0"]
+                for i in range(8):
+                    forjoin[i] = str(pts8[i])
+                    
+                joined = ",".join(forjoin)
+                f.write(joined)
+            finally:        
+                f.close()
+                print ("Press any key to continue")
+            return() 
+        else:
+            print ("Now click " + whereclick[pointscount])
+            
 def calibratecamera(board):
-    global firstgbp
+    global firstgbp, im_src, pointscount, pts8
     takepic()
+    
+    while True:
+        pointscount = 0
+        pts8 = [0,0,0,0,0,0,0,0]
+        print ("Click the four corners of the PLAYING AREA, starting with top left")
+        im_src = cv2.imread(mydir + "1.jpg", 1)
+
+        cv2.imshow('image', im_src)
+
+        # setting mouse handler for the image
+        # and calling the click_event() function
+        cv2.setMouseCallback('image', click_event)
+
+        # wait for a key to be pressed to exit
+        cv2.waitKey(0)
+        
+        im_src = cv2.imread(mydir + "1.jpg", 1)
+        #im_dst = cv2.imread(mydir + '4.jpg')
+        # Four corners in destination image.
+        pts_dst = numpy.array([[0,0],[0,img_dimension],[img_dimension,0],[img_dimension, img_dimension]])
+
+        # Calculate Homography
+        h, status = cv2.findHomography(pts_src, pts_dst)
+
+        # Warp source image to destination based on homography
+        #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
+        im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+        cv2.imwrite(mydir + "4.jpg", im_out)
+        cv2.imshow("Straightened Image", im_out)
+        cv2.waitKey(0)
+            
+        cv2.destroyAllWindows()
+        
+        tryagain = input ("Try again (y/n)?")
+        if tryagain =="n":
+            break
+    print ("Finished straightening")
+        
+    drawredlines()
+    return
+    
     im = Image.open(mydir + '1.jpg', 'r')
     print("Adjust board/camera position - make central and square")
     time.sleep(3)
     try:
         while True:
-            for ii in range(6):         
+            for ii in range(squaring):         
                 takepic()
                 im = Image.open(mydir + '1.jpg', 'r')
                 im.save(mydir + '4.jpg')
@@ -185,14 +339,6 @@ def calibratecamera(board):
     time.sleep(3)
     #im = im.rotate(0.10)
     nudgecrop(im)
-    while True:
-        firstgbp = 1
-        getplayermove (board, ()) # dummy in order to get best number to differentiate between black and white
-        drawredlines()
-        return()    # comment out for testing
-        conti = input("Try again? y/n")
-        if conti == "n":
-            return()
 
 def newcastling(board, validkingmoves):
     global pieces
@@ -256,15 +402,20 @@ def enpassantmove (board):
         a = 1
                 
 def getplayermove(board, validkingmoves):
-    global pieces, oldpieces, firstgbp, splitwb
+    global pieces, oldpieces, firstgbp, splitwb, splitwbonb, splitwbonw, stdrgb
     updateforcomputermove(board)
-    os.system('fswebcam -r 640x480 -S 20 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 2 --set brightness=25% --set "Exposure, Auto Priority"=False --jpeg 50 --save ' + mydir + '1.jpg')
-    #os.system('fswebcam -r 640x480 -S 5 -F 5 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 1 --set brightness=50% --set "Exposure, Auto"=False --set "Exposure (absolute)"=400 --jpeg 50 --save /home/pi/stepperchessrpd/images/1.jpg')
+    print ("Take pic ...")
+    if CBstate.windowsos:
+        takepicwindows()
+    else:
+        os.system('fswebcam -r 640x480 -S 20 --set "Power Line Frequency"="50 Hz" --no-banner --delay 2 --set brightness=25% --set "Exposure, Auto Priority"=False --jpeg 50 --save ' + mydir + '1.jpg')
+        #os.system('fswebcam -r 640x480 -S 5 -F 5 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 1 --set brightness=50% --set "Exposure, Auto"=False --set "Exposure (absolute)"=400 --jpeg 50 --save /home/pi/stepperchessrpd/images/1.jpg')
     #takepic()
-    im = Image.open(mydir + '1.jpg', 'r')
-    #im = im.rotate(0.10)   # modify as appropriate
-    crop(im)
+    ###im = Image.open(mydir + '1.jpg', 'r')
+    #im = im.rotate(90, expand=True)  
+    ###crop(im)
     #nudgecrop(im)
+    homog()
 
     im = Image.open(mydir + '4.jpg', 'r')
     #im.show()  # uncomment for testing
@@ -276,7 +427,14 @@ def getplayermove(board, validkingmoves):
     squaresizey = float(im.size[1])/8
     squaresizey = int(round(squaresizey))
     minRw = minRe = minRb = minGw = minGe = minGb = minBw = minBe = minBb = 256
+    minRwonw = minRwonb = minGwonb = minBwonw = 256
+    maxRwonw = maxRbonb = 0
+    
     maxRw = maxRe = maxRb = maxGw = maxGe = maxGb = maxBw = maxBe = maxBb = 0
+    maxRbonb = maxRbonw = 0
+    
+    minstdp = 256
+    maxstde = 0
     
     fudge = 7
     for row in range(8):    
@@ -285,6 +443,12 @@ def getplayermove(board, validkingmoves):
             pixlistR = []
             pixlistG = []
             pixlistB = []
+            pixlisteR = []
+            pixlisteG = []
+            pixlisteB = []
+            pixlistoR = []
+            pixlistoG = []
+            pixlistoB = []
             while i < ((row + 1) * squaresizex) - fudge:
                 j = int((col * squaresizey) + fudge)
                             
@@ -292,77 +456,133 @@ def getplayermove(board, validkingmoves):
                     pixlistR.append (pix[i,j][0])
                     pixlistG.append (pix[i,j][1])
                     pixlistB.append (pix[i,j][2])
+                    if ((i+j) % 2) == 0:    #even
+                        pixlisteR.append (pix[i,j][0])
+                        pixlisteG.append (pix[i,j][1])
+                        pixlisteB.append (pix[i,j][2])
+                    else:
+                        pixlistoR.append (pix[i,j][0])
+                        pixlistoG.append (pix[i,j][1])
+                        pixlistoB.append (pix[i,j][2])
                     j += 1
                 i += 1
 
-            print (row,col)
-            print ("std:")
             stdR = numpy.std(pixlistR)
             stdG = numpy.std(pixlistG)
             stdB = numpy.std(pixlistB)
             #print (stdR)
             #print (stdG)
             #print (stdB)
-            print (stdR + stdG + stdB)
+            print (row, col, " std: ", stdR + stdG + stdB)
             #print("mean:")
             meanR = numpy.mean(pixlistR)
             meanG = numpy.mean(pixlistG)
             meanB = numpy.mean(pixlistB)
+            if ((row+col) % 2) == 0:    #even
+                meanRe = numpy.mean(pixlisteR)
+                meanGe = numpy.mean(pixlisteG)
+                meanBe = numpy.mean(pixlisteB)
+            else:
+                meanRo = numpy.mean(pixlistoR)
+                meanGo = numpy.mean(pixlistoG)
+                meanBo = numpy.mean(pixlistoB)
             #print (meanR)
             #print (meanG)
             #print (meanB)
             #print("next")
+            if firstgbp:
+                if row < 2:
+                    minRw = min (minRw, meanR) #
+                    if ((row+col) % 2) == 0:    #even
+                        minRwonb = min(minRwonb, meanBe)
+                    else:
+                        minRwonw = min(minRwonw, meanBo)
+                        #maxRwonw = max(maxRwonw, meanBo)
+                    maxRw = max (maxRw, meanR)
+                    minGw = min (minGw, meanG)
+                    maxGw = max (maxGw, meanG)
+                    minBw = min (minBw, meanB)
+                    maxBw = max (maxBw, meanB)
+                    minstdp = min (minstdp, stdR + stdG + stdB)
+                elif row >5:
+                    minRb = min (minRb, meanR)
+                    maxRb = max (maxRb, meanR) #
+                    if ((row+col) % 2) == 0:    #even
+                        maxRbonb = max(maxRbonb, meanBe)
+                    else:
+                        maxRbonw = max(maxRbonw, meanBo)
+                    minGb = min (minGb, meanG)
+                    maxGb = max (maxGb, meanG)
+                    minBb = min (minBb, meanB)
+                    maxBb = max (maxBb, meanB)
+                    minstdp = min (minstdp, stdR + stdG + stdB)
+                else:
+                    minRe = min (minRe, meanR)
+                    maxRe = max (maxRe, meanR)
+                    minGe = min (minGe, meanG)
+                    maxGe = max (maxGe, meanG)
+                    minBe = min (minBe, meanB)
+                    maxBe = max (maxBe, meanB)
+                    maxstde = max (maxstde, stdR + stdG + stdB)
+                # Not all of above assigned min and max variables are currently subsequently used :-)
             
-            if row < 2:
-                minRw = min (minRw, meanR)
-                maxRw = max (maxRw, meanR)
-                minGw = min (minGw, meanG)
-                maxGw = max (maxGw, meanG)
-                minBw = min (minBw, meanB)
-                maxBw = max (maxBw, meanB)
-            elif row >5:
-                minRb = min (minRb, meanR)
-                maxRb = max (maxRb, meanR)
-                minGb = min (minGb, meanG)
-                maxGb = max (maxGb, meanG)
-                minBb = min (minBb, meanB)
-                maxBb = max (maxBb, meanB)
-            else:
-                minRe = min (minRe, meanR)
-                maxRe = max (maxRe, meanR)
-                minGe = min (minGe, meanG)
-                maxGe = max (maxGe, meanG)
-                minBe = min (minBe, meanB)
-                maxBe = max (maxBe, meanB)
-            # Not all of above assigned min and max variables are currently subsequently used :-)
-            # and in any case, they should only be done on the first time in        
-            
-            if stdR + stdG + stdG < 23:
+            if stdR + stdG + stdB < stdrgb:
                 pieces [7-row][col] = "e"
                 print ("empty")
             else:
                 #if meanR + meanG + meanB < 250:
                 #if meanR + meanG + meanB < splitwb :
+                '''
                 if meanR < splitwb :
                     pieces [7-row][col] = "b"
                     print ("black", meanR)
                 else: 
                     pieces [7-row][col] = "w"
                     print ("white", meanR)
+                ''' 
+                if ((row+col) % 2) == 0:    #even
+                    if meanRe < splitwbonb :
+                        pieces [7-row][col] = "b"
+                        print ("black", meanRe)
+                    else: 
+                        pieces [7-row][col] = "w"
+                        print ("white", meanRe)
+                else:   
+                    if meanRo < splitwbonw :
+                        pieces [7-row][col] = "b"
+                        print ("black", meanRo)
+                    else: 
+                        pieces [7-row][col] = "w"
+                        print ("white", meanRo)
                 
     #print (minRw, maxRw, minGw, maxGw, minBw, maxBw)
     #print (minRe, maxRe, minGe, maxGe, minBe, maxBe)
     #print (minRb, maxRb, minGb, maxGb, minBb, maxBb)
-    print ("minRw: ", minRw, ", maxRb: ", maxRb) 
-    print ("minGw: ", minGw, ", maxGb: ", maxGb) 
-    print ("minBw: ", minBw, ", maxBb: ", maxBb) 
+    #print ("minRw: ", minRw, ", maxRb: ", maxRb) 
+    #print ("minGw: ", minGw, ", maxGb: ", maxGb) 
+    #print ("minBw: ", minBw, ", maxBb: ", maxBb) 
     if firstgbp :
         splitwb = (minRw + maxRb)/2
-        #splitwb = (minRw + minGw + minBw + maxRb + maxGb + maxBb) / 2  
-        #splitwb = ((minRw + minGw + minBw) * 2/3) + ((maxRb + maxGb + maxBb) / 3)              
-    print (minRw + minGw + minBw)
-    print (maxRb + maxGb + maxBb)
-    print ("splitwb: ", splitwb)
+        #splitwbonw = (minRwonw + maxRbonw) / 2
+        splitwbonw = (minRwonw + maxRbonw) / 2
+        splitwbonb = (minRwonb + maxRbonb) / 2
+        
+        print ("splitwb: ", splitwb)
+        print ("splitwbonw: ", splitwbonw)
+        print ("splitwbonb: ", splitwbonb)
+        print("minRwonb, minRwonw, maxRbonb, maxRbonw", minRwonb, minRwonw, maxRbonb, maxRbonw)
+        print("maxRwonw", maxRwonw)
+        print ("minstdp, maxstde", minstdp, maxstde)
+        stdrgb = (minstdp + maxstde) / 2
+        print ("stdrgb", stdrgb)
+        #input("Enter")
+    print ("meanRe", meanRe)
+    print ("meanRo", meanRo)
+    
+    #splitwb = (minRw + minGw + minBw + maxRb + maxGb + maxBb) / 2  
+    #splitwb = ((minRw + minGw + minBw) * 2/3) + ((maxRb + maxGb + maxBb) / 3)              
+    #print (minRw + minGw + minBw)
+    #print (maxRb + maxGb + maxBb)
     
     constructmove = list("m    ")
     for row in range(8):    
