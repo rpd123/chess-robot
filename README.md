@@ -17,7 +17,6 @@ pip install opencv-python
 
 pip install stockfish
 
-On Windows:
 pip install pyttsx3
 
 
