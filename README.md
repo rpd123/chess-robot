@@ -2,6 +2,7 @@
 3D printed chess robot, Raspberry Pi code
 
 Install Stockfish engine, Python 3, python-pip
+
 On RPi install espeak, aplay and fswebcam
 
 pip install pyserial
