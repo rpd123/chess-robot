@@ -21,7 +21,7 @@ On RPi install aplay and fswebcam
 
 Run CBint.py from Thonny or elsewhere.
 
-The camera should be positioned directly over the centre of the chess board and lined up pretty well. Then camera calibration asks you to click on the four corners of the playing area of the chessboard (on the image), and you are shown the result. (The robot arm should not be in the way). By "playing area" we mean the chessboard squares, NOT including any external margin.
+The camera should be positioned directly over the centre of the chess board and lined up pretty well. Then camera calibration asks you to click on the four corners of the playing area of the chessboard (on the image), and you are shown the result. Click them in the order requested. (The robot arm should not be in the way). By "playing area" we mean the chessboard squares, NOT including any external margin.
 
 The calibration is remembered even if all systems are shut down, so if the robot, board and camera have not been moved, recalibration can optionally be avoided when a new game is started
 
