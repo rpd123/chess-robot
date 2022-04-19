@@ -1,5 +1,5 @@
 # chess-robot
-3D printed chess robot, Raspberry Pi code
+3D printed chess robot, Python code for Raspberry Pi or Windows PC
 
 Install Stockfish engine, Python 3, python-pip
 
