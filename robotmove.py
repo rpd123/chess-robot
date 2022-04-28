@@ -115,6 +115,7 @@ def movearmcoord (xmm, ymm, zmm):
     #input("press enter")
 
 def opengripper(amount):
+    adjamount = amount
     if servoonleft:
         adjamount = 90 - amount
     mycode = "M5 T" + str(adjamount) + "\r"
