@@ -112,6 +112,8 @@ def movearmcoord (xmm, ymm, zmm):
     #input("Check G-codes then press enter")
     sp.flush()
     sp.write(gstring.encode())
+    line=sp.read_until().decode('utf-8').rstrip()
+    print(line)
     #input("press enter")
 
 def opengripper(amount):
@@ -213,7 +215,7 @@ def iscastling (sourcesquarename):
     
 def enpassant (sourcesquarename):
     if CBstate.cbstate == 2:
-        epsquarename = sourcesquarename[0:1] + str(int(sourcesquarename[1:2] - 1))
+        epsquarename = sourcesquarename[0:1] + str(int(sourcesquarename[1:2]) - 1)
         print (epsquarename)
         epxmm = xmtrans[epsquarename[0:1]] * squaresize
         epymm = (8 - int(epsquarename[1:2])) * squaresize
