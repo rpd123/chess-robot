@@ -3,8 +3,7 @@
 
 Install Stockfish engine, Python 3, python-pip
 
-pip install pyserial
-
+pip install pyserial  
 pip install psutil
 
 pip install numpy
