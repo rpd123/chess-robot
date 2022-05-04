@@ -1,5 +1,5 @@
 # chess-robot
-3D printed chess robot, Python code for Raspberry Pi or Windows PC
+3D printed chess robot, Python code for Raspberry Pi or Windows PC. New users should use version 2.
 
 Install Stockfish engine, Python 3, python-pip
 
@@ -9,9 +9,7 @@ pip install numpy
 pip install pillow  
 pip install opencv-python  
 pip install stockfish  
-pip install pyttsx3
-
-On RPi install aplay and fswebcam
+pip install pyttsx3  
 
 Run CBint.py from Thonny or elsewhere.
 
@@ -29,3 +27,8 @@ Axistorow8 is the distance in mm horizontally along the y coordinate, between th
 
 
 The RPi or PC is connected to the Arduino by a USB A/B cable (printer cable). Or alternatively via Bluetooth (not BLE), using an HC-05 Bluetooth module.
+
+Version 1 only:  
+pip install pillow
+On RPi install fswebcam, aplay and espeak
+
