@@ -6,7 +6,6 @@ Install Stockfish engine, Python 3, python-pip
 pip install pyserial  
 pip install psutil  
 pip install numpy  
-pip install pillow  
 pip install opencv-python  
 pip install stockfish  
 pip install pyttsx3  
@@ -27,8 +26,9 @@ Axistorow8 is the distance in mm horizontally along the y coordinate, between th
 
 
 The RPi or PC is connected to the Arduino by a USB A/B cable (printer cable). Or alternatively via Bluetooth (not BLE), using an HC-05 Bluetooth module.
-
+  
+===  
 Version 1 only:  
-pip install pillow
+pip install pillow  
 On RPi install fswebcam, aplay and espeak
 
