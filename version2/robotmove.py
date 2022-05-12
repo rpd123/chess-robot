@@ -16,13 +16,6 @@ import time     # import the time library for the sleep function
 from math import sin, cos, atan2
 
 import serial
-try:
-    sp = serial.Serial(CBstate.serialport, 9600, timeout=6)
-    sp.reset_input_buffer()
-except:
-    print("No serial port")
-
-time.sleep(0.5)
 
 axistorow8 = 96  # mm
 servoonleft = True
@@ -98,6 +91,8 @@ lastmovetype = (
     "Castle on queen's side")
 
 firsttime = 1
+
+sp = 0
 
 def waiter(dur):
     time.sleep(dur)
@@ -300,9 +295,17 @@ def gohome():
     movearmcoord (0, -10+gripperoffset, 180)
 
 def init():
+    global sp    
     try:
-        print ("Start")
-        opengripper(openamount)
+        sp = serial.Serial(CBstate.serialport, 9600, timeout=6)
+        sp.reset_input_buffer()
+    except:
+        print("No serial port")
+
+    time.sleep(0.5)
+    input("Switch on Arduino, then press Enter")
+    try:
+        print ("Start")        
         receivemsg(sp)
         receivemsg(sp)
         calirob = input("Calibrate robot? y/n")
