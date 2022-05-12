@@ -303,7 +303,7 @@ def init():
         print("No serial port")
 
     time.sleep(0.5)
-    input("Switch on Arduino, then press Enter")
+    
     try:
         print ("Start")        
         receivemsg(sp)
