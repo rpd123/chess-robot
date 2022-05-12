@@ -74,12 +74,7 @@ def updateforcomputermove(board):
     print ("After computer move:")
     print (oldpieces)
     #raw_input("Now any key")
-'''    
-def killit():
-    for proc in psutil.process_iter():
-        if proc.name() == "display":
-            proc.kill()
-'''            
+            
 def drawredlines():
     #im = Image.open(mydir + '4.jpg', 'r')
     im = cv2.imread(mydir + '4.jpg')
@@ -127,7 +122,10 @@ def dummymove(board):
 def takepiccv2():
     #cv2.namedWindow("preview")
     try:
-        vc = cv2.VideoCapture(CBstate.cameraportno)
+        if windowsos:
+            vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_DSHOW)
+        else:
+            vc = cv2.VideoCapture(CBstate.cameraportno)
 
         if vc.isOpened(): # try to get the first frame
             ret, frame = vc.read()
@@ -264,30 +262,7 @@ def calibratecamera(board):
         
     drawredlines()
     return
-'''    
-    im = Image.open(mydir + '1.jpg', 'r')
-    print("Adjust board/camera position - make central and square")
-    time.sleep(3)
-    try:
-        while True:
-            for ii in range(squaring):         
-                takepic()
-                im = Image.open(mydir + '1.jpg', 'r')
-                im.save(mydir + '4.jpg')
-                # hide previous image
-                killit()
-                im.show() 
-                time.sleep(2)
-            doagain = input("Again? y/n")
-            if doagain == "n":
-                break
-    except KeyboardInterrupt:
-        print ("interrupted")
-    print("Now adjust the cropping:")
-    time.sleep(3)
-    #im = im.rotate(0.10)
-    nudgecrop(im)
-'''
+
 def newcastling(board, validkingmoves):
     global pieces
     print ("castling code")
@@ -364,17 +339,6 @@ def getplayermove(board, validkingmoves):
     ###crop(im)
     #nudgecrop(im)
    
-    '''
-    homog()
-    im = Image.open(mydir + '4.jpg', 'r')
-    #im.show()  # uncomment for testing
-    
-    print (im.size)  # Get the width and height of the image for iterating over
-    squaresizex = float(im.size[0])/8
-    squaresizex = int(round(squaresizex))
-    squaresizey = float(im.size[1])/8
-    squaresizey = int(round(squaresizey))
-    '''
     homog()
     
     pix = cv2.imread(mydir + '4.jpg')

@@ -474,6 +474,8 @@ class ChessBoard:
                
         pv = self._promotion_value
         if self._turn == self.WHITE and toPos[1] == 0:
+            if pv == 0:     # RPD
+                pv = 1      # RPD
             if pv == 0:
                 self._reason = self.MUST_SET_PROMOTION
                 return False

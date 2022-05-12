@@ -17,7 +17,7 @@ from math import sin, cos, atan2
 
 import serial
 try:
-    sp = serial.Serial(CBstate.serialport, 9600, timeout=10)
+    sp = serial.Serial(CBstate.serialport, 9600, timeout=6)
     sp.reset_input_buffer()
 except:
     print("No serial port")
@@ -163,7 +163,7 @@ def quitter():
     sp.flush()
     sp.write(("M18" + "\r").encode()) 
     print ("Game ends")
-    speaker ("Game ends")
+    speaker ("Game ends. Thankyou for playing.")
     engine.stop()
     time.sleep(2)
     sp.close()
@@ -301,7 +301,8 @@ def gohome():
 
 def init():
     try:
-        print ("Start") 
+        print ("Start")
+        opengripper(openamount)
         receivemsg(sp)
         receivemsg(sp)
         calirob = input("Calibrate robot? y/n")
@@ -317,7 +318,6 @@ def init():
         
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
         quitter()   
-    
     
 
 #init()  # testing

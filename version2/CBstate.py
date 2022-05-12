@@ -12,7 +12,7 @@ if platform.system() == "Windows":
     cameraportno = 1
     #cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
-    serialport = "COM3"
+    serialport = "COM4"
 else:
     windowsos = False
     mydir = "/home/pi/chessreal4/images/"
