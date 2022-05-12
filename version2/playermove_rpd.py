@@ -122,7 +122,7 @@ def dummymove(board):
 def takepiccv2():
     #cv2.namedWindow("preview")
     try:
-        if windowsos:
+        if CBstate.windowsos:
             vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_DSHOW)
         else:
             vc = cv2.VideoCapture(CBstate.cameraportno)
