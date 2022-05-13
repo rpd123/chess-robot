@@ -249,8 +249,9 @@ def calibratecamera(board):
         #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
         im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
         cv2.imwrite(mydir + "4.jpg", im_out)
-        cv2.imshow("Straightened Image", im_out)
         print ("Press any key to continue")
+        cv2.imshow("Straightened Image", im_out)
+        #print ("Press any key to continue")
         cv2.waitKey(0)
             
         cv2.destroyAllWindows()

@@ -295,22 +295,24 @@ def gohome():
     movearmcoord (0, -10+gripperoffset, 180)
 
 def init():
-    global sp    
+    global sp
     try:
-        sp = serial.Serial(CBstate.serialport, 9600, timeout=6)
-        sp.reset_input_buffer()
+        sp = serial.Serial(CBstate.serialport, 9600, timeout=5)
+        sp.reset_input_buffer()        
+        receivemsg(sp)
+        receivemsg(sp)
     except:
         print("No serial port")
 
-    time.sleep(0.5)
+    time.sleep(0.2)
     
     try:
         print ("Start")        
-        receivemsg(sp)
-        receivemsg(sp)
+        #receivemsg(sp)
+        #receivemsg(sp)
         calirob = input("Calibrate robot? y/n")
         if calirob == "y":
-            #time.sleep(1)
+            time.sleep(0.2)
             sp.write(("G28" + "\r").encode())
             receivemsg(sp)
         input("Press Enter to switch on steppers and start game")
