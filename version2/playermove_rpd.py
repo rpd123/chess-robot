@@ -25,7 +25,9 @@ splitwbonb = 112
 splitwbonw = 112
 stdrgb = 23
 #squaring = 1 # number of times to look at squaring image
-img_dimension = 319
+scale_percent = 100 # percent of original size, if required to make original image smaller to fit screen
+
+img_dimension = 319 
 pts_src = numpy.array([[100, 100], [100, 100], [100, 100],[100, 100]])
 pts8 = [0,0,0,0,0,0,0,0]
 whereclick = ["top left", "bottom left", "top right", "bottom right"]
@@ -135,6 +137,13 @@ def takepiccv2():
         #cv2.imshow('preview',frame)
         #time.sleep(3)
         print (mydir + "1.jpg")
+        if scale_percent != 100:
+            width = int(frame.shape[1] * scale_percent / 100)
+            height = int(frame.shape[0] * scale_percent / 100)
+            dim = (width, height)  
+            # resize image
+            frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
+        
         cv2.imwrite(mydir + "1.jpg", frame)
     finally:
         vc.release()
