@@ -6,6 +6,12 @@ cbstate = ""
 
 scale_percent = 100 # percent of original size, if required to make original image smaller to fit screen
 
+# white should be on left of Straightened Image
+rotation = -1   # do not rotate
+#rotation = 0  #cv2.ROTATE_90_CLOCKWISE 
+#rotation = 1  #cv2.ROTATE_180
+#rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
+
 if platform.system() == "Windows":
     windowsos = True
     mydir = r'C:\Users\Richard\chessreal4\images' + "\\"

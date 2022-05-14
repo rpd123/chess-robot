@@ -182,6 +182,8 @@ def homog():
     # Warp source image to destination based on homography
     #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
     im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+    if CBstate.rotation != -1:
+        im_out = cv2.rotate(im_out, CBstate.rotation)    
     cv2.imwrite(mydir + "4.jpg", im_out)
     image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)    
     cv2.imshow("Straightened Image", image)   
@@ -256,10 +258,13 @@ def calibratecamera(board):
         # Warp source image to destination based on homography
         #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
         im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+        if CBstate.rotation != -1:
+            im_out = cv2.rotate(im_out, CBstate.rotation)
         cv2.imwrite(mydir + "4.jpg", im_out)
-        print ("Press any key to continue")
-        cv2.imshow("Straightened Image", im_out)
         #print ("Press any key to continue")
+        cv2.imshow("Straightened Image", im_out)
+        print ("White should be on left of Straightened Image")
+        print ("Press any key to continue")
         cv2.waitKey(0)
             
         cv2.destroyAllWindows()
