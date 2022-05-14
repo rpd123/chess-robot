@@ -4,6 +4,7 @@ import logging
 
 cbstate = ""
 
+scale_percent = 100 # percent of original size, if required to make original image smaller to fit screen
 
 if platform.system() == "Windows":
     windowsos = True
