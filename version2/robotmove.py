@@ -297,7 +297,7 @@ def gohome():
 def init():
     global sp
     try:
-        sp = serial.Serial(CBstate.serialport, 9600, timeout=5)
+        sp = serial.Serial(CBstate.serialport, 9600, timeout=0.5)
         sp.reset_input_buffer()        
         receivemsg(sp)
         receivemsg(sp)

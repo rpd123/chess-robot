@@ -124,7 +124,10 @@ def takepiccv2():
     #cv2.namedWindow("preview")
     try:
         if CBstate.windowsos:
-            vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_DSHOW)
+            if CBstate.cameratype == 'usb':
+                vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_DSHOW)
+            else:
+                vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_FFMPEG)
         else:
             vc = cv2.VideoCapture(CBstate.cameraportno)
 
