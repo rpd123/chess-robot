@@ -18,7 +18,7 @@ if CBstate.windowsos:
 else:
     stockfish = Stockfish()
 mydir = CBstate.mydir
-RD.speaker("Hello! Let's play!")
+RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
 dummy = "" 
 movelist = []
@@ -155,7 +155,7 @@ def newgame():
 
 
 def bmove(fmove):
-    global movelist
+    global movelist, kingcheck
     boardbefore = chessboard.getBoard()
     """ assume we get a command of the form ma1a2 from board"""    
     fmove=fmove
@@ -200,12 +200,18 @@ def bmove(fmove):
     # if invalid, get reason & send back to board
       #  chessboard.addTextMove(move)
     if chessboard.addTextMove(brdmove) == False :
-                        etxt = "Error: "+ reasons[(chessboard.getReason())] + " in move " + brdmove
-                        RD.speaker("Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
-                        chessboard.printBoard()
-                        sendboard(etxt)
-                        smove = ""
-                        return fmove
+        ### rpd
+        if CBstate.kingincheck:
+            CBstate.kingincheck = False
+            whiteincheck = "Your king is in check. "
+        else:
+            whiteincheck = ""
+        etxt = whiteincheck + "Error: "+ reasons[(chessboard.getReason())] + " in move " + brdmove
+        RD.speaker(whiteincheck + "Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
+        chessboard.printBoard()
+        sendboard(etxt)
+        smove = ""
+        return fmove
                        
 #  elif valid  make the move and send Fen to board
     
@@ -222,8 +228,12 @@ def bmove(fmove):
         checkvarious()
         #RD.movepiece(brdmove[0:2], brdmove[2:4], boardbefore)
         
-        boardbefore = RD.updateboard(brdmove[0:2], brdmove[2:4], boardbefore)   
-        movelist.append (fmove[-4:])
+        boardbefore = RD.updateboard(brdmove[0:2], brdmove[2:4], boardbefore)
+        if fmove[-1:].isnumeric():
+            movelist.append (fmove[-4:])
+        else:
+            movelist.append (fmove[-5:])
+        #movelist.append (fmove[1:])
         fmove =fmove+" " +brdmove
         movelist.append (brdmove)
         print ("movelist")

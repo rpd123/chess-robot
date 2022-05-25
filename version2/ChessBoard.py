@@ -8,6 +8,7 @@
 
 from copy import deepcopy
 from pprint import pprint
+import CBstate
 
 class ChessBoard:
 
@@ -196,10 +197,14 @@ class ChessBoard:
         fx,fy = fromPos
                 
         done = False
+        CBstate.kingincheck = False
         fp = self._board[fy][fx]
         self._board[fy][fx] = "."
         if not self.isThreatened(kx,ky):
             done = True
+        else:
+            if self._turn == self.WHITE:
+                CBstate.kingincheck = True
         self._board[fy][fx] = fp
         
         if done:

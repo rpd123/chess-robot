@@ -30,3 +30,4 @@ else:
     serialport = '/dev/ttyACM0'
     
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
+kingincheck = False

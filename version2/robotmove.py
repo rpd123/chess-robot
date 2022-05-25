@@ -25,7 +25,7 @@ gripperfloatheight = 60
 grippergrabheight = -25 
 gripperoffset = 26
 openamount = 37 #degrees
-closeamount = 5 #degrees
+closeamount = 2 #degrees
 graveyard = "i6"
 msgcount = 0
 
@@ -100,7 +100,8 @@ def waiter(dur):
 def receivemsg(sp):
     global msgcount
     msgcount += 1
-    line=sp.readline().decode('utf-8').rstrip()
+    #line=sp.readline().decode('utf-8').rstrip()
+    line=sp.read_until().decode('utf-8').rstrip()
     print(msgcount, line)
 
 def movearmcoord (xmm, ymm, zmm):
@@ -220,14 +221,13 @@ def iscastling (sourcesquarename):
     movearmcoord (rtargetxmm, rtargetymm, gripperfloatheight)
     gohome()
     
-def enpassant (sourcesquarename):
+def enpassant (targetxmm, targetymm):
     if CBstate.cbstate == 2:
-        epsquarename = sourcesquarename[0:1] + str(int(sourcesquarename[1:2]) - 1)
-        print (epsquarename)
-        epxmm = xmtrans[epsquarename[0:1]] * squaresize
-        epymm = (8 - int(epsquarename[1:2])) * squaresize
-        takepiece(epxmm, epymm, epsquarename)
-
+        #epsquarename = targetsquarename[0:1] + str(int(targetsquarename[1:2]) + 1)
+        #print (epsquarename)
+        #epxmm = xmtrans[epsquarename[0:1]] * squaresize
+        #epymm = (8 - int(epsquarename[1:2])) * squaresize
+        takepiece(targetxmm, targetymm - squaresize, 'p') 
 
 def updateboard(source, target, boardbefore):
     # called from CBint
@@ -282,7 +282,7 @@ def movepiece (sourcesquarename, targetsquarename, boardbefore):
     gohome()
     
     iscastling(sourcesquarename)
-    enpassant (sourcesquarename)
+    enpassant (targetxmm, targetymm) 
 
 def calibrategripper():
     while True:
@@ -297,26 +297,25 @@ def gohome():
 def init():
     global sp
     try:
-        sp = serial.Serial(CBstate.serialport, 9600, timeout=0.5)
-        sp.reset_input_buffer()        
-        receivemsg(sp)
-        receivemsg(sp)
+        sp = serial.Serial(CBstate.serialport, 9600, timeout=0.4)
+        sp.reset_input_buffer()                
     except:
         print("No serial port")
-
     time.sleep(0.2)
     
     try:
         print ("Start")        
-        #receivemsg(sp)
-        #receivemsg(sp)
+        receivemsg(sp)
+        receivemsg(sp)
         calirob = input("Calibrate robot? y/n")
         if calirob == "y":
             time.sleep(0.2)
             sp.write(("G28" + "\r").encode())
+            time.sleep(0.2)
             receivemsg(sp)
         input("Press Enter to switch on steppers and start game")
         sp.write(("M17" + "\r").encode())
+        time.sleep(0.2)
         receivemsg(sp)
         #input("Press Enter to continue!")
         gohome()
