@@ -13,11 +13,35 @@ import robotmove as RD
 import playermove_rpd as RDpm
 import logging
 
-if CBstate.windowsos:
-    stockfish = Stockfish(CBstate.stockfishexe)
+if CBstate.windowsos:    
+    stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
 else:
-    stockfish = Stockfish()
+    stockfish = Stockfish(parameters=CBstate.stockfishparams)
 mydir = CBstate.mydir
+
+#stockfish.update_engine_parameters({"Threads": 4})   
+stockparams = stockfish.get_parameters()
+#for key, value in stockparams.items():
+#    print(key, ' : ', value)
+'''
+Stockfish 14 Windows, stockfish module 3.24.0
+
+Debug Log File  :  
+Contempt  :  0
+Min Split Depth  :  0
+Ponder  :  false
+MultiPV  :  1
+Skill Level  :  20
+Move Overhead  :  10
+Minimum Thinking Time  :  20
+Slow Mover  :  100
+UCI_Chess960  :  false
+UCI_LimitStrength  :  false
+UCI_Elo  :  1350
+Threads  :  4
+Hash  :  1024
+'''
+
 RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
 dummy = "" 
@@ -292,7 +316,7 @@ def put(command):
 
 # assume new game
 print ("\nChess Program \n")
-#print ("Stockfish " + stockfish.get_stockfish_major_version())
+#print ("Stockfish " + str(stockfish.get_stockfish_major_version()))
 
 skill = "10"
 movetime = "6000"

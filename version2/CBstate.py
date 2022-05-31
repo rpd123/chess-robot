@@ -22,12 +22,14 @@ if platform.system() == "Windows":
     #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
     cameratype = 'usb'
     #cameratype = 'ip'
-    serialport = "COM4"
+    serialport = "COM4"    
 else:
     windowsos = False
     mydir = "/home/pi/chessreal4/images/"
     cameraportno = 0
     serialport = '/dev/ttyACM0'
-    
+
+stockfishparams={"Threads": 4}
+
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False

@@ -6,7 +6,7 @@
 
 import CBstate 
 mydir = CBstate.mydir
-    
+import sys    
 import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 125) # Decrease the Speed Rate
@@ -115,6 +115,7 @@ def movearmcoord (xmm, ymm, zmm):
     #print (gstring)
     #input("Check G-codes then press enter")
     sp.flush()
+    #reset_input_buffer()
     sp.write(gstring.encode())
     receivemsg(sp)
     #input("press enter")
@@ -155,15 +156,18 @@ def speaker(text):
 
     
 def quitter():
-    print ("reset all steppers")
-    sp.flush()
-    sp.write(("M18" + "\r").encode()) 
-    print ("Game ends")
-    speaker ("Game ends. Thankyou for playing.")
+    global sp
+    if sp:
+        print ("reset all steppers")
+        sp.flush()
+        sp.write(("M18" + "\r").encode())
+        sp.close()               
+        time.sleep(2)
+        print ("Game ends")
+        speaker ("Game ends. Thankyou for playing.") 
     engine.stop()
-    time.sleep(2)
-    sp.close()
-    quit()
+    sys.exit()
+    #quit()
 
 def pickuppiece(xmm, ymm, piecetype):
     global pieceheights
@@ -299,15 +303,17 @@ def init():
     try:
         sp = serial.Serial(CBstate.serialport, 9600, timeout=0.4)
         sp.reset_input_buffer()                
-    except:
+    except serial.SerialException as e:
         print("No serial port")
+        print (e)
+        quitter()
     time.sleep(0.2)
     
     try:
         print ("Start")        
         receivemsg(sp)
         receivemsg(sp)
-        calirob = input("Calibrate robot? y/n")
+        calirob = input("Calibrate robot manually? y/n")
         if calirob == "y":
             time.sleep(0.2)
             sp.write(("G28" + "\r").encode())
@@ -317,7 +323,9 @@ def init():
         sp.write(("M17" + "\r").encode())
         time.sleep(0.2)
         receivemsg(sp)
-        #input("Press Enter to continue!")
+        if calirob == "y":
+            movearmcoord (0, (squaresize*3.5), grippergrabheight)
+            input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
         gohome()
         
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.

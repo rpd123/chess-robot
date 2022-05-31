@@ -135,7 +135,8 @@ def takepiccv2():
             ret, frame = vc.read()
         else:
             print ("Failed to access camera")
-            time.sleep(3)
+            time.sleep(1)
+            sys.exit()
         #cv2.imshow('preview',frame)
         #time.sleep(3)
         print (mydir + "1.jpg")
