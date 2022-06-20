@@ -41,6 +41,7 @@ UCI_Elo  :  1350
 Threads  :  4
 Hash  :  1024
 '''
+# depth 15
 
 RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
@@ -152,26 +153,7 @@ def sendboard(stxt):
 
 def newgame():
     global movelist
-    '''
-    get ()
-    put('uci')
-    get ()
-    put('setoption name Skill Level value ' +skill)
-    get ()
-    put('setoption name Hash value 256')
-    get()
-    put('setoption name Threads value 4')
-    get()
-    put('setoption name Best Book Move value true')
-    get()
-    put('setoption name OwnBook value true')
-    get()
-    put('setoption name Slow Mover value 20')
-    get()
-    put('uci')
-    get ()
-    put('ucinewgame')
-    '''
+
     chessboard.resetBoard()
     fmove=""
     movelist = []

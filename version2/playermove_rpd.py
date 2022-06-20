@@ -190,7 +190,7 @@ def homog():
         im_out = cv2.rotate(im_out, CBstate.rotation)    
     cv2.imwrite(mydir + "4.jpg", im_out)
     image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)    
-    cv2.imshow("Straightened Image", image)   
+    #cv2.imshow("Straightened Image", image)   
     #cv2.waitKey(0)
 
 # function to display the coordinates of
@@ -250,7 +250,8 @@ def calibratecamera(board):
 
         # wait for a key to be pressed to exit
         cv2.waitKey(0)
-        
+        cv2.destroyAllWindows()
+        #cv2.waitKey(1)
         im_src = cv2.imread(mydir + "1.jpg", 1)
         #im_dst = cv2.imread(mydir + '4.jpg')
         # Four corners in destination image.
@@ -358,10 +359,10 @@ def getplayermove(board, validkingmoves):
     #nudgecrop(im)
    
     homog()
-    
+    #cv2.waitKey(0)
+    cv2.destroyAllWindows()
     pix = cv2.imread(mydir + '4.jpg')
-    #cv2.destroyAllWindows()
-    
+        
     h, w, c = pix.shape
     squaresizex = float(w)/8   
     squaresizex = int(round(squaresizex))

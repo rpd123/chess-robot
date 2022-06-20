@@ -143,11 +143,11 @@ def closegripper(amount, piecetype):
 def speaker(text):
     if True:
         #import pyttsx3
-        
+        engine.setProperty('voice', 'english_rp+f3')
         engine.say(text)
         engine.runAndWait()
     else:
-        cmd_beg= 'espeak -s100 '
+        cmd_beg= 'espeak -ven+f4 -s100 '
         cmd_end= ' | aplay ' + mydir + 'Text.wav  2>/dev/null' # To play back the stored .wav file and to dump the std errors to /dev/null
         cmd_out= '--stdout >' + mydir + 'Text.wav ' # To store the voice file
         text = text.replace(' ', '_')

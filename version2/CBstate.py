@@ -25,9 +25,12 @@ if platform.system() == "Windows":
     serialport = "COM4"    
 else:
     windowsos = False
-    mydir = "/home/pi/chessreal4/images/"
+    #mydir = "/media/sf_GitHub/chess-robot/version2/images/"
+    mydir = "images/"
     cameraportno = 0
     serialport = '/dev/ttyACM0'
+    serialport = '/dev/ttyS0'
+    serialport = '/dev/rfcomm0'
 
 stockfishparams={"Threads": 4}
 
