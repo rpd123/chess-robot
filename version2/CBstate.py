@@ -30,8 +30,8 @@ else:
     mydir = "images/"
     cameraportno = 0
     serialport = '/dev/ttyACM0'
-    serialport = '/dev/ttyS0'
-    serialport = '/dev/rfcomm0'
+    #serialport = '/dev/ttyS0'
+    #serialport = '/dev/rfcomm0'
 
 stockfishparams={"Threads": 4}
 
@@ -40,7 +40,7 @@ kingincheck = False
 
 fisheye = True
 # Following for fisheye cameras only. Normally only for IP cameras
-# You should replace these 3 lines with the output from calibrate.py
+# You should replace these 3 lines with the output from calibrate_fisheye.py
 # We provide the code from https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0
 # 3 lines below are for Tapo TC60
 DIM=(1280, 720)
