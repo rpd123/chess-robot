@@ -126,9 +126,9 @@ def undistort():
     h,w = img.shape[:2]
     map1, map2 = cv2.fisheye.initUndistortRectifyMap(CBstate.K, CBstate.D, numpy.eye(3), CBstate.K, CBstate.DIM, cv2.CV_16SC2)
     undistorted_img = cv2.remap(img, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
-    cv2.imshow("Undistorted", undistorted_img)
     cv2.imwrite(mydir + "1.jpg", undistorted_img)
-    cv2.waitKey(0)
+    #cv2.imshow("Undistorted", undistorted_img)
+    #cv2.waitKey(0)
     cv2.destroyAllWindows()
     
 def takepiccv2():
