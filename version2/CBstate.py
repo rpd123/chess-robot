@@ -1,6 +1,7 @@
 import os
 import platform
 import logging
+import numpy
 
 cbstate = ""
 
@@ -19,10 +20,10 @@ if platform.system() == "Windows":
     cameraportno = 1
     #cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
-    #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
-    cameratype = 'usb'
-    #cameratype = 'ip'
-    serialport = "COM4"    
+    cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
+    #cameratype = 'usb'
+    cameratype = 'ip'
+    serialport = "COM3"    
 else:
     windowsos = False
     #mydir = "/media/sf_GitHub/chess-robot/version2/images/"
@@ -36,3 +37,14 @@ stockfishparams={"Threads": 4}
 
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False
+
+fisheye = True
+# Following for fisheye cameras only. Normally only for IP cameras
+# You should replace these 3 lines with the output from calibrate.py
+# We provide the code from https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0
+# 3 lines below are for Tapo TC60
+DIM=(1280, 720)
+K=numpy.array([[817.2563502237226, 0.0, 623.8797454131019], [0.0, 817.8633343903235, 383.3817964461323], [0.0, 0.0, 1.0]])
+D=numpy.array([[-0.15014017025387882], [1.3554015587876163], [-11.583862737184841], [29.439951469529348]])
+
+fisheyeimages = "fishimages/"

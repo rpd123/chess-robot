@@ -120,6 +120,17 @@ def dummymove(board):
         conti = input("Try again? y/n")
         if conti == "n":
             return()
+        
+def undistort():
+    img = cv2.imread(mydir + "1.jpg")
+    h,w = img.shape[:2]
+    map1, map2 = cv2.fisheye.initUndistortRectifyMap(CBstate.K, CBstate.D, numpy.eye(3), CBstate.K, CBstate.DIM, cv2.CV_16SC2)
+    undistorted_img = cv2.remap(img, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
+    cv2.imshow("Undistorted", undistorted_img)
+    cv2.imwrite(mydir + "1.jpg", undistorted_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
 def takepiccv2():
     #cv2.namedWindow("preview")
     try:
@@ -145,9 +156,11 @@ def takepiccv2():
             height = int(frame.shape[0] * CBstate.scale_percent / 100)
             dim = (width, height)  
             # resize image
-            frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
-        
+            frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)        
         cv2.imwrite(mydir + "1.jpg", frame)
+        if CBstate.fisheye:
+            undistort()
+            
     finally:
         vc.release()
         cv2.destroyAllWindows()

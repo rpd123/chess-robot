@@ -1,5 +1,5 @@
 # chess-robot
-3D printed chess robot, Python code for Raspberry Pi or Windows PC. New users should use version 2.
+3D printed chess robot, Python code for Raspberry Pi, other Linux or Windows PC. New users should use version 2.
 
 Install Stockfish engine, Python 3, python-pip, espeak
 
@@ -26,6 +26,8 @@ Axistorow8 is the distance in mm horizontally along the y coordinate, between th
 
 
 The RPi or PC is connected to the Arduino by a USB A/B cable (printer cable). Or alternatively via Bluetooth (not BLE), using an HC-05 Bluetooth module.
+
+Both USB and IP cameras are supported. Calibration for fish-eye distortion is provided, and is more likely to be needed for IP cameras. USB cameras are often OK without it.
   
 ===  
 Version 1 only:  
