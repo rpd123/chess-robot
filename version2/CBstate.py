@@ -32,13 +32,15 @@ else:
     serialport = '/dev/ttyACM0'
     #serialport = '/dev/ttyS0'
     #serialport = '/dev/rfcomm0'
+    
+motorsareservos = True
 
 stockfishparams={"Threads": 4}
 
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False
 
-fisheye = True
+fisheye = False
 # Following for fisheye cameras only. Normally only for IP cameras
 # You should replace these 3 lines with the output from calibrate_fisheye.py
 # We provide the code from https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0

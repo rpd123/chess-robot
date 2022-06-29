@@ -13,7 +13,7 @@ engine.setProperty('rate', 125) # Decrease the Speed Rate
 from subprocess import call                         
 
 import time     # import the time library for the sleep function
-from math import sin, cos, atan2
+from math import sin, cos, atan2, sqrt, atan
 
 import serial
 
@@ -104,15 +104,22 @@ def receivemsg(sp):
     line=sp.read_until().decode('utf-8').rstrip()
     print(msgcount, line)
 
-def movearmcoord (xmm, ymm, zmm):
+def movearmcoord (xmm, ymm, zmm):# zmm is height
     #print ((xmm, ymm, zmm))
     adjymmint = int(ymm)+axistorow8
     theta = atan2(adjymmint, int(xmm))
     adjxmm = str(int(round(int(xmm) - (gripperoffset*cos(theta)))))
     adjymm = str(int(round(adjymmint - (gripperoffset*sin(theta)))))
+    if CBstate.motorsareservos:
+        # A 10 130 120 110 --> Moving the robot Arm with 10ms step time, 130º upper joint angle, 120º lower joint angle and 110º base rotator angle
+        # length, height, angle, gripper, wrist angle, wrist rotate
+        theangles = inversekinematics(sqrt((adjxmm * adjxmm) + (adjymm * adjymm)), zmm, 90 + (rtod * (atan(x/y))), 0, -90, 0)
+        #theangles: Shoulder, Elbow, Wrist, rotation, g, wr
+        gstring = "10 " + theangles[1] + " " + theangles[0]  + " " + theangles[3] + theangles[2] + "\r"
+        print (gstring)
+    else:
+        gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
     
-    gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
-    #print (gstring)
     #input("Check G-codes then press enter")
     sp.flush()
     #reset_input_buffer()
@@ -124,7 +131,10 @@ def opengripper(amount):
     adjamount = amount
     if servoonleft:
         adjamount = 90 - amount
-    mycode = "M5 T" + str(adjamount) + "\r"
+    if CBstate.motorsareservos:
+        mycode = "G0\r"
+    else:
+        mycode = "M5 T" + str(adjamount) + "\r"
     sp.flush()
     sp.write(mycode.encode())
     receivemsg(sp)
@@ -134,7 +144,10 @@ def closegripper(amount, piecetype):
     adjamount = amount + piecewidths[piecetype]
     if servoonleft:
         adjamount = 90 - (adjamount)
-    mycode = "M3 T" + str(adjamount) + "\r"
+    if CBstate.motorsareservos:
+        mycode = "G1\r"
+    else:
+        mycode = "M3 T" + str(adjamount) + "\r"
     sp.flush()
     sp.write(mycode.encode())
     receivemsg(sp)
@@ -310,22 +323,23 @@ def init():
     time.sleep(0.2)
     
     try:
-        print ("Start")        
-        receivemsg(sp)
-        receivemsg(sp)
-        calirob = input("Calibrate robot manually? y/n")
-        if calirob == "y":
-            time.sleep(0.2)
-            sp.write(("G28" + "\r").encode())
+        if not CBstate.motorsareservos:
+            print ("Start")        
+            receivemsg(sp)
+            receivemsg(sp)
+            calirob = input("Calibrate robot manually? y/n")
+            if calirob == "y":
+                time.sleep(0.2)
+                sp.write(("G28" + "\r").encode())
+                time.sleep(0.2)
+                receivemsg(sp)
+            input("Press Enter to switch on steppers and start game")
+            sp.write(("M17" + "\r").encode())
             time.sleep(0.2)
             receivemsg(sp)
-        input("Press Enter to switch on steppers and start game")
-        sp.write(("M17" + "\r").encode())
-        time.sleep(0.2)
-        receivemsg(sp)
-        if calirob == "y":
-            movearmcoord (0, (squaresize*3.5), grippergrabheight)
-            input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
+            if calirob == "y":
+                movearmcoord (0, (squaresize*3.5), grippergrabheight)
+                input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
         gohome()
         
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
