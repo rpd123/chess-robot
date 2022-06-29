@@ -116,7 +116,7 @@ def movearmcoord (xmm, ymm, zmm):# zmm is height
         # length, height, angle, gripper, wrist angle, wrist rotate
         theangles = inversekinematics.inversekinematics(sqrt((adjxmm * adjxmm) + (adjymm * adjymm)), zmm, 90 + (rtod * (atan(x/y))), 0, -90, 0)
         #theangles: Shoulder, Elbow, Wrist, rotation, g, wr
-        gstring = "10 " + theangles[1] + " " + theangles[0]  + " " + theangles[3] + theangles[2] + "\r"
+        gstring = "A 10 " + theangles[1] + " " + theangles[0]  + " " + theangles[3] + theangles[2] + "\r"
         print (gstring)
     else:
         gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
