@@ -6,6 +6,7 @@
 
 import CBstate 
 mydir = CBstate.mydir
+import inversekinematics
 import sys    
 import pyttsx3
 engine = pyttsx3.init()
@@ -113,7 +114,7 @@ def movearmcoord (xmm, ymm, zmm):# zmm is height
     if CBstate.motorsareservos:
         # A 10 130 120 110 --> Moving the robot Arm with 10ms step time, 130º upper joint angle, 120º lower joint angle and 110º base rotator angle
         # length, height, angle, gripper, wrist angle, wrist rotate
-        theangles = inversekinematics(sqrt((adjxmm * adjxmm) + (adjymm * adjymm)), zmm, 90 + (rtod * (atan(x/y))), 0, -90, 0)
+        theangles = inversekinematics.inversekinematics(sqrt((adjxmm * adjxmm) + (adjymm * adjymm)), zmm, 90 + (rtod * (atan(x/y))), 0, -90, 0)
         #theangles: Shoulder, Elbow, Wrist, rotation, g, wr
         gstring = "10 " + theangles[1] + " " + theangles[0]  + " " + theangles[3] + theangles[2] + "\r"
         print (gstring)
