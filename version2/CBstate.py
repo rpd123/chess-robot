@@ -15,7 +15,7 @@ rotation = -1   # do not rotate
 
 if platform.system() == "Windows":
     windowsos = True
-    mydir = r'C:\Users\Richard\chessreal4\images' + "\\"
+    mydir = r'C:\Users\Richard\Github\chess-robot\version2\images' + "\\"
     stockfishexe = r'C:\Program Files\Stockfish\stockfish.exe'
     cameraportno = 1
     #cameraportno = 0
@@ -33,7 +33,8 @@ else:
     #serialport = '/dev/ttyS0'
     #serialport = '/dev/rfcomm0'
     
-motorsareservos = True
+motorsareservos = False
+SCARA = True
 
 stockfishparams={"Threads": 4}
 

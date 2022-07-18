@@ -30,6 +30,17 @@ closeamount = 2 #degrees
 graveyard = "i6"
 msgcount = 0
 
+if CBstate.SCARA:
+    debugrobot = False
+    axistorow8 = 38
+    gripperfloatheight = 40
+    gripperoffset = 0  # indeed!    
+    shank1 = 140
+    shank2 = 100 + 45
+    totalarmlength = shank1 + shank2   # when straight
+    elbow = 1
+    oldelbow = 1
+
 xmtrans = {
     "a": 3.5,
     "b": 2.5,
@@ -103,14 +114,38 @@ def receivemsg(sp):
     msgcount += 1
     #line=sp.readline().decode('utf-8').rstrip()
     line=sp.read_until().decode('utf-8').rstrip()
+    sp.flush()
     print(msgcount, line)
 
-def movearmcoord (xmm, ymm, zmm):# zmm is height
-    #print ((xmm, ymm, zmm))
+def movearmcoord (xmm, ymm, zmm):  # zmm is height
     adjymmint = int(ymm)+axistorow8
     theta = atan2(adjymmint, int(xmm))
     adjxmm = str(int(round(int(xmm) - (gripperoffset*cos(theta)))))
     adjymm = str(int(round(adjymmint - (gripperoffset*sin(theta)))))
+    if CBstate.SCARA:
+        armreach = sqrt((int(adjxmm)*int(adjxmm)) + (int(adjymmint)*int(adjymmint)))
+        if armreach > totalarmlength:
+            print ("Too far away! " + str(armreach))
+    #print ((xmm, ymm, zmm))
+        global elbow, oldelbow
+        oldelbow = elbow
+        if xmm > 0 and adjymmint < 95:
+            elbow = 0
+        
+        if xmm > 130:   # parked
+            elbow = 1
+        
+        if xmm < 0 and adjymmint < 95:
+            elbow = 1
+
+        if elbow != oldelbow:
+            #intermediate move to straight out
+            gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(zmm) + "\r"
+            print (gstring)
+            sp.write(gstring.encode())
+            receivemsg(sp)
+            input("press enter")
+        
     if CBstate.motorsareservos:
         # A 10 130 120 110 --> Moving the robot Arm with 10ms step time, 130º upper joint angle, 120º lower joint angle and 110º base rotator angle
         # length, height, angle, gripper, wrist angle, wrist rotate
@@ -120,13 +155,16 @@ def movearmcoord (xmm, ymm, zmm):# zmm is height
         print (gstring)
     else:
         gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
-    
-    #input("Check G-codes then press enter")
+    print (gstring) ###
+    receivemsg(sp) ####
+    receivemsg(sp) ####
+    #input("Check G-codes then press enter") ###
     sp.flush()
-    #reset_input_buffer()
+    reset_input_buffer()
     sp.write(gstring.encode())
     receivemsg(sp)
-    #input("press enter")
+    receivemsg(sp) ####
+    input("press enter")
 
 def opengripper(amount):
     adjamount = amount
@@ -172,6 +210,8 @@ def speaker(text):
 def quitter():
     global sp
     if sp:
+        if SCARA:
+            gohome()
         print ("reset all steppers")
         sp.flush()
         sp.write(("M18" + "\r").encode())
@@ -309,8 +349,31 @@ def calibrategripper():
             quitter()
         opengripper(angle)
         #waiter(1)
-def gohome():
-    movearmcoord (0, -10+gripperoffset, 180)
+def gohome(xmm=shank1,ymm=shank2,zmm=0):
+    if CBstate.SCARA:
+        #movearmcoord (240, 0, 0)  # xmm, ymm, zmm cartesian coordinates
+        receivemsg(sp) ###
+        gstring = "G1" + " X" + str(xmm) + " Y" + str(ymm) + " Z" + str(zmm) + "\r"
+        print (gstring) ###
+        #input("Check G-codes then press enter") ###
+        sp.flush()
+        #reset_input_buffer()
+        sp.write(gstring.encode())
+        receivemsg(sp)
+    else:
+        movearmcoord (0, -10+gripperoffset, 180)
+
+def initsteppers():
+    time.sleep(0.2)
+    sp.write(("G28" + "\r").encode())   # steppers off, initialize
+    time.sleep(0.2)
+    receivemsg(sp)
+      
+def steppers_on():
+    input("Press Enter to switch on steppers and start game")
+    sp.write(("M17" + "\r").encode())   # Switch on steppers
+    time.sleep(0.2)
+    receivemsg(sp)
 
 def init():
     global sp
@@ -324,25 +387,51 @@ def init():
     time.sleep(0.2)
     
     try:
-        if not CBstate.motorsareservos:
-            print ("Start")        
-            receivemsg(sp)
-            receivemsg(sp)
-            calirob = input("Calibrate robot manually? y/n")
-            if calirob == "y":
-                time.sleep(0.2)
-                sp.write(("G28" + "\r").encode())
-                time.sleep(0.2)
-                receivemsg(sp)
-            input("Press Enter to switch on steppers and start game")
-            sp.write(("M17" + "\r").encode())
-            time.sleep(0.2)
-            receivemsg(sp)
-            if calirob == "y":
+        print ("Start")        
+        receivemsg(sp)
+        receivemsg(sp)
+        calirob = input("Calibrate robot manually? y/n")
+        if calirob == "y":
+            print ("Calibrate robot now ...")
+            if CBstate.SCARA:
+                initsteppers()   # turn steppers off and initialize them
+                steppers_on()    # prompt user to switch on steppers
+                gohome()                
+                while True:
+                    inczmm = 0
+                    nudgeit = input("Nudge z? Reply n for no, e for or give a number of millimetres")
+                    if nudgeit == "n":
+                        break
+                    inczmm += int(nudgeit)
+                    gohome(zmm=inczmm)
+                    #initsteppers()   # turn steppers off and initialize them
+                    #steppers_on()    # prompt user to switch on steppers
+                if debugrobot:
+                    incymm = shank2
+                    while True:
+                        nudgeit = input("Nudge y? Reply n for no or give a number of millimetres")
+                        if nudgeit == "n":
+                            break
+                        incymm += int(nudgeit)
+                        gohome(ymm=incymm)
+                    incxmm = shank1
+                    while True:
+                        nudgeit = input("Nudge x? Reply n for no or give a number of millimetres")
+                        if nudgeit == "n":
+                            break
+                        incxmm += int(nudgeit)
+                        gohome(xmm=incxmm)
+            initsteppers()   # turn steppers off and initialize them
+            steppers_on()    # prompt user to switch on steppers
+
+            if CBstate.SCARA:
+                pass
+            else:
                 movearmcoord (0, (squaresize*3.5), grippergrabheight)
                 input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
         gohome()
-        
+
+                      
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
         quitter()   
     
