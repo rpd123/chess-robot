@@ -185,20 +185,20 @@ def bmove(fmove):
         smove = text[9:13]
         hint = text[21:25]
         if chessboard.addTextMove(smove) != True :
-                        stxt = "e"+ str(chessboard.getReason())+move
-                        chessboard.printBoard()
-                        sendboard(stxt)
+            stxt = "e"+ str(chessboard.getReason())+move
+            chessboard.printBoard()
+            sendboard(stxt)
 
         else:
-                        temp=fmove
-                        fmove =temp+" " +smove
-                        stx = smove+hint      
-                        sendboard(stx)
-                        chessboard.printBoard()
-                        # maxfen = chessboard.getFEN()
-                        print(("Computer move: " +smove))
-                        computermove = smove
-                        return fmove
+            temp=fmove
+            fmove =temp+" " +smove
+            stx = smove+hint      
+            sendboard(stx)
+            chessboard.printBoard()
+            # maxfen = chessboard.getFEN()
+            print(("Computer move: " +smove))
+            computermove = smove
+            return fmove
         return fmove
     # end of section that allows computer to play white
     
@@ -270,24 +270,24 @@ def bmove(fmove):
         smove = text
         hint = text[21:25]
         if chessboard.addTextMove(smove) != True :
-                        stxt = "Error: " + reasons[chessboard.getReason()] + " in move " + smove
-                        chessboard.printBoard()
-                        sendboard(stxt)
-                        computermove = ""
+            stxt = "Error: " + reasons[chessboard.getReason()] + " in move " + smove
+            chessboard.printBoard()
+            sendboard(stxt)
+            computermove = ""
 
         else:
-                        temp=fmove
-                        fmove =temp+" " +smove
-                        stx = smove+hint      
-                        sendboard(stx)
-                        chessboard.printBoard()
-                        # maxfen = chessboard.getFEN()
-                        
-                        print(("Computer move: " +smove)) 
-                        CBstate.cbstate = chessboard.getLastMoveType()                       
-                        RD.movepiece(smove[0:2], smove[2:4], boardbefore)
-                        checkvarious()
-                        return fmove
+            temp=fmove
+            fmove =temp+" " +smove
+            stx = smove+hint      
+            sendboard(stx)
+            chessboard.printBoard()
+            # maxfen = chessboard.getFEN()
+            
+            print(("Computer move: " +smove)) 
+            CBstate.cbstate = chessboard.getLastMoveType()                       
+            RD.movepiece(smove[0:2], smove[2:4], boardbefore)
+            checkvarious()
+            return fmove
         
 
 def put(command):

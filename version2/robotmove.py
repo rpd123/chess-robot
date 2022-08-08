@@ -32,14 +32,21 @@ msgcount = 0
 
 if CBstate.SCARA:
     debugrobot = False
-    axistorow8 = 38
+    axistorow8 = 65
     gripperfloatheight = 40
-    gripperoffset = 0  # indeed!    
-    shank1 = 140
-    shank2 = 100 + 45
+    grippergrabheight = -15
+    gripperfloatheight = 20
+    grippergrabheight = -63
+    halfway = (gripperfloatheight + grippergrabheight) / 2
+    gripperoffset = 0  # indeed!
+    openamount = 50 #degrees
+    closeamount = 15 #degrees
+    #shank1 = 140
+    shank1 = 153.5
+    shank2 = 129.5 + 30.0    # includes gripper offset
     totalarmlength = shank1 + shank2   # when straight
-    elbow = 1
-    oldelbow = 1
+    elbow = 0
+    oldelbow = 0
 
 xmtrans = {
     "a": 3.5,
@@ -116,35 +123,41 @@ def receivemsg(sp):
     line=sp.read_until().decode('utf-8').rstrip()
     sp.flush()
     print(msgcount, line)
+    
+def scaraviastraight(xmm, adjymmint, zmm):
+    global elbow, oldelbow
+    #print ("elbow: " + str(elbow) + " oldelbow: " + str(oldelbow))
+    oldelbow = elbow
+    #print ("elbow: " + str(elbow) + " oldelbow: " + str(oldelbow))
+    if xmm > 0 and adjymmint < totalarmlength:
+        elbow = 0
+    
+    if xmm > 135:   # parked
+        elbow = 0
+    
+    if xmm < 0 and adjymmint < totalarmlength:
+        elbow = 1
+
+    if elbow != oldelbow:
+        print ("elbow: " + str(elbow) + " oldelbow: " + str(oldelbow))
+        #intermediate move to straight out
+        gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(zmm) + "\r"
+        print (gstring)
+        sp.write(gstring.encode())
+        receivemsg(sp)
+        input("press enter")
 
 def movearmcoord (xmm, ymm, zmm):  # zmm is height
     adjymmint = int(ymm)+axistorow8
     theta = atan2(adjymmint, int(xmm))
-    adjxmm = str(int(round(int(xmm) - (gripperoffset*cos(theta)))))
-    adjymm = str(int(round(adjymmint - (gripperoffset*sin(theta)))))
+    adjxmm = str(int(round(int(xmm) - (gripperoffset*cos(theta)))))   #gripperoffset 0 for SCARA
+    adjymm = str(int(round(adjymmint - (gripperoffset*sin(theta)))))  #gripperoffset 0 for SCARA
     if CBstate.SCARA:
-        armreach = sqrt((int(adjxmm)*int(adjxmm)) + (int(adjymmint)*int(adjymmint)))
+        armreach = sqrt((xmm*xmm) + (int(adjymmint)*int(adjymmint)))
         if armreach > totalarmlength:
             print ("Too far away! " + str(armreach))
-    #print ((xmm, ymm, zmm))
-        global elbow, oldelbow
-        oldelbow = elbow
-        if xmm > 0 and adjymmint < 95:
-            elbow = 0
-        
-        if xmm > 130:   # parked
-            elbow = 1
-        
-        if xmm < 0 and adjymmint < 95:
-            elbow = 1
-
-        if elbow != oldelbow:
-            #intermediate move to straight out
-            gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(zmm) + "\r"
-            print (gstring)
-            sp.write(gstring.encode())
-            receivemsg(sp)
-            input("press enter")
+        #print ((xmm, ymm, zmm))
+        scaraviastraight(xmm, adjymmint, zmm)
         
     if CBstate.motorsareservos:
         # A 10 130 120 110 --> Moving the robot Arm with 10ms step time, 130º upper joint angle, 120º lower joint angle and 110º base rotator angle
@@ -157,13 +170,12 @@ def movearmcoord (xmm, ymm, zmm):  # zmm is height
         gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
     print (gstring) ###
     receivemsg(sp) ####
-    receivemsg(sp) ####
     #input("Check G-codes then press enter") ###
     sp.flush()
-    reset_input_buffer()
+    sp.reset_input_buffer()
     sp.write(gstring.encode())
     receivemsg(sp)
-    receivemsg(sp) ####
+    #receivemsg(sp) ####
     input("press enter")
 
 def opengripper(amount):
@@ -228,20 +240,26 @@ def pickuppiece(xmm, ymm, piecetype):
     opengripper(openamount)
     print("go down to pick up")
     movearmcoord (xmm, ymm, grippergrabheight + (pieceheights[piecetype]*10))  # go down half way
+
     waiter(1)
+    print (grippergrabheight)
+    input ("press enter")
     movearmcoord (xmm, ymm, grippergrabheight) # go down
     closegripper(closeamount, piecetype)
     #waiter(1)
     print("go up")
+    #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, gripperfloatheight) # go up
     
 def droppiece(xmm, ymm):
     
     print("go down to drop piece")
-    movearmcoord (xmm, ymm, grippergrabheight)  # go down
+    movearmcoord (xmm, ymm, halfway)
+    movearmcoord (xmm, ymm, grippergrabheight + 3)  # go down
     opengripper(openamount)
     #waiter(1)
     print("go up")
+    #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, gripperfloatheight) # go up
     
 def takepiece (xmm, ymm, targetpiece):
@@ -320,22 +338,27 @@ def movepiece (sourcesquarename, targetsquarename, boardbefore):
     print ("sourcex= ", sourcex)
     
     movearmcoord (sourcexmm, sourceymm, gripperfloatheight)
-    opengripper(openamount)
-    #input("now pick up:")
     sourcepiece = boardbefore[sourcey][sourcex].lower()
     print("sourcepiece " + sourcepiece)
-    
+    '''    
+    #input("now pick up:")
+    opengripper(openamount)
     movearmcoord (sourcexmm, sourceymm, grippergrabheight)
     closegripper(closeamount, sourcepiece)
     movearmcoord (sourcexmm, sourceymm, gripperfloatheight)
-    #input("now move piece to target. Enter:") 
+    '''
+    pickuppiece(sourcexmm, sourceymm, sourcepiece)
+    #input("now move piece to target. Enter:")
     movearmcoord (targetxmm, targetymm, gripperfloatheight)
+    '''
     #input("now drop:")
     movearmcoord (targetxmm, targetymm, grippergrabheight)
     opengripper(openamount)     
     #input("now go up:")
     print("go up")
     movearmcoord (targetxmm, targetymm, gripperfloatheight)
+    '''
+    droppiece(targetxmm, targetymm) 
     print("go home")
     gohome()
     
@@ -349,15 +372,16 @@ def calibrategripper():
             quitter()
         opengripper(angle)
         #waiter(1)
-def gohome(xmm=shank1,ymm=shank2,zmm=0):
+def gohome():
     if CBstate.SCARA:
-        #movearmcoord (240, 0, 0)  # xmm, ymm, zmm cartesian coordinates
-        receivemsg(sp) ###
-        gstring = "G1" + " X" + str(xmm) + " Y" + str(ymm) + " Z" + str(zmm) + "\r"
+        #movearmcoord (313, 0, 0)  # xmm, ymm, zmm cartesian coordinates
+        scaraviastraight(totalarmlength, 0, gripperfloatheight)
+        #gstring = "G1" + " X" + str(xmm) + " Y" + str(ymm) + " Z" + str(zmm) + "\r"
+        gstring = "G1" + " X" + str(totalarmlength) + " Y0" + " Z" + str(gripperfloatheight) + "\r"
         print (gstring) ###
         #input("Check G-codes then press enter") ###
         sp.flush()
-        #reset_input_buffer()
+        #sp.reset_input_buffer()
         sp.write(gstring.encode())
         receivemsg(sp)
     else:
@@ -368,7 +392,9 @@ def initsteppers():
     sp.write(("G28" + "\r").encode())   # steppers off, initialize
     time.sleep(0.2)
     receivemsg(sp)
-      
+    time.sleep(0.2)
+    receivemsg(sp)
+    
 def steppers_on():
     input("Press Enter to switch on steppers and start game")
     sp.write(("M17" + "\r").encode())   # Switch on steppers
@@ -393,34 +419,6 @@ def init():
         calirob = input("Calibrate robot manually? y/n")
         if calirob == "y":
             print ("Calibrate robot now ...")
-            if CBstate.SCARA:
-                initsteppers()   # turn steppers off and initialize them
-                steppers_on()    # prompt user to switch on steppers
-                gohome()                
-                while True:
-                    inczmm = 0
-                    nudgeit = input("Nudge z? Reply n for no, e for or give a number of millimetres")
-                    if nudgeit == "n":
-                        break
-                    inczmm += int(nudgeit)
-                    gohome(zmm=inczmm)
-                    #initsteppers()   # turn steppers off and initialize them
-                    #steppers_on()    # prompt user to switch on steppers
-                if debugrobot:
-                    incymm = shank2
-                    while True:
-                        nudgeit = input("Nudge y? Reply n for no or give a number of millimetres")
-                        if nudgeit == "n":
-                            break
-                        incymm += int(nudgeit)
-                        gohome(ymm=incymm)
-                    incxmm = shank1
-                    while True:
-                        nudgeit = input("Nudge x? Reply n for no or give a number of millimetres")
-                        if nudgeit == "n":
-                            break
-                        incxmm += int(nudgeit)
-                        gohome(xmm=incxmm)
             initsteppers()   # turn steppers off and initialize them
             steppers_on()    # prompt user to switch on steppers
 
