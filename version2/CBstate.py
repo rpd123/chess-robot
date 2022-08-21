@@ -20,9 +20,9 @@ if platform.system() == "Windows":
     cameraportno = 1
     #cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
-    cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
-    #cameratype = 'usb'
-    cameratype = 'ip'
+    #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
+    cameratype = 'usb'
+    #cameratype = 'ip'
     serialport = "COM3"    
 else:
     windowsos = False
