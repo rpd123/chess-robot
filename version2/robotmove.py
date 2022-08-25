@@ -43,7 +43,7 @@ if CBstate.SCARA:
     closeamount = 15 #degrees
     #shank1 = 140
     shank1 = 153.5
-    shank2 = 155.5    # includes gripper offset
+    shank2 = 160.5    # includes gripper offset
     totalarmlength = shank1 + shank2   # when straight
     elbow = 0
     oldelbow = 0
@@ -376,7 +376,7 @@ def gohome():
     if CBstate.SCARA:
         #movearmcoord (313, 0, 0)  # xmm, ymm, zmm cartesian coordinates
         scaraviastraight(totalarmlength, 0, gripperfloatheight)
-        #gstring = "G1" + " X" + str(xmm) + " Y" + str(ymm) + " Z" + str(zmm) + "\r"
+        #gstring = "G1" + " X" + str(shank1) + " Y" + str(shank2) + " Z" + str(gripperfloatheight) + "\r"
         gstring = "G1" + " X" + str(totalarmlength) + " Y0" + " Z" + str(gripperfloatheight) + "\r"
         print (gstring) ###
         #input("Check G-codes then press enter") ###
@@ -400,7 +400,8 @@ def steppers_on():
     sp.write(("M17" + "\r").encode())   # Switch on steppers
     time.sleep(0.2)
     receivemsg(sp)
-
+    time.sleep(0.2)
+    receivemsg(sp)
 def init():
     global sp
     try:
