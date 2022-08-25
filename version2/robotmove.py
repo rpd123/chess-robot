@@ -222,7 +222,7 @@ def speaker(text):
 def quitter():
     global sp
     if sp:
-        if SCARA:
+        if CBstate.SCARA:
             gohome()
         print ("reset all steppers")
         sp.flush()
@@ -270,6 +270,11 @@ def takepiece (xmm, ymm, targetpiece):
     gravey = (8-int(graveyard[1])) * squaresize
     movearmcoord (gravex, gravey, gripperfloatheight)
     droppiece(gravex, gravey)
+    input("press enter")
+    interx = xmtrans["h"] * squaresize
+    intery = (8-int("3")) * squaresize
+    movearmcoord (interx, intery, gripperfloatheight)
+    input("press enter")
     gohome()
 
 def iscastling (sourcesquarename):
