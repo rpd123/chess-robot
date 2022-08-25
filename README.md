@@ -18,7 +18,7 @@ The calibration is remembered even if all systems are shut down, so if the robot
 
 The camera should be at least 56 cm above the board. Square size 3.5 cm. Tallest piece: 5.3 cm. The image of a piece should not fall across an adjacent square.
 
-Calibrating the robot arm: The lower strut must be vertical and the upper strut horizontal and coming out straight over the board.
+Calibrating the Cartesian robot arm: The lower strut must be vertical and the upper strut horizontal and coming out straight over the board.
 
 Code configuration: You will need to check squaresize, axistorow8, etc. in robotmove.py. Check the declarations in CBstate.py.
 
