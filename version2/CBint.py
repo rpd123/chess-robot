@@ -16,11 +16,12 @@ import logging
 if CBstate.windowsos:    
     stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
 else:
-    stockfish = Stockfish(parameters=CBstate.stockfishparams)
+    #stockfish = Stockfish(parameters=CBstate.stockfishparams)
+    stockfish = Stockfish()
 mydir = CBstate.mydir
 
 #stockfish.update_engine_parameters({"Threads": 4})   
-stockparams = stockfish.get_parameters()
+#stockparams = stockfish.get_parameters()
 #for key, value in stockparams.items():
 #    print(key, ' : ', value)
 '''
