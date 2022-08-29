@@ -42,8 +42,8 @@ if CBstate.SCARA:
     openamount = 50 #degrees
     closeamount = 15 #degrees
     #shank1 = 140
-    shank1 = 153.5
-    shank2 = 160.5    # includes gripper offset
+    shank1 = 153.0
+    shank2 = 158.0    # includes gripper offset
     totalarmlength = shank1 + shank2   # when straight
     elbow = 0
     oldelbow = 0
@@ -168,8 +168,8 @@ def movearmcoord (xmm, ymm, zmm):  # zmm is height
         print (gstring)
     else:
         gstring = "G1" + " X" + adjxmm + " Y" + adjymm + " Z" + str(zmm) + "\r"
-    print (gstring) ###
-    receivemsg(sp) ####
+        print (gstring) ###
+    #receivemsg(sp) ####
     #input("Check G-codes then press enter") ###
     sp.flush()
     sp.reset_input_buffer()
@@ -186,6 +186,7 @@ def opengripper(amount):
         mycode = "G0\r"
     else:
         mycode = "M5 T" + str(adjamount) + "\r"
+    print ("Open gripper")
     sp.flush()
     sp.write(mycode.encode())
     receivemsg(sp)
@@ -199,6 +200,7 @@ def closegripper(amount, piecetype):
         mycode = "G1\r"
     else:
         mycode = "M3 T" + str(adjamount) + "\r"
+    print ("Close gripper")
     sp.flush()
     sp.write(mycode.encode())
     receivemsg(sp)
@@ -227,6 +229,7 @@ def quitter():
         print ("reset all steppers")
         sp.flush()
         sp.write(("M18" + "\r").encode())
+        receivemsg(sp)
         sp.close()               
         time.sleep(2)
         print ("Game ends")
@@ -254,8 +257,9 @@ def pickuppiece(xmm, ymm, piecetype):
 def droppiece(xmm, ymm):
     
     print("go down to drop piece")
-    movearmcoord (xmm, ymm, halfway)
+    #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, grippergrabheight + 3)  # go down
+    waiter(1.2)
     opengripper(openamount)
     #waiter(1)
     print("go up")
@@ -270,11 +274,11 @@ def takepiece (xmm, ymm, targetpiece):
     gravey = (8-int(graveyard[1])) * squaresize
     movearmcoord (gravex, gravey, gripperfloatheight)
     droppiece(gravex, gravey)
-    input("press enter")
-    interx = xmtrans["h"] * squaresize
-    intery = (8-int("3")) * squaresize
-    movearmcoord (interx, intery, gripperfloatheight)
-    input("press enter")
+    #input("press enter")
+    #interx = xmtrans["h"] * squaresize
+    #intery = (8-int("3")) * squaresize
+    #movearmcoord (interx, intery, gripperfloatheight)
+    #input("press enter")
     gohome()
 
 def iscastling (sourcesquarename):
@@ -345,24 +349,11 @@ def movepiece (sourcesquarename, targetsquarename, boardbefore):
     movearmcoord (sourcexmm, sourceymm, gripperfloatheight)
     sourcepiece = boardbefore[sourcey][sourcex].lower()
     print("sourcepiece " + sourcepiece)
-    '''    
-    #input("now pick up:")
-    opengripper(openamount)
-    movearmcoord (sourcexmm, sourceymm, grippergrabheight)
-    closegripper(closeamount, sourcepiece)
-    movearmcoord (sourcexmm, sourceymm, gripperfloatheight)
-    '''
+
     pickuppiece(sourcexmm, sourceymm, sourcepiece)
     #input("now move piece to target. Enter:")
     movearmcoord (targetxmm, targetymm, gripperfloatheight)
-    '''
-    #input("now drop:")
-    movearmcoord (targetxmm, targetymm, grippergrabheight)
-    opengripper(openamount)     
-    #input("now go up:")
-    print("go up")
-    movearmcoord (targetxmm, targetymm, gripperfloatheight)
-    '''
+
     droppiece(targetxmm, targetymm) 
     print("go home")
     gohome()
@@ -383,11 +374,14 @@ def gohome():
         scaraviastraight(totalarmlength, 0, gripperfloatheight)
         #gstring = "G1" + " X" + str(shank1) + " Y" + str(shank2) + " Z" + str(gripperfloatheight) + "\r"
         gstring = "G1" + " X" + str(totalarmlength) + " Y0" + " Z" + str(gripperfloatheight) + "\r"
+        waiter(1.2)
         print (gstring) ###
         #input("Check G-codes then press enter") ###
         sp.flush()
         #sp.reset_input_buffer()
         sp.write(gstring.encode())
+        receivemsg(sp)
+        time.sleep(0.2)
         receivemsg(sp)
     else:
         movearmcoord (0, -10+gripperoffset, 180)
@@ -410,7 +404,7 @@ def steppers_on():
 def init():
     global sp
     try:
-        sp = serial.Serial(CBstate.serialport, 9600, timeout=0.4)
+        sp = serial.Serial(CBstate.serialport, 9600, timeout=2.0)
         sp.reset_input_buffer()                
     except serial.SerialException as e:
         print("No serial port")
@@ -429,10 +423,13 @@ def init():
             steppers_on()    # prompt user to switch on steppers
 
             if CBstate.SCARA:
-                pass
+                gohome()   # raises arm
+                gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(gripperfloatheight) + "\r"
+                sp.write(gstring.encode())
+                receivemsg(sp)
             else:
                 movearmcoord (0, (squaresize*3.5), grippergrabheight)
-                input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
+            input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
         gohome()
 
                       

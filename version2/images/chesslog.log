@@ -3,420 +3,2070 @@ INFO-Imported existing <module 'comtypes.gen' from 'C:\\Users\\Richard\\AppData\
 INFO-Using writeable comtypes cache directory: 'C:\Users\Richard\AppData\Local\Programs\Python\Python310\lib\site-packages\comtypes\gen'
 DEBUG-SAPI.SPVoice -> {96749377-3391-11D2-9EE3-00C04F797396}
 DEBUG-CoCreateInstance({96749377-3391-11D2-9EE3-00C04F797396}, clsctx=None, interface=None)
-DEBUG-GetBestInterface(<POINTER(IUnknown) ptr=0x1a5100d0b90 at 1a50fcd6340>)
+DEBUG-GetBestInterface(<POINTER(IUnknown) ptr=0x1dd02840b90 at 1dd024262c0>)
 DEBUG-Does implement IProvideClassInfo
 DEBUG-Default interface is {269316D8-57BD-11D2-9EEE-00C04F797396}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d0bd0 at 1a50fcd68c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02840bd0 at 1dd02426840>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechVoice'>
-DEBUG-Final result is <POINTER(ISpeechVoice) ptr=0x1a5100d0bd0 at 1a50fcd6840>
-DEBUG-Release <POINTER(IProvideClassInfo) ptr=0x1a5100d0bf0 at 1a50fcd6540>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d0f88 at 1a50fcd65c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d0fe0 at 1a50fcd66c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fcd68c0>
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d0b90 at 1a50fcd6340>
-DEBUG-<POINTER(ISpeechVoice) ptr=0x1a5100d0bd0 at 1a50fcd6840> using sinkinterface from clsid <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
-DEBUG-Release <POINTER(IProvideClassInfo2) ptr=0x1a5100d0bf0 at 1a50fcd6340>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.VoiceChange not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.Bookmark not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.Word not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.Sentence not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.Phoneme not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.Viseme not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.AudioLevel not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>: _ISpeechVoiceEvents.EnginePrivate not implemented
+DEBUG-Final result is <POINTER(ISpeechVoice) ptr=0x1dd02840bd0 at 1dd024267c0>
+DEBUG-Release <POINTER(IProvideClassInfo) ptr=0x1dd02840bf0 at 1dd024264c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02ba8 at 1dd02426540>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02c00 at 1dd02426640>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02426840>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02840b90 at 1dd024262c0>
+DEBUG-<POINTER(ISpeechVoice) ptr=0x1dd02840bd0 at 1dd024267c0> using sinkinterface from clsid <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
+DEBUG-Release <POINTER(IProvideClassInfo2) ptr=0x1dd02840bf0 at 1dd024262c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.VoiceChange not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.Bookmark not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.Word not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.Sentence not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.Phoneme not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.Viseme not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.AudioLevel not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>: _ISpeechVoiceEvents.EnginePrivate not implemented
 DEBUG-Start advise <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.QueryInterface({A372ACD1-3BEF-4BBD-8FFB-CB3E2B416AF8}) -> S_OK
-DEBUG-1 active COM objects: Added   <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 1
-DEBUG-Release <POINTER(IConnectionPointContainer) ptr=0x1a5100d0bf8 at 1a50fcd6a40>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x1a5100d69f0 at 1a50fcd6a40>)
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d69f0 at 1a50fcd6a40>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1a5100d7710 at 1a50fcd6a40>)
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d9330 at 1a50fcd6c40>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d9410 at 1a50fcd6d40>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d9410 at 1a50fcd6d40>)
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.QueryInterface({A372ACD1-3BEF-4BBD-8FFB-CB3E2B416AF8}) -> S_OK
+DEBUG-1 active COM objects: Added   <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 1
+DEBUG-Release <POINTER(IConnectionPointContainer) ptr=0x1dd02840bf8 at 1dd024269c0>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x1dd028469b0 at 1dd024269c0>)
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd028469b0 at 1dd024269c0>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd028476d0 at 1dd024269c0>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028492f0 at 1dd02426bc0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd028493d0 at 1dd02426cc0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd028493d0 at 1dd02426cc0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fcd6f40>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02426ec0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d9410 at 1a50fcd7040>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028493d0 at 1dd02426fc0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d9410 at 1a50fcd6f40>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9410 at 1a50fcd6ec0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fcd6fc0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fcd7040>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9410 at 1a50fcd6d40>
-DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1a5100d9330 at 1a50fcd6bc0>
-DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1a5100d7710 at 1a50fcd6a40>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d9410 at 1a50fcd6f40>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x1a5100d69f0 at 1a50fcd7440>)
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d69f0 at 1a50fcd7440>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1a5100d7780 at 1a50fcd7440>)
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d7630 at 1a50fcd7940>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d9ae0 at 1a50fcd7ac0>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d9ae0 at 1a50fcd7ac0>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd028493d0 at 1dd02426ec0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd028493d0 at 1dd02426e40>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02426f40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02426fc0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd028493d0 at 1dd02426cc0>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd028492f0 at 1dd02426b40>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd028476d0 at 1dd024269c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd028493d0 at 1dd02426ec0>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x1dd028469b0 at 1dd024273c0>)
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd028469b0 at 1dd024273c0>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02847740 at 1dd024273c0>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028475f0 at 1dd024278c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849860 at 1dd02427a40>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849860 at 1dd02427a40>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe281c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578140>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d9ae0 at 1a50fe282c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849860 at 1dd02578240>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d9ae0 at 1a50fe281c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9ae0 at 1a50fe280c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe28240>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe282c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9ae0 at 1a50fcd7ac0>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100da350 at 1a50fcd7ac0>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100da350 at 1a50fcd7ac0>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849860 at 1dd02578140>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849860 at 1dd02578040>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd025781c0>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02578240>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849860 at 1dd02427a40>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849f20 at 1dd02427a40>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849f20 at 1dd02427a40>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe28240>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025781c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100da350 at 1a50fe28340>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849f20 at 1dd025782c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100da350 at 1a50fe28240>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da350 at 1a50fe282c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe280c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe28340>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da350 at 1a50fcd7ac0>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d9ae0 at 1a50fe281c0>
-DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1a5100d7630 at 1a50fcd79c0>
-DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1a5100d7780 at 1a50fcd7440>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100da350 at 1a50fe28240>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28340>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28340>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849f20 at 1dd025781c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849f20 at 1dd02578240>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578040>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025782c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849f20 at 1dd02427a40>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849860 at 1dd02578140>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd028475f0 at 1dd02427940>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02847740 at 1dd024273c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849f20 at 1dd025781c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025782c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025782c0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe28440>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025783c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d6850 at 1a50fe28540>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd025784c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe28440>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe283c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe284c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe28540>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28340>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025783c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578340>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578440>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025784c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025782c0>
 DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe28440>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025783c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
 DEBUG-Start
-DEBUG-0 0  meansRGBe: 158.7520661157025 149.17355371900825 110.82644628099173
-DEBUG-white 158.7520661157025
-DEBUG-0 1  meansRGBo: 187.16528925619835 149.14462809917356 123.47107438016529
-DEBUG-white 187.16528925619835
-DEBUG-0 2  meansRGBe: 172.3512396694215 158.80165289256198 118.43801652892562
-DEBUG-white 172.3512396694215
-DEBUG-0 3  meansRGBo: 196.4214876033058 161.79338842975207 133.8595041322314
-DEBUG-white 196.4214876033058
-DEBUG-0 4  meansRGBe: 180.08264462809916 169.59504132231405 140.47107438016528
-DEBUG-white 180.08264462809916
-DEBUG-0 5  meansRGBo: 205.3512396694215 175.70661157024793 149.28099173553719
-DEBUG-white 205.3512396694215
-DEBUG-0 6  meansRGBe: 160.25619834710744 147.00413223140495 113.61157024793388
-DEBUG-white 160.25619834710744
-DEBUG-0 7  meansRGBo: 201.37190082644628 171.98760330578511 151.73553719008265
-DEBUG-white 201.37190082644628
-DEBUG-1 0  meansRGBo: 206.21900826446281 170.9793388429752 145.43388429752065
-DEBUG-white 206.21900826446281
-DEBUG-1 1  meansRGBe: 165.15289256198346 149.91735537190084 116.30165289256199
-DEBUG-white 165.15289256198346
-DEBUG-1 2  meansRGBo: 211.78925619834712 178.77272727272728 156.22314049586777
-DEBUG-white 211.78925619834712
-DEBUG-1 3  meansRGBe: 180.3099173553719 165.78925619834712 129.49586776859505
+DEBUG-0 0  meansRGBe: 131.78512396694214 110.58677685950413 77.43801652892562
+DEBUG-white 131.78512396694214
+DEBUG-0 1  meansRGBo: 169.8512396694215 124.19834710743801 104.41735537190083
+DEBUG-white 169.8512396694215
+DEBUG-0 2  meansRGBe: 147.31404958677686 122.22727272727273 90.1198347107438
+DEBUG-white 147.31404958677686
+DEBUG-0 3  meansRGBo: 182.6198347107438 132.7479338842975 115.89669421487604
+DEBUG-white 182.6198347107438
+DEBUG-0 4  meansRGBe: 151.60743801652893 136.11157024793388 107.07851239669421
+DEBUG-white 151.60743801652893
+DEBUG-0 5  meansRGBo: 175.90495867768595 130.55785123966942 111.35123966942149
+DEBUG-white 175.90495867768595
+DEBUG-0 6  meansRGBe: 145.60743801652893 121.89256198347107 92.68181818181819
+DEBUG-white 145.60743801652893
+DEBUG-0 7  meansRGBo: 159.61157024793388 129.32231404958677 110.57438016528926
+DEBUG-white 159.61157024793388
+DEBUG-1 0  meansRGBo: 173.05785123966942 132.599173553719 111.8305785123967
+DEBUG-white 173.05785123966942
+DEBUG-1 1  meansRGBe: 141.49586776859505 120.6900826446281 92.63636363636364
+DEBUG-white 141.49586776859505
+DEBUG-1 2  meansRGBo: 172.31404958677686 127.98760330578513 109.19421487603306
+DEBUG-white 172.31404958677686
+DEBUG-1 3  meansRGBe: 153.77272727272728 130.5206611570248 100.42148760330579
+DEBUG-white 153.77272727272728
+DEBUG-1 4  meansRGBo: 179.85537190082644 134.32644628099175 117.82644628099173
+DEBUG-white 179.85537190082644
+DEBUG-1 5  meansRGBe: 159.92561983471074 138.5702479338843 109.92561983471074
+DEBUG-white 159.92561983471074
+DEBUG-1 6  meansRGBo: 185.95867768595042 143.43801652892563 128.11570247933884
+DEBUG-white 185.95867768595042
+DEBUG-1 7  meansRGBe: 133.47520661157026 120.3801652892562 93.03719008264463
+DEBUG-white 133.47520661157026
+DEBUG-2 0  meansRGBe: 93.39669421487604 91.45454545454545 66.6694214876033
+DEBUG-empty
+DEBUG-2 1  meansRGBo: 208.9793388429752 144.49586776859505 151.0206611570248
+DEBUG-empty
+DEBUG-2 2  meansRGBe: 127.58677685950413 124.33471074380165 92.39669421487604
+DEBUG-empty
+DEBUG-2 3  meansRGBo: 228.36363636363637 160.1198347107438 167.77685950413223
+DEBUG-empty
+DEBUG-2 4  meansRGBe: 132.4504132231405 129.23140495867767 100.85950413223141
+DEBUG-empty
+DEBUG-2 5  meansRGBo: 216.83471074380165 151.900826446281 160.66528925619835
+DEBUG-empty
+DEBUG-2 6  meansRGBe: 107.60330578512396 108.94628099173553 81.10330578512396
+DEBUG-empty
+DEBUG-2 7  meansRGBo: 183.99586776859505 130.0702479338843 138.55371900826447
+DEBUG-empty
+DEBUG-3 0  meansRGBo: 184.29752066115702 125.42148760330579 129.22727272727272
+DEBUG-empty
+DEBUG-3 1  meansRGBe: 103.94628099173553 102.64462809917356 72.47520661157024
+DEBUG-empty
+DEBUG-3 2  meansRGBo: 211.59504132231405 145.16528925619835 153.6818181818182
+DEBUG-empty
+DEBUG-3 3  meansRGBe: 122.98760330578513 118.32231404958678 89.02066115702479
+DEBUG-empty
+DEBUG-3 4  meansRGBo: 215.7396694214876 148.83471074380165 159.26859504132233
+DEBUG-empty
+DEBUG-3 5  meansRGBe: 115.08264462809917 113.1694214876033 84.72727272727273
+DEBUG-empty
+DEBUG-3 6  meansRGBo: 194.60743801652893 135.93801652892563 146.0082644628099
+DEBUG-empty
+DEBUG-3 7  meansRGBe: 84.86776859504133 87.43801652892562 68.73140495867769
+DEBUG-empty
+DEBUG-4 0  meansRGBe: 78.99586776859505 79.53719008264463 59.417355371900825
+DEBUG-empty
+DEBUG-4 1  meansRGBo: 190.4090909090909 128.46694214876032 133.3181818181818
+DEBUG-empty
+DEBUG-4 2  meansRGBe: 105.32231404958678 101.41322314049587 73.34710743801652
+DEBUG-empty
+DEBUG-4 3  meansRGBo: 206.96280991735537 140.04132231404958 150.08677685950414
+DEBUG-empty
+DEBUG-4 4  meansRGBe: 114.2107438016529 109.56611570247934 78.20247933884298
+DEBUG-empty
+DEBUG-4 5  meansRGBo: 198.89669421487602 137.71900826446281 146.0082644628099
+DEBUG-empty
+DEBUG-4 6  meansRGBe: 94.34297520661157 95.63223140495867 72.56611570247934
+DEBUG-empty
+DEBUG-4 7  meansRGBo: 171.42561983471074 119.31818181818181 127.8305785123967
+DEBUG-empty
+DEBUG-5 0  meansRGBo: 169.74380165289256 112.68181818181819 115.44628099173553
+DEBUG-empty
+DEBUG-5 1  meansRGBe: 85.4090909090909 85.58677685950413 61.83471074380165
+DEBUG-empty
+DEBUG-5 2  meansRGBo: 191.52479338842974 130.9917355371901 135.5082644628099
+DEBUG-empty
+DEBUG-5 3  meansRGBe: 105.72314049586777 102.64462809917356 73.34297520661157
+DEBUG-empty
+DEBUG-5 4  meansRGBo: 197.5206611570248 137.52892561983472 144.02479338842974
+DEBUG-empty
+DEBUG-5 5  meansRGBe: 102.31818181818181 101.35537190082644 73.46280991735537
+DEBUG-empty
+DEBUG-5 6  meansRGBo: 179.58264462809916 126.51652892561984 132.79338842975207
+DEBUG-empty
+DEBUG-5 7  meansRGBe: 76.1198347107438 78.65702479338843 62.97520661157025
+DEBUG-empty
+DEBUG-6 0  meansRGBe: 33.925619834710744 34.66942148760331 27.673553719008265
+DEBUG-black 33.925619834710744
+DEBUG-6 1  meansRGBo: 52.429752066115704 37.64049586776859 37.8099173553719
+DEBUG-black 52.429752066115704
+DEBUG-6 2  meansRGBe: 40.49173553719008 40.400826446280995 32.22727272727273
+DEBUG-black 40.49173553719008
+DEBUG-6 3  meansRGBo: 71.60330578512396 52.1198347107438 52.86776859504132
+DEBUG-black 71.60330578512396
+DEBUG-6 4  meansRGBe: 48.392561983471076 47.611570247933884 37.01652892561984
+DEBUG-black 48.392561983471076
+DEBUG-6 5  meansRGBo: 116.59917355371901 82.95867768595042 86.11570247933884
+DEBUG-white 116.59917355371901
+DEBUG-6 6  meansRGBe: 34.35123966942149 35.36363636363637 29.723140495867767
+DEBUG-black 34.35123966942149
+DEBUG-6 7  meansRGBo: 72.28512396694215 53.0 54.35950413223141
+DEBUG-black 72.28512396694215
+DEBUG-7 0  meansRGBo: 45.77685950413223 31.144628099173552 30.326446280991735
+DEBUG-black 45.77685950413223
+DEBUG-7 1  meansRGBe: 18.210743801652892 18.39669421487603 16.392561983471076
+DEBUG-black 18.210743801652892
+DEBUG-7 2  meansRGBo: 60.429752066115704 42.049586776859506 41.247933884297524
+DEBUG-black 60.429752066115704
+DEBUG-7 3  meansRGBe: 24.801652892561982 25.074380165289256 21.822314049586776
+DEBUG-black 24.801652892561982
+DEBUG-7 4  meansRGBo: 85.99173553719008 60.95454545454545 61.607438016528924
+DEBUG-black 85.99173553719008
+DEBUG-7 5  meansRGBe: 36.252066115702476 36.84297520661157 29.450413223140497
+DEBUG-black 36.252066115702476
+DEBUG-7 6  meansRGBo: 47.599173553719005 37.243801652892564 37.06611570247934
+DEBUG-black 47.599173553719005
+DEBUG-7 7  meansRGBe: 24.082644628099175 24.731404958677686 21.450413223140497
+DEBUG-black 24.082644628099175
+DEBUG-white 125.53719008264463
+DEBUG-white 163.6611570247934
+DEBUG-white 141.1900826446281
+DEBUG-white 176.02892561983472
+DEBUG-white 147.42561983471074
+DEBUG-white 169.14462809917356
+DEBUG-white 140.27272727272728
+DEBUG-white 153.54132231404958
+DEBUG-white 167.80578512396696
+DEBUG-white 135.67768595041323
+DEBUG-white 166.97107438016528
+DEBUG-white 148.3595041322314
+DEBUG-empty
+DEBUG-white 153.84710743801654
+DEBUG-white 180.05785123966942
+DEBUG-white 126.37603305785125
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.79752066115702
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 31.326446280991735
+DEBUG-black 48.99586776859504
+DEBUG-black 37.20247933884298
+DEBUG-black 68.40495867768595
+DEBUG-black 44.888429752066116
+DEBUG-black 111.44628099173553
+DEBUG-black 31.041322314049587
+DEBUG-black 68.22314049586777
+DEBUG-black 43.570247933884296
+DEBUG-black 16.962809917355372
+DEBUG-black 57.760330578512395
+DEBUG-black 22.512396694214875
+DEBUG-black 82.17768595041322
+DEBUG-black 33.210743801652896
+DEBUG-black 44.83057851239669
+DEBUG-black 22.665289256198346
+DEBUG-white 127.25206611570248
+DEBUG-empty
+DEBUG-white 141.53305785123968
+DEBUG-white 176.099173553719
+DEBUG-white 147.0082644628099
+DEBUG-white 169.3181818181818
+DEBUG-white 139.54545454545453
+DEBUG-white 153.31404958677686
+DEBUG-white 167.25619834710744
+DEBUG-white 136.2396694214876
+DEBUG-white 169.6487603305785
+DEBUG-white 149.78925619834712
+DEBUG-empty
+DEBUG-white 154.22727272727272
+DEBUG-white 180.0785123966942
+DEBUG-white 126.7892561983471
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.3595041322314
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.84297520661158
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 35.421487603305785
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 31.05785123966942
+DEBUG-black 48.84297520661157
+DEBUG-empty
+DEBUG-black 68.3099173553719
+DEBUG-black 44.64462809917355
+DEBUG-black 110.82644628099173
+DEBUG-black 31.0
+DEBUG-black 68.1900826446281
+DEBUG-black 42.17355371900826
+DEBUG-black 16.582644628099175
+DEBUG-black 62.48347107438016
+DEBUG-black 22.326446280991735
+DEBUG-black 81.56611570247934
+DEBUG-black 33.54132231404959
+DEBUG-black 44.921487603305785
+DEBUG-black 22.359504132231404
+DEBUG-white 127.55785123966942
+DEBUG-empty
+DEBUG-white 141.43801652892563
+DEBUG-white 177.02479338842974
+DEBUG-white 147.82231404958677
+DEBUG-white 167.86776859504133
+DEBUG-empty
+DEBUG-white 157.89669421487602
+DEBUG-white 167.84297520661158
+DEBUG-white 136.54545454545453
+DEBUG-white 170.08677685950414
+DEBUG-white 150.73553719008265
+DEBUG-empty
+DEBUG-white 155.82644628099175
+DEBUG-white 180.21900826446281
+DEBUG-white 125.91735537190083
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.68595041322314
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 163.38842975206612
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 170.19834710743802
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 35.36776859504132
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.752066115702476
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 48.81818181818182
+DEBUG-empty
+DEBUG-black 68.60743801652893
+DEBUG-black 45.18595041322314
+DEBUG-black 111.82644628099173
+DEBUG-black 31.66115702479339
+DEBUG-black 69.22727272727273
+DEBUG-black 42.99173553719008
+DEBUG-black 16.34710743801653
+DEBUG-black 63.56198347107438
+DEBUG-black 22.5
+DEBUG-black 82.32644628099173
+DEBUG-black 33.65702479338843
+DEBUG-black 44.47520661157025
+DEBUG-black 22.607438016528924
+DEBUG-white 127.95454545454545
+DEBUG-empty
+DEBUG-white 141.72314049586777
+DEBUG-white 159.39669421487602
+DEBUG-white 146.8388429752066
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 158.21900826446281
+DEBUG-white 167.62809917355372
+DEBUG-white 136.5206611570248
+DEBUG-white 170.12396694214877
+DEBUG-white 150.28512396694214
+DEBUG-empty
+DEBUG-white 155.78925619834712
+DEBUG-white 179.95867768595042
+DEBUG-white 126.26446280991736
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.95867768595042
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 163.09504132231405
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 165.54132231404958
+DEBUG-empty
+DEBUG-white 170.19421487603304
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 31.946280991735538
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.1900826446281
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 91.71900826446281
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 48.33884297520661
+DEBUG-empty
+DEBUG-black 67.83471074380165
+DEBUG-empty
+DEBUG-black 111.01239669421487
+DEBUG-black 31.632231404958677
+DEBUG-black 67.93388429752066
+DEBUG-black 44.34710743801653
+DEBUG-black 16.681818181818183
+DEBUG-black 62.78099173553719
+DEBUG-black 22.384297520661157
+DEBUG-black 84.1694214876033
+DEBUG-black 33.09090909090909
+DEBUG-black 45.09504132231405
+DEBUG-black 22.34297520661157
+DEBUG-white 127.05371900826447
+DEBUG-empty
+DEBUG-white 141.85537190082644
+DEBUG-white 159.5495867768595
+DEBUG-white 147.61157024793388
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 158.38842975206612
+DEBUG-white 167.44214876033058
+DEBUG-white 136.57438016528926
+DEBUG-white 170.75619834710744
+DEBUG-white 149.26859504132233
+DEBUG-empty
+DEBUG-white 155.73553719008265
+DEBUG-white 179.8388429752066
+DEBUG-white 126.42561983471074
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.13223140495867
+DEBUG-white 162.7603305785124
+DEBUG-empty
+DEBUG-white 163.26859504132233
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.98347107438016
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 73.96280991735537
+DEBUG-black 35.03305785123967
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.21900826446281
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 91.50413223140495
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 67.86776859504133
+DEBUG-empty
+DEBUG-black 111.31818181818181
+DEBUG-black 31.1900826446281
+DEBUG-black 68.30578512396694
+DEBUG-black 44.79752066115702
+DEBUG-black 20.272727272727273
+DEBUG-black 63.074380165289256
+DEBUG-black 22.5
+DEBUG-black 83.99586776859505
+DEBUG-black 33.421487603305785
+DEBUG-black 44.83884297520661
+DEBUG-black 22.111570247933884
+DEBUG-white 127.10330578512396
+DEBUG-empty
+DEBUG-white 141.1487603305785
+DEBUG-white 158.67355371900825
+DEBUG-empty
+DEBUG-white 191.19421487603304
+DEBUG-white 150.0495867768595
+DEBUG-white 165.07438016528926
+DEBUG-white 166.65289256198346
+DEBUG-white 136.43388429752065
+DEBUG-white 170.25619834710744
+DEBUG-white 148.80165289256198
+DEBUG-empty
+DEBUG-white 155.57438016528926
+DEBUG-white 179.64462809917356
+DEBUG-white 124.96694214876032
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 140.8099173553719
+DEBUG-white 162.42561983471074
+DEBUG-empty
+DEBUG-white 162.48347107438016
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.67355371900825
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 74.14876033057851
+DEBUG-black 34.99173553719008
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.392561983471076
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 91.13223140495867
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.98760330578512
+DEBUG-empty
+DEBUG-black 67.92561983471074
+DEBUG-empty
+DEBUG-black 111.35123966942149
+DEBUG-black 31.082644628099175
+DEBUG-black 68.29338842975207
+DEBUG-black 44.46280991735537
+DEBUG-black 16.326446280991735
+DEBUG-empty
+DEBUG-black 22.58677685950413
+DEBUG-black 84.03305785123968
+DEBUG-black 33.63223140495868
+DEBUG-black 44.67768595041322
+DEBUG-black 22.024793388429753
+DEBUG-white 127.50826446280992
+DEBUG-empty
+DEBUG-white 141.8099173553719
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 192.01239669421489
+DEBUG-white 150.6694214876033
+DEBUG-white 165.5909090909091
+DEBUG-white 166.77685950413223
+DEBUG-white 136.6404958677686
+DEBUG-white 170.23553719008265
+DEBUG-white 150.13636363636363
+DEBUG-white 160.51239669421489
+DEBUG-white 154.69421487603304
+DEBUG-white 179.67355371900825
+DEBUG-white 125.79338842975207
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 140.83471074380165
+DEBUG-white 162.71900826446281
+DEBUG-empty
+DEBUG-white 163.05785123966942
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.16528925619835
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 74.05785123966942
+DEBUG-black 34.553719008264466
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.231404958677686
+DEBUG-empty
+DEBUG-black 36.33884297520661
+DEBUG-empty
+DEBUG-black 91.5
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 35.98347107438016
+DEBUG-empty
+DEBUG-black 67.08264462809917
+DEBUG-empty
+DEBUG-black 111.35950413223141
+DEBUG-black 31.123966942148762
+DEBUG-black 68.13223140495867
+DEBUG-black 45.210743801652896
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 22.28099173553719
+DEBUG-black 84.05785123966942
+DEBUG-black 33.15289256198347
+DEBUG-black 45.20247933884298
+DEBUG-black 22.231404958677686
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd025788c0>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028476d0 at 1dd02578840>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd028497d0 at 1dd025785c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd028497d0 at 1dd025785c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578ac0>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028497d0 at 1dd02578bc0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd028497d0 at 1dd02578ac0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd028497d0 at 1dd02578a40>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578b40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02578bc0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd028497d0 at 1dd025785c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849860 at 1dd025785c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849860 at 1dd025785c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578b40>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849860 at 1dd02578c40>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849860 at 1dd02578b40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849860 at 1dd025789c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578a40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02578c40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849860 at 1dd025785c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd028497d0 at 1dd02578ac0>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd028476d0 at 1dd02578740>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd025788c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849860 at 1dd02578b40>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578bc0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578bc0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578cc0>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd02578dc0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd02578cc0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025789c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578d40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02578dc0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578bc0>
+DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd02578cc0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-white 127.7107438016529
+DEBUG-empty
+DEBUG-white 141.75619834710744
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.09504132231405
+DEBUG-white 140.65289256198346
+DEBUG-white 169.62809917355372
+DEBUG-white 167.03719008264463
+DEBUG-white 135.82231404958677
+DEBUG-white 169.65702479338842
+DEBUG-white 149.46280991735537
+DEBUG-white 159.36363636363637
+DEBUG-white 154.55785123966942
+DEBUG-white 180.4090909090909
+DEBUG-white 125.03719008264463
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 140.45867768595042
+DEBUG-white 162.29338842975207
+DEBUG-empty
+DEBUG-white 162.67768595041323
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.63636363636363
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 73.88429752066116
+DEBUG-black 34.413223140495866
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 60.946280991735534
+DEBUG-empty
+DEBUG-black 36.446280991735534
+DEBUG-empty
+DEBUG-black 91.59504132231405
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.00826446280992
+DEBUG-empty
+DEBUG-black 67.86363636363636
+DEBUG-empty
+DEBUG-black 110.85537190082644
+DEBUG-black 31.107438016528924
+DEBUG-black 68.15702479338843
+DEBUG-black 45.30165289256198
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 22.549586776859503
+DEBUG-black 84.15702479338843
+DEBUG-black 33.400826446280995
+DEBUG-black 45.17355371900826
+DEBUG-black 21.91322314049587
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02578740>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd028476d0 at 1dd02578840>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd0284a3a0 at 1dd025787c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd0284a3a0 at 1dd025787c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578ec0>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd0284a3a0 at 1dd02578fc0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd0284a3a0 at 1dd02578ec0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a3a0 at 1dd02578e40>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578f40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02578fc0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a3a0 at 1dd025787c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd0284a5e0 at 1dd025787c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd0284a5e0 at 1dd025787c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578f40>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd0284a5e0 at 1dd02579040>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd0284a5e0 at 1dd02578f40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a5e0 at 1dd025789c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578e40>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02579040>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a5e0 at 1dd025787c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd0284a3a0 at 1dd02578ec0>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd028476d0 at 1dd025788c0>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02578740>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd0284a5e0 at 1dd02578f40>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578fc0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578fc0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025790c0>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd025791c0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025790c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025789c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579140>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025791c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578fc0>
+DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025790c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-white 126.98347107438016
+DEBUG-empty
+DEBUG-white 142.5082644628099
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 190.90495867768595
+DEBUG-white 126.38842975206612
+DEBUG-empty
+DEBUG-white 166.9297520661157
+DEBUG-white 136.0909090909091
+DEBUG-white 169.73140495867767
+DEBUG-white 149.21487603305786
+DEBUG-white 159.65289256198346
+DEBUG-white 154.3388429752066
+DEBUG-white 179.77685950413223
+DEBUG-white 125.51239669421487
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 140.5785123966942
+DEBUG-white 161.99586776859505
+DEBUG-empty
+DEBUG-white 162.34710743801654
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.67768595041323
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 74.10330578512396
+DEBUG-black 34.99173553719008
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 60.603305785123965
+DEBUG-empty
+DEBUG-black 36.892561983471076
+DEBUG-empty
+DEBUG-black 91.7603305785124
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 35.87190082644628
+DEBUG-empty
+DEBUG-black 67.13223140495867
+DEBUG-empty
+DEBUG-black 111.04132231404958
+DEBUG-black 31.070247933884296
+DEBUG-black 67.93388429752066
+DEBUG-black 44.260330578512395
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 22.10330578512397
+DEBUG-black 84.17768595041322
+DEBUG-black 33.082644628099175
+DEBUG-black 44.917355371900825
+DEBUG-black 22.049586776859503
+DEBUG-white 127.0909090909091
+DEBUG-empty
+DEBUG-white 140.96280991735537
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.38842975206612
+DEBUG-white 119.79338842975207
+DEBUG-empty
+DEBUG-white 167.1404958677686
+DEBUG-white 136.0909090909091
+DEBUG-white 168.099173553719
+DEBUG-white 150.15702479338842
+DEBUG-white 159.02892561983472
+DEBUG-white 154.51239669421489
+DEBUG-white 179.79338842975207
+DEBUG-white 125.15289256198348
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.6900826446281
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 162.4917355371901
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 159.20247933884298
+DEBUG-empty
+DEBUG-white 169.4917355371901
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 74.0702479338843
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 60.04132231404959
+DEBUG-empty
+DEBUG-black 39.97107438016529
+DEBUG-empty
+DEBUG-black 91.2603305785124
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 35.99586776859504
+DEBUG-empty
+DEBUG-black 66.79752066115702
+DEBUG-empty
+DEBUG-black 110.22727272727273
+DEBUG-black 30.75619834710744
+DEBUG-black 67.87190082644628
+DEBUG-black 44.85123966942149
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 21.917355371900825
+DEBUG-black 83.64876033057851
+DEBUG-black 32.892561983471076
+DEBUG-black 44.603305785123965
+DEBUG-black 22.020661157024794
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd0284c610 at 1dd02579040>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849bc0 at 1dd025787c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849bc0 at 1dd025787c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02578e40>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849bc0 at 1dd025789c0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849bc0 at 1dd02578e40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849bc0 at 1dd02578cc0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579140>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025789c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849bc0 at 1dd025787c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849c50 at 1dd025787c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849c50 at 1dd025787c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02579140>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849c50 at 1dd02579240>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849c50 at 1dd02579140>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849c50 at 1dd025791c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02578cc0>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02579240>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849c50 at 1dd025787c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849bc0 at 1dd02578e40>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd0284c610 at 1dd025784c0>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849c50 at 1dd02579140>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025789c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025789c0>)
+DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
+DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025792c0>
+DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd025793c0>
+DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
+DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025792c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025791c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579340>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025793c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025789c0>
+DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025792c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-white 128.1694214876033
+DEBUG-empty
+DEBUG-white 141.04132231404958
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.42561983471074
+DEBUG-white 120.76859504132231
+DEBUG-empty
+DEBUG-white 167.12396694214877
+DEBUG-white 137.02479338842974
+DEBUG-white 169.1900826446281
+DEBUG-white 150.099173553719
+DEBUG-empty
+DEBUG-white 156.17355371900825
+DEBUG-white 180.01652892561984
+DEBUG-white 125.3801652892562
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 140.0
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 162.8801652892562
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 168.43801652892563
+DEBUG-empty
+DEBUG-white 169.80165289256198
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 84.28512396694215
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 60.888429752066116
+DEBUG-empty
+DEBUG-black 39.83884297520661
+DEBUG-empty
+DEBUG-black 93.18181818181819
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.34297520661157
+DEBUG-empty
+DEBUG-black 67.19834710743801
+DEBUG-empty
+DEBUG-black 111.32644628099173
+DEBUG-black 31.024793388429753
+DEBUG-black 67.83471074380165
+DEBUG-black 45.12396694214876
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 22.272727272727273
+DEBUG-black 84.32231404958678
+DEBUG-black 33.52892561983471
+DEBUG-black 45.078512396694215
+DEBUG-black 22.34297520661157
+DEBUG-white 127.5909090909091
+DEBUG-empty
+DEBUG-white 142.36776859504133
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.6818181818182
+DEBUG-white 121.54132231404958
+DEBUG-empty
+DEBUG-white 167.04545454545453
+DEBUG-white 136.35537190082644
+DEBUG-white 170.80578512396696
+DEBUG-white 145.88429752066116
+DEBUG-empty
+DEBUG-white 156.55371900826447
+DEBUG-white 180.22314049586777
+DEBUG-white 125.5909090909091
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 142.5206611570248
+DEBUG-white 159.25619834710744
+DEBUG-empty
+DEBUG-white 163.72727272727272
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 169.77685950413223
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.731404958677686
+DEBUG-empty
+DEBUG-black 40.93388429752066
+DEBUG-empty
+DEBUG-black 93.66528925619835
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.51652892561984
+DEBUG-empty
+DEBUG-black 68.47933884297521
+DEBUG-empty
+DEBUG-black 112.47107438016529
+DEBUG-black 31.318181818181817
+DEBUG-black 68.73140495867769
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 65.12396694214875
+DEBUG-black 22.772727272727273
+DEBUG-black 85.06611570247934
+DEBUG-black 33.85950413223141
+DEBUG-black 45.578512396694215
+DEBUG-black 22.202479338842974
+DEBUG-white 127.42148760330579
+DEBUG-empty
+DEBUG-white 141.85537190082644
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 192.4504132231405
+DEBUG-white 121.45454545454545
+DEBUG-empty
+DEBUG-white 167.77272727272728
+DEBUG-white 136.87190082644628
+DEBUG-white 170.86776859504133
+DEBUG-white 145.17355371900825
+DEBUG-empty
+DEBUG-white 155.91322314049586
+DEBUG-white 181.12809917355372
+DEBUG-white 125.62809917355372
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.6487603305785
+DEBUG-white 159.5206611570248
+DEBUG-empty
+DEBUG-white 163.6611570247934
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 168.9090909090909
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 62.0
+DEBUG-empty
+DEBUG-black 40.78099173553719
+DEBUG-empty
+DEBUG-black 93.5702479338843
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.8801652892562
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 112.44628099173553
+DEBUG-black 31.96694214876033
+DEBUG-black 68.83884297520662
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 64.45867768595042
+DEBUG-black 24.483471074380166
+DEBUG-black 84.60330578512396
+DEBUG-black 33.97107438016529
+DEBUG-black 45.32644628099174
+DEBUG-black 22.545454545454547
+DEBUG-white 126.97933884297521
+DEBUG-empty
+DEBUG-white 142.0
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 192.32231404958677
+DEBUG-white 121.08264462809917
+DEBUG-empty
+DEBUG-white 166.76859504132233
+DEBUG-white 136.3181818181818
+DEBUG-white 169.91735537190084
+DEBUG-white 150.10743801652893
+DEBUG-empty
+DEBUG-white 155.97107438016528
+DEBUG-white 180.34297520661158
+DEBUG-white 125.96280991735537
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 142.45867768595042
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 163.68595041322314
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 28.545454545454547
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 179.27685950413223
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 168.89669421487602
+DEBUG-white 102.07438016528926
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.70247933884298
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 93.80165289256199
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 37.53719008264463
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 112.08264462809917
+DEBUG-black 31.367768595041323
+DEBUG-black 69.01652892561984
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 64.72314049586777
+DEBUG-black 24.84710743801653
+DEBUG-black 84.78099173553719
+DEBUG-black 34.086776859504134
+DEBUG-black 45.14876033057851
+DEBUG-black 22.371900826446282
+DEBUG-white 127.14462809917356
+DEBUG-empty
+DEBUG-white 141.21074380165288
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.15702479338842
+DEBUG-white 120.51652892561984
+DEBUG-empty
+DEBUG-white 166.44628099173553
+DEBUG-white 137.0702479338843
+DEBUG-white 169.60743801652893
+DEBUG-white 150.43388429752065
+DEBUG-empty
+DEBUG-white 155.71487603305786
 DEBUG-white 180.3099173553719
-DEBUG-1 4  meansRGBo: 213.37190082644628 182.21900826446281 159.10743801652893
-DEBUG-white 213.37190082644628
-DEBUG-1 5  meansRGBe: 188.28099173553719 178.40495867768595 143.91735537190084
-DEBUG-white 188.28099173553719
-DEBUG-1 6  meansRGBo: 220.89669421487602 191.06198347107437 167.89256198347107
-DEBUG-white 220.89669421487602
-DEBUG-1 7  meansRGBe: 174.78099173553719 172.48760330578511 141.38429752066116
-DEBUG-white 174.78099173553719
-DEBUG-2 0  meansRGBe: 120.56611570247934 126.69834710743801 92.52479338842976
+DEBUG-white 125.37190082644628
 DEBUG-empty
-DEBUG-2 1  meansRGBo: 245.99586776859505 182.6198347107438 186.61570247933884
 DEBUG-empty
-DEBUG-2 2  meansRGBe: 153.9504132231405 158.93801652892563 129.86776859504133
+DEBUG-white 142.36363636363637
 DEBUG-empty
-DEBUG-2 3  meansRGBo: 252.90495867768595 207.12809917355372 205.75619834710744
 DEBUG-empty
-DEBUG-2 4  meansRGBe: 162.38842975206612 167.29338842975207 139.5702479338843
+DEBUG-white 162.5702479338843
 DEBUG-empty
-DEBUG-2 5  meansRGBo: 252.94214876033058 200.63223140495867 203.80165289256198
 DEBUG-empty
-DEBUG-2 6  meansRGBe: 141.53719008264463 149.77272727272728 125.39256198347107
 DEBUG-empty
-DEBUG-2 7  meansRGBo: 227.96694214876032 176.7603305785124 183.9917355371901
+DEBUG-black 28.830578512396695
 DEBUG-empty
-DEBUG-3 0  meansRGBo: 213.8305785123967 158.35537190082644 164.12809917355372
 DEBUG-empty
-DEBUG-3 1  meansRGBe: 131.23553719008265 137.1611570247934 109.0495867768595
 DEBUG-empty
-DEBUG-3 2  meansRGBo: 248.42561983471074 184.4090909090909 190.7603305785124
+DEBUG-white 156.70247933884298
 DEBUG-empty
-DEBUG-3 3  meansRGBe: 151.01239669421489 154.78925619834712 128.2603305785124
 DEBUG-empty
-DEBUG-3 4  meansRGBo: 253.1611570247934 194.5 199.55371900826447
 DEBUG-empty
-DEBUG-3 5  meansRGBe: 147.1611570247934 151.35537190082644 128.48760330578511
 DEBUG-empty
-DEBUG-3 6  meansRGBo: 237.37190082644628 180.83471074380165 191.20247933884298
 DEBUG-empty
-DEBUG-3 7  meansRGBe: 122.24793388429752 133.5702479338843 108.03305785123968
+DEBUG-white 169.09504132231405
 DEBUG-empty
-DEBUG-4 0  meansRGBe: 105.64876033057851 114.01239669421487 82.54132231404958
 DEBUG-empty
-DEBUG-4 1  meansRGBo: 222.25619834710744 163.58264462809916 168.76859504132233
 DEBUG-empty
-DEBUG-4 2  meansRGBe: 132.60743801652893 137.80578512396696 108.30578512396694
 DEBUG-empty
-DEBUG-4 3  meansRGBo: 244.3099173553719 181.43388429752065 187.27272727272728
+DEBUG-black 61.56611570247934
 DEBUG-empty
-DEBUG-4 4  meansRGBe: 143.86363636363637 147.8305785123967 122.70247933884298
 DEBUG-empty
-DEBUG-4 5  meansRGBo: 240.5702479338843 181.00413223140495 189.56611570247935
 DEBUG-empty
-DEBUG-4 6  meansRGBe: 130.0785123966942 138.88429752066116 114.42148760330579
+DEBUG-black 93.77685950413223
+DEBUG-black 45.95454545454545
 DEBUG-empty
-DEBUG-4 7  meansRGBo: 211.1487603305785 162.88429752066116 172.46694214876032
 DEBUG-empty
-DEBUG-5 0  meansRGBo: 196.7479338842975 146.3181818181818 151.11570247933884
 DEBUG-empty
-DEBUG-5 1  meansRGBe: 115.40495867768595 122.0 90.06198347107438
+DEBUG-black 37.429752066115704
 DEBUG-empty
-DEBUG-5 2  meansRGBo: 224.39256198347107 168.3099173553719 170.88842975206612
 DEBUG-empty
-DEBUG-5 3  meansRGBe: 135.29752066115702 141.07438016528926 111.07438016528926
 DEBUG-empty
-DEBUG-5 4  meansRGBo: 235.7603305785124 178.68595041322314 183.34297520661158
+DEBUG-black 109.30578512396694
+DEBUG-black 31.93801652892562
+DEBUG-black 68.84710743801652
 DEBUG-empty
-DEBUG-5 5  meansRGBe: 136.0909090909091 141.3801652892562 115.66115702479338
 DEBUG-empty
-DEBUG-5 6  meansRGBo: 218.26859504132233 168.5206611570248 176.15289256198346
+DEBUG-black 64.6694214876033
+DEBUG-black 24.454545454545453
+DEBUG-black 84.59504132231405
+DEBUG-black 33.85123966942149
 DEBUG-empty
-DEBUG-5 7  meansRGBe: 111.85537190082644 124.85123966942149 99.19421487603306
+DEBUG-black 23.037190082644628
+DEBUG-white 127.6694214876033
 DEBUG-empty
-DEBUG-6 0  meansRGBe: 38.59504132231405 42.16528925619835 36.256198347107436
-DEBUG-black 38.59504132231405
-DEBUG-6 1  meansRGBo: 95.30165289256199 76.33884297520662 77.43388429752066
-DEBUG-black 95.30165289256199
-DEBUG-6 2  meansRGBe: 55.04545454545455 58.03305785123967 48.425619834710744
-DEBUG-black 55.04545454545455
-DEBUG-6 3  meansRGBo: 108.77272727272727 87.19834710743801 89.00826446280992
-DEBUG-black 108.77272727272727
-DEBUG-6 4  meansRGBe: 64.80578512396694 67.65702479338843 58.22314049586777
-DEBUG-black 64.80578512396694
-DEBUG-6 5  meansRGBo: 110.90082644628099 89.28099173553719 91.51652892561984
-DEBUG-black 110.90082644628099
-DEBUG-6 6  meansRGBe: 61.84297520661157 66.58264462809917 57.611570247933884
-DEBUG-black 61.84297520661157
-DEBUG-6 7  meansRGBo: 81.33884297520662 68.33471074380165 72.02066115702479
-DEBUG-black 81.33884297520662
-DEBUG-7 0  meansRGBo: 75.06198347107438 57.93801652892562 54.97933884297521
-DEBUG-black 75.06198347107438
-DEBUG-7 1  meansRGBe: 42.764462809917354 44.85537190082645 35.20661157024794
-DEBUG-black 42.764462809917354
-DEBUG-7 2  meansRGBo: 83.8099173553719 66.92561983471074 64.66115702479338
-DEBUG-black 83.8099173553719
-DEBUG-7 3  meansRGBe: 45.59504132231405 47.85950413223141 38.88429752066116
-DEBUG-black 45.59504132231405
-DEBUG-7 4  meansRGBo: 69.89669421487604 57.97933884297521 57.256198347107436
-DEBUG-black 69.89669421487604
-DEBUG-7 5  meansRGBe: 40.768595041322314 43.099173553719005 39.8099173553719
-DEBUG-black 40.768595041322314
-DEBUG-7 6  meansRGBo: 49.239669421487605 44.235537190082646 46.05785123966942
-DEBUG-black 49.239669421487605
-DEBUG-7 7  meansRGBe: 34.14049586776859 37.34710743801653 33.02066115702479
-DEBUG-black 34.14049586776859
-DEBUG-white 157.53305785123968
-DEBUG-white 185.28512396694214
-DEBUG-white 170.59504132231405
-DEBUG-white 193.56198347107437
-DEBUG-white 177.4214876033058
-DEBUG-white 204.39669421487602
-DEBUG-white 158.04132231404958
-DEBUG-white 199.71074380165288
-DEBUG-white 204.96280991735537
-DEBUG-white 163.71074380165288
-DEBUG-white 211.15702479338842
-DEBUG-white 180.00413223140495
-DEBUG-white 212.85537190082644
+DEBUG-white 141.4504132231405
 DEBUG-empty
-DEBUG-white 221.10330578512398
-DEBUG-white 171.86363636363637
 DEBUG-empty
+DEBUG-white 191.71074380165288
+DEBUG-white 120.80578512396694
 DEBUG-empty
+DEBUG-white 166.86776859504133
+DEBUG-white 135.900826446281
+DEBUG-white 169.57438016528926
+DEBUG-white 151.26859504132233
 DEBUG-empty
+DEBUG-white 156.58264462809916
+DEBUG-white 180.78925619834712
+DEBUG-white 126.42561983471074
 DEBUG-empty
 DEBUG-empty
-DEBUG-white 216.6694214876033
+DEBUG-white 141.21900826446281
 DEBUG-empty
+DEBUG-white 145.07438016528926
+DEBUG-white 162.6198347107438
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
+DEBUG-black 28.39669421487603
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
@@ -426,364 +2076,340 @@ DEBUG-empty
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
+DEBUG-white 169.05371900826447
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
+DEBUG-black 61.63636363636363
 DEBUG-empty
 DEBUG-empty
+DEBUG-black 30.136363636363637
+DEBUG-black 92.98347107438016
+DEBUG-black 45.96694214876033
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
+DEBUG-black 37.04132231404959
 DEBUG-empty
 DEBUG-empty
 DEBUG-empty
+DEBUG-black 109.42561983471074
+DEBUG-black 31.876033057851238
+DEBUG-black 68.7892561983471
 DEBUG-empty
-DEBUG-black 34.19421487603306
-DEBUG-black 90.42561983471074
-DEBUG-black 50.35537190082645
-DEBUG-black 104.44628099173553
-DEBUG-black 61.103305785123965
-DEBUG-black 107.7107438016529
-DEBUG-black 59.929752066115704
-DEBUG-black 77.60330578512396
-DEBUG-black 72.39256198347107
-DEBUG-black 40.52892561983471
-DEBUG-black 80.9090909090909
-DEBUG-black 41.764462809917354
-DEBUG-black 67.39669421487604
-DEBUG-black 36.103305785123965
-DEBUG-black 46.09504132231405
-DEBUG-black 31.830578512396695
-DEBUG-white 158.23140495867767
-DEBUG-white 184.86363636363637
-DEBUG-white 170.8512396694215
-DEBUG-white 193.28925619834712
-DEBUG-white 177.3595041322314
-DEBUG-white 203.7396694214876
-DEBUG-white 158.89669421487602
-DEBUG-white 199.46280991735537
-DEBUG-white 204.9297520661157
-DEBUG-white 162.86363636363637
-DEBUG-white 211.10330578512398
-DEBUG-white 180.02479338842974
-DEBUG-white 212.5206611570248
 DEBUG-empty
+DEBUG-black 65.0
+DEBUG-black 24.43388429752066
+DEBUG-black 84.61157024793388
 DEBUG-empty
-DEBUG-white 172.66528925619835
 DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-white 217.38842975206612
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-white 213.06611570247935
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-black 66.92561983471074
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-empty
-DEBUG-black 33.731404958677686
-DEBUG-black 90.03719008264463
-DEBUG-black 50.37603305785124
-DEBUG-black 105.33471074380165
-DEBUG-empty
-DEBUG-black 107.77272727272727
-DEBUG-black 60.0
-DEBUG-black 77.76446280991736
-DEBUG-black 72.20247933884298
-DEBUG-black 40.66115702479339
-DEBUG-black 80.75619834710744
-DEBUG-black 42.19421487603306
-DEBUG-black 71.83471074380165
-DEBUG-black 37.54132231404959
-DEBUG-black 46.396694214876035
-DEBUG-black 31.74793388429752
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1a511240d10 at 1a50fcd7ac0>)
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d7710 at 1a50fe28240>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d9b70 at 1a50fe28540>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d9b70 at 1a50fe28540>)
+DEBUG-black 23.276859504132233
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd03931620 at 1dd025793c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849740 at 1dd02578cc0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849740 at 1dd02578cc0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe283c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025794c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d9b70 at 1a50fe28640>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849740 at 1dd025795c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d9b70 at 1a50fe283c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9b70 at 1a50fe284c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe285c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe28640>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9b70 at 1a50fe28540>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100da500 at 1a50fe28540>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100da500 at 1a50fe28540>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849740 at 1dd025794c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849740 at 1dd02579440>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579540>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025795c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849740 at 1dd02578cc0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd0284a160 at 1dd02578cc0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd0284a160 at 1dd02578cc0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe285c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02579540>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100da500 at 1a50fe286c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd0284a160 at 1dd02579640>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100da500 at 1a50fe285c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da500 at 1a50fe282c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe284c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe286c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da500 at 1a50fe28540>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d9b70 at 1a50fe283c0>
-DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1a5100d7710 at 1a50fe28440>
-DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1a511240d10 at 1a50fcd7ac0>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100da500 at 1a50fe285c0>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28640>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28640>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd0284a160 at 1dd02579540>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a160 at 1dd025791c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579440>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02579640>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd0284a160 at 1dd02578cc0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849740 at 1dd025794c0>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd03931620 at 1dd02578540>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd0284a160 at 1dd02579540>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025795c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025795c0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe28740>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025796c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d6850 at 1a50fe28840>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd025797c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe28740>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe282c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe287c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe28840>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28640>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025796c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025791c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579740>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025797c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd025795c0>
 DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe28740>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025796c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1a511240d10 at 1a50fcd7ac0>)
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a511242440 at 1a50fe28440>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d9ed0 at 1a50fe283c0>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d9ed0 at 1a50fe283c0>)
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-white 126.85123966942149
+DEBUG-empty
+DEBUG-white 134.84710743801654
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 191.22314049586777
+DEBUG-white 121.0909090909091
+DEBUG-empty
+DEBUG-white 166.51652892561984
+DEBUG-white 135.00413223140495
+DEBUG-black 44.01652892561984
+DEBUG-white 148.1694214876033
+DEBUG-white 152.48347107438016
+DEBUG-white 154.6404958677686
+DEBUG-white 180.4297520661157
+DEBUG-white 125.12809917355372
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 141.03719008264463
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 162.84297520661158
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-white 168.1900826446281
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 61.739669421487605
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 30.041322314049587
+DEBUG-black 93.02892561983471
+DEBUG-black 45.61570247933884
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 36.925619834710744
+DEBUG-empty
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 108.90495867768595
+DEBUG-black 32.02479338842975
+DEBUG-black 68.50826446280992
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 64.94214876033058
+DEBUG-black 24.123966942148762
+DEBUG-black 84.62809917355372
+DEBUG-empty
+DEBUG-empty
+DEBUG-black 22.91322314049587
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd03930430 at 1dd025794c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849aa0 at 1dd025796c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849aa0 at 1dd025796c0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe28540>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025797c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d9ed0 at 1a50fe28840>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849aa0 at 1dd02579440>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d9ed0 at 1a50fe28540>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9ed0 at 1a50fe286c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe28640>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe28840>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d9ed0 at 1a50fe283c0>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100da2c0 at 1a50fe283c0>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100da2c0 at 1a50fe283c0>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849aa0 at 1dd025797c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849aa0 at 1dd025795c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579340>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02579440>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849aa0 at 1dd025796c0>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02849740 at 1dd025796c0>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02849740 at 1dd025796c0>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe28640>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd02579340>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100da2c0 at 1a50fe280c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02849740 at 1dd02579740>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100da2c0 at 1a50fe28640>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da2c0 at 1a50fe28740>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe286c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe280c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100da2c0 at 1a50fe283c0>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d9ed0 at 1a50fe28540>
-DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1a511242440 at 1a50fe285c0>
-DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1a511240d10 at 1a50fcd7ac0>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100da2c0 at 1a50fe28640>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28840>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28840>)
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02849740 at 1dd02579340>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849740 at 1dd02578cc0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd025795c0>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd02579740>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02849740 at 1dd025796c0>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849aa0 at 1dd025797c0>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1dd03930430 at 1dd02579540>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1dd02849490 at 1dd02427940>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02849740 at 1dd02579340>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02579440>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02579440>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a57f1d1090 at 1a50fe284c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd72f02cb0 at 1dd025791c0>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x1a5100d6850 at 1a50fe282c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1dd02846810 at 1dd025798c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe284c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28740>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x1a57f1d1090 at 1a50fe287c0>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x1a57f2ade00 at 1a50fe282c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x1a5100d6850 at 1a50fe28840>
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025791c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02578cc0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1dd72f02cb0 at 1dd02579840>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1dd732a8a90 at 1dd025798c0>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1dd02846810 at 1dd02579440>
 DEBUG-unimplemented method _ISpeechVoiceEvents_VoiceChange called
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1a5100d6850 at 1a50fe284c0>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1dd02846810 at 1dd025791c0>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Sentence called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Word called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
 DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Phoneme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-unimplemented method _ISpeechVoiceEvents_Viseme called
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.AddRef() -> 2
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001A50FDDC1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.AddRef() -> 2
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001DD0252C1C0>.Release() -> 1
