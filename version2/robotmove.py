@@ -43,7 +43,7 @@ if CBstate.SCARA:
     closeamount = 15 #degrees
     #shank1 = 140
     shank1 = 153.0
-    shank2 = 158.0    # includes gripper offset
+    shank2 = 161.0    # includes gripper offset
     totalarmlength = shank1 + shank2   # when straight
     elbow = 0
     oldelbow = 0
