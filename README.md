@@ -16,7 +16,7 @@ The camera should be positioned directly over the centre of the chess board and 
 
 The calibration is remembered even if all systems are shut down, so if the robot, board and camera have not been moved, recalibration can optionally be avoided when a new game is started
 
-The camera should be at least 56 cm above the board. Square size 3.5 cm. Tallest piece: 5.3 cm. The image of a piece should not fall across an adjacent square.
+The camera should be at least 56 cm above the board. Square size 3.4 cm. Tallest piece: 5.5 cm. The image of a piece should not fall across an adjacent square.
 
 Calibrating the Cartesian robot arm: The lower strut must be vertical and the upper strut horizontal and coming out straight over the board.
 
