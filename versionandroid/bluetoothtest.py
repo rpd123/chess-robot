@@ -9,15 +9,15 @@ pairing is done, you'll be able to use it in the app.
 '''
 from jnius import autoclass
 import time
-msgcount = 0
+bmsgcount = 0
 
 BluetoothAdapter = autoclass('android.bluetooth.BluetoothAdapter')
 BluetoothDevice = autoclass('android.bluetooth.BluetoothDevice')
 BluetoothSocket = autoclass('android.bluetooth.BluetoothSocket')
 
-def receivemsg(recv_stream):
-    global msgcount
-    msgcount += 1
+def breceivemsg(recv_stream):
+    global bmsgcount
+    bmsgcount += 1
 
     while recv_stream.ready != None:
         try:

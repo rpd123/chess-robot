@@ -8,7 +8,7 @@ import CBstate
 mydir = CBstate.mydir
 import inversekinematics
 import sys
-if not androidos:
+if not CBstate.androidos:
     import pyttsx3
     engine = pyttsx3.init()
     engine.setProperty('rate', 125) # Decrease the Speed Rate
@@ -17,7 +17,7 @@ import time     # import the time library for the sleep function
 from math import sin, cos, atan2, sqrt, atan
 
 import serial
-
+import bluetoothrpd
 axistorow8 = 96  # mm
 servoonleft = True
 #squaresize = 31    # mm
@@ -119,9 +119,13 @@ def waiter(dur):
 def receivemsg(sp):
     global msgcount
     msgcount += 1
-    #line=sp.readline().decode('utf-8').rstrip()
-    line=sp.read_until().decode('utf-8').rstrip()
-    sp.flush()
+    
+    if CBstate.bluetooth:
+        breceivemsg(sp)
+    else:    
+        #line=sp.readline().decode('utf-8').rstrip()
+        line=sp.read_until().decode('utf-8').rstrip()
+        sp.flush()
     print(msgcount, line)
     
 def scaraviastraight(xmm, adjymmint, zmm):
@@ -143,7 +147,7 @@ def scaraviastraight(xmm, adjymmint, zmm):
         #intermediate move to straight out
         gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(zmm) + "\r"
         print (gstring)
-        sp.write(gstring.encode())
+        send_stream.write(gstring.encode())
         receivemsg(sp)
         #input("press enter")
 
@@ -173,7 +177,7 @@ def movearmcoord (xmm, ymm, zmm):  # zmm is height
     #input("Check G-codes then press enter") ###
     sp.flush()
     sp.reset_input_buffer()
-    sp.write(gstring.encode())
+    send_stream.write(gstring.encode())
     receivemsg(sp)
     #receivemsg(sp) ####
     #input("press enter")
@@ -188,7 +192,7 @@ def opengripper(amount):
         mycode = "M5 T" + str(adjamount) + "\r"
     print ("Open gripper")
     sp.flush()
-    sp.write(mycode.encode())
+    send_stream.write(mycode.encode())
     receivemsg(sp)
     waiter(0.5)
 
@@ -202,13 +206,13 @@ def closegripper(amount, piecetype):
         mycode = "M3 T" + str(adjamount) + "\r"
     print ("Close gripper")
     sp.flush()
-    sp.write(mycode.encode())
+    send_stream.write(mycode.encode())
     receivemsg(sp)
     waiter(0.5)
 
 def speaker(text):
     if True:
-        if androidos:
+        if CBstate.androidos:
             return()
         engine.setProperty('voice', 'english_rp+f3')
         engine.say(text)
@@ -228,14 +232,16 @@ def quitter():
             gohome()
         print ("reset all steppers")
         sp.flush()
-        sp.write(("M18" + "\r").encode())
+        send_stream.write(("M18" + "\r").encode())
         receivemsg(sp)
         sp.close()               
         time.sleep(2)
         print ("Game ends")
-        speaker ("Game ends. Thankyou for playing.") 
-    engine.stop()
-    sys.exit()
+        speaker ("Game ends. Thankyou for playing.")
+    if not CBstate.kivy:
+        engine.stop()
+        sys.exit()
+    return
     #quit()
 
 def pickuppiece(xmm, ymm, piecetype):
@@ -379,7 +385,7 @@ def gohome():
         #input("Check G-codes then press enter") ###
         sp.flush()
         #sp.reset_input_buffer()
-        sp.write(gstring.encode())
+        send_stream.write(gstring.encode())
         receivemsg(sp)
         time.sleep(0.2)
         receivemsg(sp)
@@ -388,7 +394,7 @@ def gohome():
 
 def initsteppers():
     time.sleep(0.2)
-    sp.write(("G28" + "\r").encode())   # steppers off, initialize
+    send_stream.write(("G28" + "\r").encode())   # steppers off, initialize
     time.sleep(0.2)
     receivemsg(sp)
     time.sleep(0.2)
@@ -396,20 +402,26 @@ def initsteppers():
     
 def steppers_on():
     input("Press Enter to switch on steppers and start game")
-    sp.write(("M17" + "\r").encode())   # Switch on steppers
+    send_stream.write(("M17" + "\r").encode())   # Switch on steppers
     time.sleep(0.2)
     receivemsg(sp)
     time.sleep(0.2)
     receivemsg(sp)
 def init():
     global sp
-    try:
-        sp = serial.Serial(CBstate.serialport, 9600, timeout=2.0)
-        sp.reset_input_buffer()                
-    except serial.SerialException as e:
-        print("No serial port")
-        print (e)
-        quitter()
+    if CBstate.bluetooth:
+        sp, send_stream = get_socket_stream('HC-05')
+    else:
+        try:
+            sp = serial.Serial(CBstate.serialport, 9600, timeout=2.0)
+            send_stream = sp
+            sp.reset_input_buffer()                
+        except serial.SerialException as e:
+            print("No serial port")
+            print (e)
+            #sp.close        
+            quitter()
+            return False
     time.sleep(0.2)
     
     try:
@@ -425,7 +437,7 @@ def init():
             if CBstate.SCARA:
                 gohome()   # raises arm
                 gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(gripperfloatheight) + "\r"
-                sp.write(gstring.encode())
+                send_stream.write(gstring.encode())
                 receivemsg(sp)
             else:
                 movearmcoord (0, (squaresize*3.5), grippergrabheight)

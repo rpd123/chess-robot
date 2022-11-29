@@ -18,12 +18,12 @@ import numpy
 import CBstate
 mydir = CBstate.mydir
 import logging
-'''
+
 if CBstate.androidos:
     import matplotlib.pyplot as plt
     from PIL import Image
     
-def showmyimage(myimagefile, mylabel):
+def showmyimage(myimagefile, mylabel)
     if CBstate.androidos:
         img=Image.open(mydir + myimagefile)
         plt.imshow(img)
@@ -34,7 +34,7 @@ def showmyimage(myimagefile, mylabel):
         print("Press any key to continue")
         cv2.waitKey(0)
         cv2.destroyAllWindows()    
-'''
+
 firsttimeonly = 1
 firstgbp = 1
 splitwb = 112
@@ -92,7 +92,42 @@ def updateforcomputermove(board):
     print ("After computer move:")
     print (oldpieces)
     #raw_input("Now any key")
+            
+def drawredlines():
+    #im = Image.open(mydir + '4.jpg', 'r')
+    im = cv2.imread(mydir + '4.jpg')
+    #pix = im.load()
     
+    h, w, c = im.shape
+    squaresizex = float(w)/8   
+    squaresizex = int(round(squaresizex))
+    squaresizey = float(h)/8
+    squaresizey = int(round(squaresizey))
+    
+    i = 0
+    while i < w:
+        j = 0
+        while j < h:
+            im[i,j] = (0,0,255)
+            j += 1
+        i += squaresizex
+    j = 0
+    while j < h:
+        i = 0
+        while i < w:
+            im[i,j] = (0,0,255)
+            i += 1
+        j += squaresizey
+    #im.save(mydir + 'redlines.jpg')  # Save the modified pixels
+    #im = Image.open(mydir + 'redlines.jpg', 'r')
+    #im.show()   # uncomment to test
+    cv2.imwrite(mydir + "redlines.jpg", im)
+    ##cv2.imshow("Red Lines", im)
+    ##print("Press any key to continue")
+    ##cv2.waitKey(0)
+    ##cv2.destroyAllWindows()
+    showmyimage("redlines.jpg", "Red Lines")
+
 def dummymove(board):
     global firstgbp
     while True:
@@ -103,7 +138,290 @@ def dummymove(board):
         conti = input("Try again? y/n")
         if conti == "n":
             return()
+        
+def undistort():
+    img = cv2.imread(mydir + "1.jpg")
+    h,w = img.shape[:2]
+    map1, map2 = cv2.fisheye.initUndistortRectifyMap(CBstate.K, CBstate.D, numpy.eye(3), CBstate.K, CBstate.DIM, cv2.CV_16SC2)
+    undistorted_img = cv2.remap(img, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
+    cv2.imwrite(mydir + "1.jpg", undistorted_img)
+    #cv2.imshow("Undistorted", undistorted_img)
+    #cv2.waitKey(0)
+    ###cv2.destroyAllWindows()
+    
+def scalefish():
+    frame = cv2.imread(mydir + "1.jpg")
+    if CBstate.scale_percent != 100:
+        width = int(frame.shape[1] * CBstate.scale_percent / 100)
+        height = int(frame.shape[0] * CBstate.scale_percent / 100)
+        dim = (width, height)  
+        # resize image
+        frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)        
+    cv2.imwrite(mydir + "1.jpg", frame)
+    if CBstate.fisheye:
+        undistort()
+        
+def androidcam:
+    # Uncomment these lines to see all the messages
+    # from kivy.logger import Logger
+    # import logging
+    # Logger.setLevel(logging.TRACE)
+    from kivy.app import App
+    from kivy.lang import Builder
+    from kivy.uix.boxlayout import BoxLayout
+    import time
+    Builder.load_string('''
+    <CameraClick>:
+        orientation: 'vertical'
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: True
+        Button:
+            text: 'Capture'
+            size_hint_y: None
+            height: '48dp'
+            on_press: root.capture()
+    ''')
 
+
+    class CameraClick(BoxLayout):
+        def capture(self):
+            '''
+            Function to capture the images and give them the names
+            according to their captured time and date.
+            '''
+            camera = self.ids['camera']
+            timestr = time.strftime("%Y%m%d_%H%M%S")
+            camera.export_to_jpg("1.jpg")
+            print("Captured")
+
+
+    class MyCamera(App):
+
+        def build(self):
+            return CameraClick()
+    MyCamera().run()
+    
+def takepiccv2():
+    #cv2.namedWindow("preview")
+    if CBstate.androidos:
+        include camera.py        
+        scalefish(frame)
+        return()
+    try:
+        
+        elif CBstate.windowsos:
+            if CBstate.cameratype == 'usb':
+                vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_DSHOW)
+            else:
+                vc = cv2.VideoCapture(CBstate.cameraportno, cv2.CAP_FFMPEG)
+        else:
+            vc = cv2.VideoCapture(CBstate.cameraportno)
+
+        if vc.isOpened(): # try to get the first frame
+            ret, frame = vc.read()
+        else:
+            print ("Failed to access camera")
+            time.sleep(1)
+            sys.exit()
+        #cv2.imshow('preview',frame)
+        #time.sleep(3)
+        cv2.imwrite(mydir + "1.jpg", frame)
+        scalefish()
+            
+    finally:
+        vc.release()
+        cv2.destroyAllWindows()
+
+def takepic():
+    print ("Take picture ...")
+    if True:
+        takepiccv2()
+    else:   
+        os.system('fswebcam -r 640x480 -S 20 --set "Power Line Frequency"="50 Hz" --no-banner --delay 2 --set brightness=25% --jpeg 50 --save ' + mydir + '1.jpg')  
+        #os.system('fswebcam -r 640x480 -S 5 -F 5 --set "Power Line Frequency"="50 Hz" --list-controls --no-banner --delay 1 --set brightness=50% --set "Exposure, Auto"=False --set "Exposure (absolute)"=400 --jpeg 50 --save /home/pi/stepperchessrpd/images/1.jpg')
+
+def homog():
+    global pts_src
+    # read points file
+    pss = [0,0,0,0,0,0,0,0]  # declare
+    f = open(mydir + 'points.txt', 'r')
+    try:
+        pointscurr = f.readline().rstrip()
+        print(pointscurr)
+        pointscurrsplit = pointscurr.split(",")
+        # split points file
+        for i in range(8):
+            pss[i] = int(pointscurrsplit[i])             
+    finally:        
+        f.close()
+    
+    im_src = cv2.imread(mydir + "1.jpg", 1)
+    pts_src = numpy.array([[pss[0],pss[1]],[pss[2],pss[3]],[pss[4],pss[5]],[pss[6],pss[7]]])
+    # Four corners in destination image.
+    pts_dst = numpy.array([[0,0],[0,img_dimension],[img_dimension,0],[img_dimension, img_dimension]])
+
+    # Calculate Homography
+    h, status = cv2.findHomography(pts_src, pts_dst)
+
+    # Warp source image to destination based on homography
+    #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
+    im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+    if CBstate.rotation != -1:
+        im_out = cv2.rotate(im_out, CBstate.rotation)    
+    cv2.imwrite(mydir + "4.jpg", im_out)
+    image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)    
+    #cv2.imshow("Straightened Image", image)   
+    #cv2.waitKey(0)
+
+# function to display the coordinates of
+# of the points clicked on the image
+
+def click_event(event, x, y, flags, params):
+    global pointscount, pts_src, im_src, pts8
+    
+    # checking for left mouse clicks    
+    if event == cv2.EVENT_LBUTTONDOWN:                  
+        
+        # displaying the coordinates
+        # on the Shell
+        print(x, ' ', y)
+        pts_src [pointscount] = [x,y]
+        pts8[pointscount*2] = x
+        pts8[(pointscount*2)+1] = y
+        # displaying the coordinates
+        # on the image window
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(im_src, str(x) + ',' + str(y), (x,y), font, 1, (255, 0, 0), 2)
+        cv2.imshow('image', im_src)
+        pointscount += 1
+        if pointscount == 4:
+            print (pts_src)
+            # save points to file
+            f = open(mydir + 'points.txt', 'w')
+            try:
+                forjoin = ["0","0","0","0","0","0","0","0"]
+                for i in range(8):
+                    forjoin[i] = str(pts8[i])
+                    
+                joined = ",".join(forjoin)
+                f.write(joined)
+            finally:        
+                f.close()
+                print ("Press any key to continue")
+            return() 
+        else:
+            print ("Now click " + whereclick[pointscount])
+            
+def calibratecamera(board):
+    global firstgbp, im_src, pointscount, pts8
+    takepic()
+    
+    while True:
+        pointscount = 0
+        pts8 = [0,0,0,0,0,0,0,0]
+        print ("Click the four corners of the PLAYING AREA, starting with top left")
+        im_src = cv2.imread(mydir + "1.jpg", 1)
+
+        cv2.imshow('image', im_src)
+
+        # setting mouse handler for the image
+        # and calling the click_event() function
+        cv2.setMouseCallback('image', click_event)
+
+        # wait for a key to be pressed to exit
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        #cv2.waitKey(1)
+        im_src = cv2.imread(mydir + "1.jpg", 1)
+        #im_dst = cv2.imread(mydir + '4.jpg')
+        # Four corners in destination image.
+        pts_dst = numpy.array([[0,0],[0,img_dimension],[img_dimension,0],[img_dimension, img_dimension]])
+
+        # Calculate Homography
+        h, status = cv2.findHomography(pts_src, pts_dst)
+
+        # Warp source image to destination based on homography
+        #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
+        im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1))
+        if CBstate.rotation != -1:
+            im_out = cv2.rotate(im_out, CBstate.rotation)
+        cv2.imwrite(mydir + "4.jpg", im_out)
+        #print ("Press any key to continue")
+        cv2.imshow("Straightened Image", im_out)
+        print ("White should be on left of Straightened Image")
+        print ("Press any key to continue")
+        
+        #tryagain = input ("Try again (y/n)?")
+        #if tryagain =="n":
+            #break
+    print ("Finished straightening")
+        
+    #drawredlines()
+    return
+
+def newcastling(board, validkingmoves):
+    global pieces
+    print ("castling code")
+    #print (pieces)
+    print (validkingmoves)
+    if board[7][4] == "K" :
+        print ("h1")
+        for (i, j) in validkingmoves:
+            tup = (i, j)
+            print ("h2", tup)
+            if tup == (6,7):
+                print ("h3")
+                if pieces [7][4] == "e" and pieces[7][5] != "e" and pieces[7][6] != "e" and pieces [7][7] == "e" :
+                    print ("castled king side")
+                    return ("me1g1")
+            if tup == (2,7):
+                if pieces [7][0] == "e" and pieces[7][1] == "e" and pieces[7][2] != "e" and pieces [7][3] != "e" and pieces[7][4] == "e" :
+                    print ("castled queen side")
+                    return ("me1c1")
+        # code for invalid castling:
+        # on king's side, if K..R before and (6,7) not in validkingmoves and pieces ewwe then invalid castling
+        if (6,7) not in validkingmoves:
+            if board[7][4:8] == "K..R":
+                if pieces[7][4:8] == "ewwe":
+                    print ("Invalid: castled king side")
+                    return ("me1g1")
+        # on queen's side, if R...K before and (2,7) not in validkingmoves and pieces eewwe then invalid castling
+        if (2,7) not in validkingmoves:
+            if board[7][0:5] == "R...K":
+                if pieces[7][0:5] == "eewwe":
+                    print ("Invalid: castled queen side")
+                    return ("me1g1")
+        return ("")
+    
+def castling(board, validkingmoves):
+    global pieces
+    print ("castling code")
+    #print (pieces)
+    print (validkingmoves)
+    if board[7][4] == "K" :
+        print ("h1")
+        #piecesr = list(zip(*reversed(pieces)))  # rotate
+        for (i, j) in validkingmoves:
+            tup = (i, j)
+            print ("h2", tup)
+            if tup == (6,7):
+                print ("h3")
+                if pieces [7][4] == "e" and pieces[7][5] != "e" and pieces[7][6] != "e" and pieces [7][7] == "e" :
+                    print ("castled king side")
+                    return ("me1g1")
+            if tup == (2,7):
+                if pieces [7][0] == "e" and pieces[7][1] == "e" and pieces[7][2] != "e" and pieces [7][3] != "e" and pieces[7][4] == "e" :
+                    print ("castled queen side")
+                    return ("me1c1")
+        return ("")
+        
+def enpassantmove (board):
+    global pieces
+    if CBstate.cbstate == 1:    # piece available for en passant
+        a = 1
+                
 def getplayermove(board, validkingmoves):
     global pieces, oldpieces, firstgbp, splitwb, splitwbonb, splitwbonw, stdrgb
     updateforcomputermove(board)
@@ -326,103 +644,3 @@ def getplayermove(board, validkingmoves):
     sys.stdout.flush()
     return (movestr)
 
-def drawredlines():
-    #im = Image.open(mydir + '4.jpg', 'r')
-    im = cv2.imread(mydir + '4.jpg')
-    #pix = im.load()
-    
-    h, w, c = im.shape
-    squaresizex = float(w)/8   
-    squaresizex = int(round(squaresizex))
-    squaresizey = float(h)/8
-    squaresizey = int(round(squaresizey))
-    
-    i = 0
-    while i < w:
-        j = 0
-        while j < h:
-            im[i,j] = (0,0,255)
-            j += 1
-        i += squaresizex
-    j = 0
-    while j < h:
-        i = 0
-        while i < w:
-            im[i,j] = (0,0,255)
-            i += 1
-        j += squaresizey
-    #im.save(mydir + 'redlines.jpg')  # Save the modified pixels
-    #im = Image.open(mydir + 'redlines.jpg', 'r')
-    #im.show()   # uncomment to test
-    cv2.imwrite(mydir + "4.jpg", im)
-    #cv2.imshow("Red Lines", im)
-    #print("Press any key to continue")
-    #cv2.waitKey(0)
-    #cv2.destroyAllWindows()
-
-def homolog():
-    global pts_src
-    # read points file
-    pss = [0,0,0,0,0,0,0,0]  # declare
-    f = open(mydir + 'points.txt', 'r')
-    try:
-        pointscurr = f.readline().rstrip()
-        print(pointscurr)
-        pointscurrsplit = pointscurr.split(",")
-        # split points file
-        for i in range(8):
-            pss[i] = int(pointscurrsplit[i])
-            #print (pss[i])
-    finally:        
-        f.close()
-    print ("imread " + mydir + "5.jpg")
-    im_src = cv2.imread(mydir + "5.jpg", 1)
-    pts_src = numpy.float32([[pss[0],pss[1]],[pss[2],pss[3]],[pss[4],pss[5]],[pss[6],pss[7]]])
-    # Four corners in destination image.
-    pts_dst = numpy.float32([[0,0],[img_dimension,0],[0,img_dimension],[img_dimension, img_dimension]])
-    #pts_dst = numpy.float32([[0,0],[img_dimension,0],[0,img_dimension],[img_dimension, img_dimension]])
-    # Calculate Homography
-    #h, status = cv2.findHomography(pts_src, pts_dst)
-    h = cv2.getPerspectiveTransform(pts_src, pts_dst)
-    # Warp source image to destination based on homography
-    #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
-    im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1), flags=cv2.INTER_LINEAR)
-    if CBstate.rotation != -1:
-        im_out = cv2.rotate(im_out, CBstate.rotation)    
-    cv2.imwrite(mydir + "4.jpg", im_out)
-    image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)
-    drawredlines()
-def registerclicks(x,y):
-    global pointscount, pts_src, im_src, pts8
-    
-    print(x, ' ', y)
-    pts_src [pointscount] = [x,y]
-    pts8[pointscount*2] = x
-    pts8[(pointscount*2)+1] = y
-    # displaying the coordinates
-    # on the image window
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    #cv2.putText(im_src, str(x) + ',' + str(y), (x,y), font, 1, (255, 0, 0), 2)
-    #cv2.imshow('image', im_src)
-    pointscount += 1
-    if pointscount == 4:
-        print (pts_src)
-        # save points to file
-        f = open(mydir + 'points.txt', 'w')
-        try:
-            forjoin = ["0","0","0","0","0","0","0","0"]
-            for i in range(8):
-                forjoin[i] = str(pts8[i])
-                
-            joined = ",".join(forjoin)
-            f.write(joined)
-        finally:        
-            f.close()
-            print ("Press any key to continue")
-            homolog()
-            pointscount = 0
-        return "finished" 
-    else:
-        print ("Now click " + whereclick[pointscount])
-        return ""
-    

@@ -21,7 +21,7 @@ else:
     #stockfish = Stockfish(parameters=CBstate.stockfishparams)
     stockfish = Stockfish()
 mydir = CBstate.mydir
-
+toplabel = ""
 #stockfish.update_engine_parameters({"Threads": 4})   
 #stockparams = stockfish.get_parameters()
 #for key, value in stockparams.items():
@@ -46,7 +46,7 @@ Hash  :  1024
 '''
 # depth 15
 
-RD.speaker("Hello! Let's play chess!")
+#RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
 dummy = "" 
 movelist = []
@@ -95,10 +95,10 @@ def checkvarious():
         print((lastmovetype[chessboard.getLastMoveType()]))
     if chessboard.isCheck():
         print ("Check!")
-        RD.speaker("Check!")
+        #RD.speaker("Check!")
     if chessboard.isGameOver():
         print((gameresult[chessboard.getGameResult()]))
-        RD.speaker(gameresult[chessboard.getGameResult()])
+        #RD.speaker(gameresult[chessboard.getGameResult()])
         RD.quitter()
     return()
 
@@ -140,19 +140,25 @@ def sget():
 def getboard():
     """ gets a text string from the board """
     #btxt = raw_input("\nYour move: ").lower()
+    '''
     kpress = input ("Now play your move, then press enter")
     if kpress == "s":
         RD.nudgespecial()  # nudge up/down during game
         input ("Now play your move, then press enter")
-
+    '''
     validkingmoves = chessboard.getValidMoves((4,7))
     btxt = RDpm.getplayermove(chessboard.getBoard(), validkingmoves)
+    ###
+    #fmove = bmove(fmove)
+    ###
     return btxt
     
 def sendboard(stxt):
+    global toplabel
     """ sends a text string to the board """
     print ("Computer move:")
     print(("\n" +stxt))
+    toplabel = stxt
 
 def newgame():
     global movelist
@@ -216,7 +222,7 @@ def bmove(fmove):
         else:
             whiteincheck = ""
         etxt = whiteincheck + "Error: "+ reasons[(chessboard.getReason())] + " in move " + brdmove
-        RD.speaker(whiteincheck + "Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
+        #RD.speaker(whiteincheck + "Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
         chessboard.printBoard()
         sendboard(etxt)
         smove = ""
@@ -308,6 +314,14 @@ movetime = "6000"
 fmove = newgame()
 
 
+def fbmove():
+    global fmove, bmessage
+    bmessage = getboard()
+    fmove = bmove(fmove)
+    
+def robotinit():
+    RD.init()
+'''
 try:
     calcam = input("Calibrate camera? (y/n):")
     if calcam == "y":
@@ -338,4 +352,4 @@ except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the
     RD.quitter()       # Unconfigure the sensors, disable the motors, and restore the LED to the control of the BrickPi3 firmware.
 
 RD.quitter()
-
+'''

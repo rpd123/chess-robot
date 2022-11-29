@@ -25,6 +25,7 @@ class CameraClick(BoxLayout):
         
         self.camera = Camera(
             resolution = (1280,960),
+            index = 1,
             play = True
             )
         
@@ -45,12 +46,12 @@ class CameraClick(BoxLayout):
         according to their captured time and date.
         '''
         timestr = time.strftime("%Y%m%d_%H%M%S")
-        self.camera.export_to_png(mydir+"5.png")
+        self.camera.export_to_png(mydir+"7.png")
         print("Captured")
         
 
-        img = cv2.imread(mydir+'5.png')
-        cv2.imwrite(mydir+'5.jpg', img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+        img = cv2.imread(mydir+'7.png')
+        cv2.imwrite(mydir+'7.jpg', img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
         
         #self.remove_widget(self.camera)
         #self.remove_widget(btn)
