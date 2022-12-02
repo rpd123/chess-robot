@@ -1,6 +1,6 @@
 #
 #This program plays chess using Stockfish the open source chess engine, using the ChessBoard library to manage the board.
-#Credit to www.chess.fortherapy.co.uk for much of the code here
+#Credit to chess.fortherapy.co.uk for much of the code here
 
 
 # initiate chessboard
@@ -46,7 +46,7 @@ Hash  :  1024
 '''
 # depth 15
 
-#RD.speaker("Hello! Let's play chess!")
+RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
 dummy = "" 
 movelist = []
@@ -95,10 +95,10 @@ def checkvarious():
         print((lastmovetype[chessboard.getLastMoveType()]))
     if chessboard.isCheck():
         print ("Check!")
-        #RD.speaker("Check!")
+        RD.speaker("Check!")
     if chessboard.isGameOver():
         print((gameresult[chessboard.getGameResult()]))
-        #RD.speaker(gameresult[chessboard.getGameResult()])
+        RD.speaker(gameresult[chessboard.getGameResult()])
         RD.quitter()
     return()
 
@@ -148,6 +148,7 @@ def getboard():
     '''
     validkingmoves = chessboard.getValidMoves((4,7))
     btxt = RDpm.getplayermove(chessboard.getBoard(), validkingmoves)
+    print ("btxt: " + btxt)
     ###
     #fmove = bmove(fmove)
     ###
@@ -176,6 +177,7 @@ def bmove(fmove):
     fmove=fmove
     # Get a move from the board
     brdmove = bmessage[1:5].lower()
+    print ("brdmove: " + brdmove)
     #brdmove = bmessage[1:6]    # allow for O-O-O, etc
     # Code added here make computer play white by sending null message "ma9a9" to Stockfish
     if brdmove =="a9a9":
@@ -222,7 +224,7 @@ def bmove(fmove):
         else:
             whiteincheck = ""
         etxt = whiteincheck + "Error: "+ reasons[(chessboard.getReason())] + " in move " + brdmove
-        #RD.speaker(whiteincheck + "Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
+        RD.speaker(whiteincheck + "Error "+ reasons[(chessboard.getReason())] + " in move " + brdmove)
         chessboard.printBoard()
         sendboard(etxt)
         smove = ""
@@ -312,15 +314,18 @@ print ("\nChess Program \n")
 skill = "10"
 movetime = "6000"
 fmove = newgame()
-
+bmessage = ""
 
 def fbmove():
     global fmove, bmessage
     bmessage = getboard()
+    print("bmessage: " + bmessage)
+    print("fmove: " + fmove)
     fmove = bmove(fmove)
+    print("fmove: " + fmove)
     
 def robotinit():
-    RD.init()
+    return RD.init()
 '''
 try:
     calcam = input("Calibrate camera? (y/n):")

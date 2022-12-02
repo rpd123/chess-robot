@@ -3,82 +3,51 @@ INFO-Imported existing <module 'comtypes.gen' from 'C:\\Users\\Richard\\AppData\
 INFO-Using writeable comtypes cache directory: 'C:\Users\Richard\AppData\Local\Programs\Python\Python310\lib\site-packages\comtypes\gen'
 DEBUG-SAPI.SPVoice -> {96749377-3391-11D2-9EE3-00C04F797396}
 DEBUG-CoCreateInstance({96749377-3391-11D2-9EE3-00C04F797396}, clsctx=None, interface=None)
-DEBUG-GetBestInterface(<POINTER(IUnknown) ptr=0x221cf2368f0 at 221cedb26c0>)
+DEBUG-GetBestInterface(<POINTER(IUnknown) ptr=0x1ae45ad68f0 at 1ae456e4140>)
 DEBUG-Does implement IProvideClassInfo
 DEBUG-Default interface is {269316D8-57BD-11D2-9EEE-00C04F797396}
-DEBUG-Release <POINTER(IUnknown) ptr=0x221cf236930 at 221cedb2c40>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1ae45ad6930 at 1ae456e46c0>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechVoice'>
-DEBUG-Final result is <POINTER(ISpeechVoice) ptr=0x221cf236930 at 221cedb2bc0>
-DEBUG-Release <POINTER(IProvideClassInfo) ptr=0x221cf236950 at 221cedb28c0>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x221bfa94af8 at 221cedb2940>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x221bfa94b50 at 221cedb2a40>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x221bf9fcdf0 at 221cedb2c40>
-DEBUG-Release <POINTER(IUnknown) ptr=0x221cf2368f0 at 221cedb26c0>
-DEBUG-<POINTER(ISpeechVoice) ptr=0x221cf236930 at 221cedb2bc0> using sinkinterface from clsid <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
-DEBUG-Release <POINTER(IProvideClassInfo2) ptr=0x221cf236950 at 221cedb26c0>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.VoiceChange not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.Bookmark not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.Word not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.Sentence not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.Phoneme not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.Viseme not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.AudioLevel not implemented
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>: _ISpeechVoiceEvents.EnginePrivate not implemented
+DEBUG-Final result is <POINTER(ISpeechVoice) ptr=0x1ae45ad6930 at 1ae456e4640>
+DEBUG-Release <POINTER(IProvideClassInfo) ptr=0x1ae45ad6950 at 1ae456e4340>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1ae35f8c528 at 1ae456e43c0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1ae35f8c580 at 1ae456e44c0>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1ae36190a50 at 1ae456e46c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1ae45ad68f0 at 1ae456e4140>
+DEBUG-<POINTER(ISpeechVoice) ptr=0x1ae45ad6930 at 1ae456e4640> using sinkinterface from clsid <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
+DEBUG-Release <POINTER(IProvideClassInfo2) ptr=0x1ae45ad6950 at 1ae456e4140>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.VoiceChange not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.Bookmark not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.Word not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.Sentence not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.Phoneme not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.Viseme not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.AudioLevel not implemented
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>: _ISpeechVoiceEvents.EnginePrivate not implemented
 DEBUG-Start advise <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4._ISpeechVoiceEvents'>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>.QueryInterface({A372ACD1-3BEF-4BBD-8FFB-CB3E2B416AF8}) -> S_OK
-DEBUG-1 active COM objects: Added   <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>
-DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x00000221CEFFF0A0>.AddRef() -> 1
-DEBUG-Release <POINTER(IConnectionPointContainer) ptr=0x221cf236958 at 221cedb2dc0>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x221cf2314f0 at 221cedb2dc0>)
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x221cf2314f0 at 221cedb2dc0>
-DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x221cf237800 at 221cedb2dc0>)
-DEBUG-Release <POINTER(IUnknown) ptr=0x221cf2393f0 at 221cedb2fc0>
-DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x221cf2394d0 at 221cedb30c0>)
-DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x221cf2394d0 at 221cedb30c0>)
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>.QueryInterface({A372ACD1-3BEF-4BBD-8FFB-CB3E2B416AF8}) -> S_OK
+DEBUG-1 active COM objects: Added   <comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>
+DEBUG-<comtypes.client._events.CreateEventReceiver.<locals>.Sink object at 0x000001AE456DBA60>.AddRef() -> 1
+DEBUG-Release <POINTER(IConnectionPointContainer) ptr=0x1ae45ad6958 at 1ae456e4840>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectToken) ptr=0x1ae45ad14f0 at 1ae456e4840>)
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1ae45ad14f0 at 1ae456e4840>
+DEBUG-wrap_outparam(<POINTER(ISpeechObjectTokens) ptr=0x1ae45ad7800 at 1ae456e4840>)
+DEBUG-Release <POINTER(IUnknown) ptr=0x1ae45ad93f0 at 1ae456e4a40>
+DEBUG-wrap_outparam(<POINTER(IDispatch) ptr=0x1ae45ad94d0 at 1ae456e4b40>)
+DEBUG-GetBestInterface(<POINTER(IDispatch) ptr=0x1ae45ad94d0 at 1ae456e4b40>)
 DEBUG-Does NOT implement IProvideClassInfo, trying IProvideClassInfo2
 DEBUG-Does NOT implement IProvideClassInfo/IProvideClassInfo2
-DEBUG-Release <POINTER(IUnknown) ptr=0x221bfa94c00 at 221cedb32c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1ae35f8c630 at 1ae456e4d40>
 DEBUG-Default interface is {C74A3ADC-B727-4500-A84A-B526721C8B8C}
-DEBUG-Release <POINTER(IUnknown) ptr=0x221cf2394d0 at 221cedb33c0>
+DEBUG-Release <POINTER(IUnknown) ptr=0x1ae45ad94d0 at 1ae456e4e40>
 DEBUG-GetModule(TLIBATTR(GUID={C866CA3A-32F7-11D2-9602-00C04F8EE628}, Version=5.4, LCID=0, FLags=0x8))
 DEBUG-Implements default interface from typeinfo <class 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4.ISpeechObjectToken'>
-DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x221cf2394d0 at 221cedb32c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x221cf2394d0 at 221cedb3240>
-DEBUG-Release <POINTER(ITypeInfo) ptr=0x221bfa94c00 at 221cedb3340>
-DEBUG-Release <POINTER(ITypeLib) ptr=0x221bf9fcdf0 at 221cedb33c0>
-DEBUG-Release <POINTER(IDispatch) ptr=0x221cf2394d0 at 221cedb30c0>
-DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x221cf2393f0 at 221cedb2f40>
-DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x221cf237800 at 221cedb2dc0>
-DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x221cf2394d0 at 221cedb32c0>
-DEBUG-Start
-INFO-Logger: Record log in C:\Users\Richard\.kivy\logs\kivy_22-11-29_49.txt
-INFO-deps: Successfully imported "kivy_deps.angle" 0.3.3
-INFO-deps: Successfully imported "kivy_deps.glew" 0.3.1
-INFO-deps: Successfully imported "kivy_deps.sdl2" 0.4.5
-INFO-Kivy: v2.1.0
-INFO-Kivy: Installed at "C:\Users\Richard\AppData\Local\Programs\Python\Python310\lib\site-packages\kivy\__init__.py"
-INFO-Python: v3.10.4 (tags/v3.10.4:9d38120, Mar 23 2022, 23:13:41) [MSC v.1929 64 bit (AMD64)]
-INFO-Python: Interpreter at "C:\Users\Richard\AppData\Local\Programs\Python\Python310\python.exe"
-INFO-Logger: Purge log fired. Processing...
-INFO-Logger: Purge finished!
-INFO-Factory: 189 symbols loaded
-INFO-Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
-INFO-Text: Provider: sdl2
-INFO-Window: Provider: sdl2
-INFO-GL: Using the "OpenGL" graphics system
-INFO-GL: GLEW initialization succeeded
-INFO-GL: Backend used <glew>
-INFO-GL: OpenGL version <b'4.5.0 - Build 25.20.100.6446'>
-INFO-GL: OpenGL vendor <b'Intel'>
-INFO-GL: OpenGL renderer <b'Intel(R) HD Graphics 630'>
-INFO-GL: OpenGL parsed version: 4, 5
-INFO-GL: Shading version <b'4.50 - Build 25.20.100.6446'>
-INFO-GL: Texture max size <16384>
-INFO-GL: Texture max units <32>
-INFO-Window: auto add sdl2 input provider
-INFO-Window: virtual keyboard not allowed, single mode, not docked
-INFO-Camera: Provider: opencv(['camera_picamera', 'camera_gi'] ignored)
-INFO-GL: NPOT texture support is available
-INFO-Base: Start application main loop
-INFO-GL: BGRA texture support is available
+DEBUG-Final result is <POINTER(ISpeechObjectToken) ptr=0x1ae45ad94d0 at 1ae456e4d40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1ae45ad94d0 at 1ae456e4cc0>
+DEBUG-Release <POINTER(ITypeInfo) ptr=0x1ae35f8c630 at 1ae456e4dc0>
+DEBUG-Release <POINTER(ITypeLib) ptr=0x1ae36190a50 at 1ae456e4e40>
+DEBUG-Release <POINTER(IDispatch) ptr=0x1ae45ad94d0 at 1ae456e4b40>
+DEBUG-Release <POINTER(IEnumVARIANT) ptr=0x1ae45ad93f0 at 1ae456e49c0>
+DEBUG-Release <POINTER(ISpeechObjectTokens) ptr=0x1ae45ad7800 at 1ae456e4840>
+DEBUG-Release <POINTER(ISpeechObjectToken) ptr=0x1ae45ad94d0 at 1ae456e4d40>

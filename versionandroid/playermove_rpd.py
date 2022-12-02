@@ -46,7 +46,7 @@ stdrgb = 23
 img_dimension = 360 
 pts_src = numpy.array([[100, 100], [100, 100], [100, 100],[100, 100]])
 pts8 = [0,0,0,0,0,0,0,0]
-whereclick = ["top left", "bottom left", "top right", "bottom right"]
+whereclick = ["bottom left", "top left", "bottom right", "top right"]
 pointscount = 0
 
 xrevtrans = {
@@ -173,6 +173,7 @@ def getplayermove(board, validkingmoves):
     #cv2.waitKey(0)
     cv2.destroyAllWindows()
     '''
+    homolog()
     pix = cv2.imread(mydir + '4.jpg')
         
     h, w, c = pix.shape

@@ -47,7 +47,7 @@ Builder.load_string('''
     orientation: 'vertical'
     spacing: 0
 ''')
-
+import robotmove as RD
 import playermove_rpd as RDpm
 
 class P(RelativeLayout):
@@ -73,7 +73,7 @@ class Image(Image):
                             'y':320 /  Window.height},
                          #pos = (320, 940)
                          )
-        wherenext = "\nWhat now?"
+        wherenext = "\n"
         if RDpm.pointscount < 3:
             wherenext = "\nNow click " + RDpm.whereclick[RDpm.pointscount+1]
             
@@ -114,7 +114,7 @@ class Image(Image):
                 #Clock.schedule_once(partial(self.hidethebutton, vbutton), 0.75)
                 view.dismiss()
                 if hstate == "finished":
-
+                    self.parent.ids.toplbl.text = "If OK with white on left then start game"
                     #self.root.ids.animg.source = mydir+'4.jpg'
                     #self.root.ids.animg.reload()
                     self.size = (360, 360)
@@ -122,7 +122,7 @@ class Image(Image):
                     self.reload()
                     #App.get_running_app().stop()
         else:
-            print ("Don't click here!")
+            print ("[outside]")
 class TouchApp(App):
    
         
@@ -132,11 +132,14 @@ class TouchApp(App):
         according to their captured time and date.
         '''
         #Parent.ids['myimg'] = self.img        
+        toptext = "Board image captured. Click on bottom left of board below."
+        if btn.text == "I've moved!":
+            toptext = "Board image captured"
         
         #timestr = time.strftime("%Y%m%d_%H%M%S")
         self.camera.export_to_png(mydir+"1.png")
         print("Image captured")        
-
+        self.toplabel.text = toptext
         aimg = cv2.imread(mydir+'1.png')
         cv2.imwrite(mydir+'1.jpg', aimg, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
         self.img.source = mydir+'1.jpg'
@@ -145,6 +148,7 @@ class TouchApp(App):
         #self.remove_widget(btn)
         
     def startgame(self, startbtn):
+        
         self.toplabel.text = "Starting game"
         print("Starting game")
         RDpm.dummymove(CBint.chessboard.getBoard())
@@ -152,21 +156,45 @@ class TouchApp(App):
         print ("Game started")
         
     def startrobot (self, startrobotbtn):
-        self.toplabel.text = "Starting robot"
-        print("Starting robot")
-        if CBint.robotinit():
-            self.toplabel.text = "Robot started"
-            print("Robot started")
+        if self.startrobotbtn.text == RD.startrobotbtntext1:            
+            print("Starting robot")
+            if CBint.robotinit():
+                
+                self.toplabel.text = RD.toplabeltext2
+                self.startrobotbtn.text = RD.startrobotbtntext2
+                print(RD.toplabeltext2)
+                #CBint.getboard()
+                #CBint.fbmove()
+            else:
+               self.toplabel.text = "Error: no serial port"
+               print("Error: no serial port")
+        elif self.startrobotbtn.text == RD.startrobotbtntext2:
+            
+            RD.init2()# switch on steppers
+            self.startrobotbtn.text = RD.startrobotbtntext3
+            self.toplabel.text = RD.toplabeltext3
+            
+            print(RD.toplabeltext3)
+        elif self.startrobotbtn.text == RD.startrobotbtntext3:
+            RD.gohome()
+            self.toplabel.text = RD.toplabeltext4
+            self.startrobotbtn.text = ""
+            print(RD.toplabeltext4)
         else:
-           self.toplabel.text = "Error: no serial port"
-           print("Error: no serial port") 
+            print ("Error 17")
         
     def playerhasmoved(self, movebtn):
-        self.toplabel.text = "Player has moved"
+        # take picture
+        self.capture(movebtn)
+        self.toplabel.text = "Player has moved "
         print("Player has moved")
-        CBint.getboard()
+        print (CBint.toplabel)
+        self.toplabel.text += CBint.toplabel
+        #CBint.getboard()
         CBint.fbmove()
-        self.toplabel.text = CBint.toplabel
+        print (CBint.toplabel)
+        self.toplabel.text = "Computer move: " + CBint.toplabel
+        
     def cameraclick(self, Parent):
         pass
 
@@ -180,7 +208,7 @@ class TouchApp(App):
         return self.img
 
     def validate_input(self, window, key, *args, **kwargs):
-        textfield = self.root.ids.textfield
+        textfield = self.parent.ids.textfield
         if key == 13 and textfield.focus: # The exact code-key and only the desired `TextInput` instance.
 #           textfield.do_undo() # Uncomment if you want to strip out the new line.
             textfield.focus = False
@@ -196,7 +224,7 @@ class TouchApp(App):
     
     def build(self):
         
-        Window.bind(on_keyboard = self.validate_input)        
+        #Window.bind(on_keyboard = self.validate_input)        
            
         Parent = BoxLayout(orientation='vertical',
                            #minimum_height = '8000dp'
@@ -208,6 +236,7 @@ class TouchApp(App):
             height= 30,
             #width = 300
             )
+               
         Parent.ids['toplbl'] = self.toplabel
         Parent.add_widget(self.toplabel)
         '''        
@@ -272,7 +301,7 @@ class TouchApp(App):
         #Parent.add_widget(self.ROI)
         
                 # Load Image
-        self.img_path = 'images/1.jpg'
+        self.img_path = mydir + '1.jpg'
         self.img = Image(source=self.img_path)
         self.img.allow_stretch = True
         self.img.keep_ratio = True
@@ -284,7 +313,7 @@ class TouchApp(App):
         Parent.ids['animg'] = self.img
         
         self.startbtn = Button(
-            text = 'Start Game',
+            text = 'Start game',
             size_hint_y = None,
             height = '48dp',
             on_press = self.startgame
@@ -292,7 +321,7 @@ class TouchApp(App):
         Parent.add_widget(self.startbtn)
         
         self.startrobotbtn = Button(
-            text = "Start robot",
+            text = RD.startrobotbtntext1,
             size_hint_y = None,
             height = '48dp',
             on_press = self.startrobot

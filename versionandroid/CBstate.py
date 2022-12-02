@@ -15,10 +15,10 @@ rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
 
 if platform.system() == "Windows":
     windowsos = True
-    mydir = r'C:\Users\Richard\Github\chess-robot\version2\images' + "\\"
+    mydir = r'C:\Users\Richard\Github\chess-robot\versionandroid\images' + "\\"
     stockfishexe = r'C:\Program Files\Stockfish\stockfish.exe'
-    #cameraportno = 1
-    cameraportno = 0
+    cameraportno = 1
+    #cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
     #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
     cameratype = 'usb'

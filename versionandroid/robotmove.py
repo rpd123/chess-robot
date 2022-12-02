@@ -27,6 +27,7 @@ grippergrabheight = -25
 gripperoffset = 26
 openamount = 37 #degrees
 closeamount = 2 #degrees
+endstops = False
 graveyard = "i6"
 msgcount = 0
 
@@ -109,9 +110,18 @@ lastmovetype = (
     "Castle on king's side",
     "Castle on queen's side")
 
-firsttime = 1
+startrobotbtntext1 = "Start robot"
+startrobotbtntext2 = "Switch on steppers"
+startrobotbtntext3 = "Adjust ROBOT placement"
 
+toplabeltext2 = "Steppers are off. Place robot in start position and then switch on steppers"
+toplabeltext3 = "Steppers are on. Adjust ROBOT placement"
+toplabeltext4 = "Make move, then press 'I've moved' button"
+
+firsttime = 1
+gtoplabel = ""
 sp = 0
+send_stream = 0
 
 def waiter(dur):
     time.sleep(dur)
@@ -252,7 +262,7 @@ def pickuppiece(xmm, ymm, piecetype):
 
     waiter(1)
     print (grippergrabheight)
-    input ("press enter")
+    #input ("press enter")
     movearmcoord (xmm, ymm, grippergrabheight) # go down
     closegripper(closeamount, piecetype)
     #waiter(1)
@@ -401,14 +411,21 @@ def initsteppers():
     receivemsg(sp)
     
 def steppers_on():
-    input("Press Enter to switch on steppers and start game")
+    #input("Then press Enter to switch on steppers")
     send_stream.write(("M17" + "\r").encode())   # Switch on steppers
     time.sleep(0.2)
     receivemsg(sp)
     time.sleep(0.2)
     receivemsg(sp)
+    
+def settop(t):
+    t.text = "oooooh"
+    print ("gtoplabel: " + t.text)
+    time.sleep(10)
+    
 def init():
-    global sp
+    global sp, send_stream, gtoplabel
+    
     if CBstate.bluetooth:
         sp, send_stream = get_socket_stream('HC-05')
     else:
@@ -428,25 +445,33 @@ def init():
         print ("Start")        
         receivemsg(sp)
         receivemsg(sp)
-        calirob = input("Calibrate robot manually? y/n")
-        if calirob == "y":
+        if endstops:
+            pass
+        else:
             print ("Calibrate robot now ...")
-            initsteppers()   # turn steppers off and initialize them
-            steppers_on()    # prompt user to switch on steppers
-
-            if CBstate.SCARA:
-                gohome()   # raises arm
-                gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(gripperfloatheight) + "\r"
-                send_stream.write(gstring.encode())
-                receivemsg(sp)
-            else:
-                movearmcoord (0, (squaresize*3.5), grippergrabheight)
-            input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
-        gohome()
-
-                      
+            
+        return True
+        #calirob = input("Calibrate robot manually? y/n")
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
-        quitter()   
+        quitter()
+       
+def init2():
+    initsteppers()   # turn steppers off and initialize them
+    steppers_on()    # prompt user to switch on steppers
+
+    if CBstate.SCARA:
+        gohome()   # raises arm
+        gstring = "G1" + " X0" + " Y" + str(totalarmlength) + " Z" + str(gripperfloatheight) + "\r"
+        send_stream.write(gstring.encode())
+        receivemsg(sp)
+    else:
+        movearmcoord (0, (squaresize*3.5), grippergrabheight)
+    #input("Adjust ROBOT position slightly if not in centre of board. Press Enter to continue")
+    #gohome()
+    return True
+                      
+    #except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
+    #    quitter()   
     
 
 #init()  # testing
