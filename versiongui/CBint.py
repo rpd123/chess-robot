@@ -15,13 +15,15 @@ import logging
 
 if CBstate.windowsos:    
     stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
-elif pythonos:
-    stockfish = Stockfish
+elif CBstate.androidos:
+    stockfish = Stockfish(path=CBstate.stockfishenginepath)
 else:
     #stockfish = Stockfish(parameters=CBstate.stockfishparams)
     stockfish = Stockfish()
 mydir = CBstate.mydir
 toplabel = ""
+print ("Stockfish:")
+print(str(stockfish.get_stockfish_major_version()))
 #stockfish.update_engine_parameters({"Threads": 4})   
 #stockparams = stockfish.get_parameters()
 #for key, value in stockparams.items():

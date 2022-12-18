@@ -1,39 +1,40 @@
 import CBstate
-if CBstate.bluetooth:
-    
+if CBstate.androidos:
+    import errno
     from jnius import autoclass
-    bmsgcount = 0
-
+    msgcount = 0
+    defaultCharBufferSize = 8192
+    socket = None
     BluetoothAdapter = autoclass('android.bluetooth.BluetoothAdapter')
     BluetoothDevice = autoclass('android.bluetooth.BluetoothDevice')
     BluetoothSocket = autoclass('android.bluetooth.BluetoothSocket')
-
-    def breceivemsg(recv_stream):
-
-        while recv_stream.ready != None:
-            try:
-                line = recv_stream.readLine()
-            except jnius.jnius.JavaException as e:
-                print("JavaException: ", e, rfsocket.connected)
-                
-            except ValueError as e:
-                print("Misc error: ", e)
-
-            try:
-                print(msgcount, line)
-            except ValueError:
-                pass
+    InputStreamReader = autoclass('java.io.InputStreamReader')
+    BufferedReader = autoclass('java.io.BufferedReader')
+    
+    def breceivemsg(sp):
+        
+        reader = InputStreamReader(socket.getInputStream())
+        sp = BufferedReader(reader, defaultCharBufferSize).decode('utf-8').rstrip()
+        
+    '''       
+    def bsendmsg(send_stream):
+            send_stream = socket.getOutputStream()
+    '''    
         
     UUID = autoclass('java.util.UUID')
 
     def get_socket_stream(name):
+        global socket
+        
         paired_devices = BluetoothAdapter.getDefaultAdapter().getBondedDevices().toArray()
         socket = None
         for device in paired_devices:
             if device.getName() == name:
                 socket = device.createRfcommSocketToServiceRecord(
                     UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
-                recv_stream = socket.getInputStream()
+                #reader = InputStreamReader(socket.getInputStream(), getEncode)
+                reader = InputStreamReader(socket.getInputStream())
+                recv_stream = BufferedReader(reader, defaultCharBufferSize)
                 send_stream = socket.getOutputStream()
                 break
         socket.connect()

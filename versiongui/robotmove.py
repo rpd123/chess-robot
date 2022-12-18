@@ -12,12 +12,14 @@ if not CBstate.androidos:
     import pyttsx3
     engine = pyttsx3.init()
     engine.setProperty('rate', 125) # Decrease the Speed Rate
+else:
+    import bluetrpd
 from subprocess import call                         
 import time     # import the time library for the sleep function
 from math import sin, cos, atan2, sqrt, atan
 
 import serial
-import bluetoothrpd
+#import bluetoothrpd
 axistorow8 = 96  # mm
 servoonleft = True
 #squaresize = 31    # mm
@@ -112,10 +114,10 @@ lastmovetype = (
 
 startrobotbtntext1 = "Start robot"
 startrobotbtntext2 = "Switch on steppers"
-startrobotbtntext3 = "Adjust ROBOT placement"
+startrobotbtntext3 = "Adjust ROBOT BASE placement, then click"
 
 toplabeltext2 = "Steppers are off. Place robot in start position and then switch on steppers"
-toplabeltext3 = "Steppers are on. Adjust ROBOT placement"
+toplabeltext3 = "Steppers are on. Adjust ROBOT placement, then press button"
 toplabeltext4 = "Make move, then press 'I've moved' button"
 
 firsttime = 1
@@ -124,18 +126,34 @@ sp = 0
 send_stream = 0
 
 def waiter(dur):
-    time.sleep(dur)
+    #time.sleep(dur)
+    pass
+
+def delayarduino(dur):
+    return
+    gstring = "G4 " + str(dur)
+    send_stream.write(gstring.encode())
+    
+def spflush():
+    if CBstate.androidos:
+        pass
+    else:
+        sp.flush()
     
 def receivemsg(sp):
     global msgcount
     msgcount += 1
-    
-    if CBstate.bluetooth:
-        breceivemsg(sp)
+    line=""
+    if CBstate.androidos:
+        #bluetrpd.breceivemsg(sp)
+        if sp.ready():
+            line=sp.readLine()
+            #line = line.decode('utf-8').rstrip() 
+            #spflush()
     else:    
         #line=sp.readline().decode('utf-8').rstrip()
         line=sp.read_until().decode('utf-8').rstrip()
-        sp.flush()
+        spflush()
     print(msgcount, line)
     
 def scaraviastraight(xmm, adjymmint, zmm):
@@ -185,8 +203,8 @@ def movearmcoord (xmm, ymm, zmm):  # zmm is height
         print (gstring) ###
     #receivemsg(sp) ####
     #input("Check G-codes then press enter") ###
-    sp.flush()
-    sp.reset_input_buffer()
+    spflush()
+    #sp.reset_input_buffer()
     send_stream.write(gstring.encode())
     receivemsg(sp)
     #receivemsg(sp) ####
@@ -201,7 +219,7 @@ def opengripper(amount):
     else:
         mycode = "M5 T" + str(adjamount) + "\r"
     print ("Open gripper")
-    sp.flush()
+    spflush()
     send_stream.write(mycode.encode())
     receivemsg(sp)
     waiter(0.5)
@@ -215,10 +233,10 @@ def closegripper(amount, piecetype):
     else:
         mycode = "M3 T" + str(adjamount) + "\r"
     print ("Close gripper")
-    sp.flush()
+    spflush()
     send_stream.write(mycode.encode())
     receivemsg(sp)
-    waiter(0.5)
+    #waiter(0.5)
 
 def speaker(text):
     if True:
@@ -241,11 +259,11 @@ def quitter():
         if CBstate.SCARA:
             gohome()
         print ("reset all steppers")
-        sp.flush()
+        spflush()
         send_stream.write(("M18" + "\r").encode())
         receivemsg(sp)
         sp.close()               
-        time.sleep(2)
+        #time.sleep(2)
         print ("Game ends")
         speaker ("Game ends. Thankyou for playing.")
     if not CBstate.kivy:
@@ -256,16 +274,19 @@ def quitter():
 
 def pickuppiece(xmm, ymm, piecetype):
     global pieceheights
+    print ("open gripper")
     opengripper(openamount)
     print("go down to pick up")
     movearmcoord (xmm, ymm, grippergrabheight + (pieceheights[piecetype]*10))  # go down half way
-
-    waiter(1)
+    #waiter(1)
     print (grippergrabheight)
-    #input ("press enter")
+    #input ("press enter")    
     movearmcoord (xmm, ymm, grippergrabheight) # go down
+    delayarduino(5)
+    print("close gripper")
     closegripper(closeamount, piecetype)
     #waiter(1)
+    delayarduino(5)
     print("go up")
     #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, gripperfloatheight) # go up
@@ -275,9 +296,10 @@ def droppiece(xmm, ymm):
     print("go down to drop piece")
     #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, grippergrabheight + 3)  # go down
-    waiter(1.2)
+    print ("open gripper")
+    delayarduino(5)
     opengripper(openamount)
-    #waiter(1)
+    delayarduino(5)
     print("go up")
     #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, gripperfloatheight) # go up
@@ -393,41 +415,50 @@ def gohome():
         waiter(1.2)
         print (gstring) ###
         #input("Check G-codes then press enter") ###
-        sp.flush()
+        spflush()
         #sp.reset_input_buffer()
         send_stream.write(gstring.encode())
         receivemsg(sp)
-        time.sleep(0.2)
+        #time.sleep(0.2)
         receivemsg(sp)
     else:
         movearmcoord (0, -10+gripperoffset, 180)
 
 def initsteppers():
-    time.sleep(0.2)
+    #time.sleep(0.2)
     send_stream.write(("G28" + "\r").encode())   # steppers off, initialize
-    time.sleep(0.2)
+    #time.sleep(0.2)
     receivemsg(sp)
-    time.sleep(0.2)
+    #time.sleep(0.2)
     receivemsg(sp)
     
 def steppers_on():
     #input("Then press Enter to switch on steppers")
     send_stream.write(("M17" + "\r").encode())   # Switch on steppers
-    time.sleep(0.2)
+    #time.sleep(0.2)
     receivemsg(sp)
-    time.sleep(0.2)
+    #time.sleep(0.2)
     receivemsg(sp)
-    
+'''    
 def settop(t):
     t.text = "oooooh"
     print ("gtoplabel: " + t.text)
     time.sleep(10)
-    
+ '''   
 def init():
-    global sp, send_stream, gtoplabel
+    global sp, send_stream
     
-    if CBstate.bluetooth:
-        sp, send_stream = get_socket_stream('HC-05')
+    if CBstate.androidos:
+        sp, send_stream = bluetrpd.get_socket_stream(CBstate.bluetoothdevicename)
+        '''
+        try:
+            #getDevname = self.the.config.get('bluetoothsettings', 'stringbluetdevname')
+            sp, send_stream = bluerpd.get_port_connect('HC-05')
+            return True
+        except bluerpd.jnius.jnius.JavaException as e:
+            print ('Not Connected')
+            return False
+           '''
     else:
         try:
             sp = serial.Serial(CBstate.serialport, 9600, timeout=2.0)
@@ -439,7 +470,7 @@ def init():
             #sp.close        
             quitter()
             return False
-    time.sleep(0.2)
+    #time.sleep(0.2)
     
     try:
         print ("Start")        

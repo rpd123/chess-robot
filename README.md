@@ -1,4 +1,7 @@
-# chess-robot
+# chess-robot  
+  
+For the Android /GUI version see the instructions in the versiongui directory.
+    
 3D printed chess robot, Python code for Raspberry Pi, other Linux or Windows PC. New users should use version 2.
 
 Install Stockfish engine, Python 3, python-pip, espeak

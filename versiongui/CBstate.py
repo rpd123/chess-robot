@@ -11,11 +11,11 @@ scale_percent = 100 # percent of original size, if required to make original ima
 rotation = -1   # do not rotate
 #rotation = 0  #cv2.ROTATE_90_CLOCKWISE 
 #rotation = 1  #cv2.ROTATE_180
-rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
+#rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
 
 if platform.system() == "Windows":
     windowsos = True
-    mydir = r'C:\Users\Richard\Github\chess-robot\versionandroid\images' + "\\"
+    mydir = r'C:\Users\Richard\Github\chess-robot\versiongui\images' + "\\"
     stockfishexe = r'C:\Program Files\Stockfish\stockfish.exe'
     cameraportno = 1
     #cameraportno = 0
@@ -25,6 +25,7 @@ if platform.system() == "Windows":
     #cameratype = 'ip'
     serialport = "COM3"
     cameraresolution = (1280,720)
+    windowsize  = (cameraresolution[0]/2, 960)
 else:
     windowsos = False
     #mydir = "/media/sf_GitHub/chess-robot/version2/images/"
@@ -33,15 +34,28 @@ else:
     serialport = '/dev/ttyACM0'
     #serialport = '/dev/ttyS0'
     #serialport = '/dev/rfcomm0'
-    cameraresolution = (1920, 1080)
+    cameraresolution = (640, 480)
+    #windowsize = cameraresolution
+    windowsize = (1080, 1920)
+    #windowsize = (720, 1280)
+    
+# Huawei P10 Lite (1080, 1920)
+# R-P screen (720, 1480)
+#HP Webcam 2300 (720, 1280)
+#straightenedimagedimension = 0
+#cameraheight = 520
+    
+if 'ANDROID_STORAGE' in os.environ:
+    print("Android!")
+    androidos = True
+    bluetoothdevicename = 'HC-05'
+    stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm/libstockfish15.so"
+    #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm6/libstockfish15.so"
+else:
+    androidos = False 
     
 motorsareservos = False
 SCARA = False
-androidos = False
-kivy = True
-bluetooth = False
-if androidos:
-    pass
 
 stockfishparams={"Threads": 4}
 

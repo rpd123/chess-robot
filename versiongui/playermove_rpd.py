@@ -18,23 +18,7 @@ import numpy
 import CBstate
 mydir = CBstate.mydir
 import logging
-'''
-if CBstate.androidos:
-    import matplotlib.pyplot as plt
-    from PIL import Image
-    
-def showmyimage(myimagefile, mylabel):
-    if CBstate.androidos:
-        img=Image.open(mydir + myimagefile)
-        plt.imshow(img)
-        plt.show()
-    else:
-        img = cv2.imread(mydir + myimagefile)
-        cv2.imshow(mylabel, img)
-        print("Press any key to continue")
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()    
-'''
+
 firsttimeonly = 1
 firstgbp = 1
 splitwb = 112
@@ -43,11 +27,12 @@ splitwbonw = 112
 stdrgb = 23
 #squaring = 1 # number of times to look at squaring image
 
-img_dimension = 360 
+
 pts_src = numpy.array([[100, 100], [100, 100], [100, 100],[100, 100]])
 pts8 = [0,0,0,0,0,0,0,0]
 whereclick = ["bottom left", "top left", "bottom right", "top right"]
 pointscount = 0
+img_dimension = 0
 
 xrevtrans = {
     1: "a",
@@ -411,9 +396,14 @@ def drawredlines():
     #print("Press any key to continue")
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
+    
+def update_img_dimension(newdim):
+    global img_dimension
+    img_dimension = int(newdim)
 
 def homolog():
     global pts_src
+     
     # read points file
     pss = [0,0,0,0,0,0,0,0]  # declare
     f = open(mydir + 'points.txt', 'r')
@@ -431,8 +421,8 @@ def homolog():
     im_src = cv2.imread(mydir + "1.jpg", 1)
     pts_src = numpy.float32([[pss[0],pss[1]],[pss[2],pss[3]],[pss[4],pss[5]],[pss[6],pss[7]]])
     # Four corners in destination image.
-    pts_dst = numpy.float32([[0,0],[img_dimension,0],[0,img_dimension],[img_dimension, img_dimension]])
-    #pts_dst = numpy.float32([[0,0],[img_dimension,0],[0,img_dimension],[img_dimension, img_dimension]])
+    #pts_dst = numpy.float32([[0,0],[img_dimension,0],[0,img_dimension], [img_dimension, img_dimension]])
+    pts_dst = numpy.float32([[0,0],[0,img_dimension],[img_dimension,0],[img_dimension, img_dimension]])
     # Calculate Homography
     #h, status = cv2.findHomography(pts_src, pts_dst)
     h = cv2.getPerspectiveTransform(pts_src, pts_dst)
@@ -442,7 +432,7 @@ def homolog():
     if CBstate.rotation != -1:
         im_out = cv2.rotate(im_out, CBstate.rotation)    
     cv2.imwrite(mydir + "4.jpg", im_out)
-    #image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)
+    image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)
     drawredlines()
 def registerclicks(x,y):
     global pointscount, pts_src, im_src, pts8

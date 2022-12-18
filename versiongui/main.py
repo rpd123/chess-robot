@@ -29,12 +29,7 @@ from kivy.uix.textinput import TextInput
 #Config.set('graphics', 'height', '780')
 #Config.set('graphics', 'height', '2280')
 from kivy.core.window import Window
-Window.size = (640, 960)
-
-# Huawei 1920 x 1080 pixels
-# R-P screen 720 x 1480
-#HP Webcam 2300 720 x 1280
-#Windows 1280 x 720
+Window.size = CBstate.windowsize
 
 from functools import partial
 from kivy.uix.popup import Popup
@@ -49,23 +44,24 @@ Builder.load_string('''
 ''')
 import robotmove as RD
 import playermove_rpd as RDpm
-
+#import bluerpd.py
 class P(RelativeLayout):
     pass
 
-class Image(Image):
+class MyImage(Image):
     def __init__(self, **kwargs):
-        super(Image, self).__init__(**kwargs)
+        super(MyImage, self).__init__(**kwargs)
         
 
-        self.start_pos = [0, 0]
-        self.end_pos = [0, 0]
-        self.img_path = mydir+'1.jpg'
+        #self.start_pos = [0, 0]
+        #self.end_pos = [0, 0]
+        #self.img_path = mydir+'1.jpg'
         
        
     def dispop(self, myx, myy):
     #def show_popup():
         #global pointscount
+        '''
         view = ModalView(auto_dismiss=True,
                          size_hint=(None,None),
                          size=(160, 46),
@@ -73,12 +69,14 @@ class Image(Image):
                             'y':320 /  Window.height},
                          #pos = (320, 940)
                          )
-        wherenext = "\n"
+        '''
+        wherenext = ""
         if RDpm.pointscount < 3:
-            wherenext = "\nNow click " + RDpm.whereclick[RDpm.pointscount+1]
-            
+            wherenext = "Now click " + RDpm.whereclick[RDpm.pointscount+1]
+        self.parent.ids.toplbl.text = "[" + str(myx) + ", " + str(myy) + "]. " + wherenext
+        '''
         vbutton = Button(
-            text="[" + str(myx) + ", " + str(myy) + "]" + wherenext,
+            text="[" + str(myx) + ", " + str(myy) + "]" + "\n" + wherenext,
             size=(150,22),
             #text_size  = self.size,
             size_hint =(None, None),
@@ -88,7 +86,8 @@ class Image(Image):
         view.add_widget(vbutton)
         
         view.open()
-        return view
+        '''
+        return
     
     def hidethebutton(self, abutton, *args):
         abutton.text=""
@@ -96,28 +95,49 @@ class Image(Image):
     def on_touch_down(self, touch):
         #global mytext
         #rect_size = [10, 10]
-        #if self.root.ids.myimage.collide_point(*touch.pos):
-        if self.collide_point(*touch.pos):    
+        if self.parent.ids.animg.collide_point(*touch.pos):
+        #if self.collide_point(*touch.pos):    
             with self.canvas:
                 #self.canvas.clear()
-
+                print(self.to_local(touch.x, touch.y, True))
+                mydim = int(round(self.parent.ids.animg.size[1]))
+                print ("dimensions:")
+                print (self.parent.ids.animg.size[0], self.parent.ids.animg.size[1], self.parent.ids.animg.texture_size[0], self.parent.ids.animg.texture_size[1])
                 #self.size = (320, 320)
-                self.end_pos = [round(touch.x,2), round(touch.y,2)]
-                print("End pos  :", self.end_pos)
-                mytext = str(self.end_pos)
-                print (mytext)
+                #self.end_pos = [round(touch.x,2), round(touch.y,2)]
+                #print("End pos  :", self.end_pos)
+                #mytext = str(self.end_pos)
+                #print (mytext)
                 #show_popup()
-                view = self.dispop(round(touch.x,2), round(touch.y,2))
+                print ("loc:")
+                localisedxy = self.to_local(int(round(touch.x)), int(round(touch.y)), True)
+                print(localisedxy)
+                self.dispop(localisedxy[0], int(round(mydim - localisedxy[1])))
+                ############## Note reveral of y
+                #self.parent.ids.toplbl.text = "img height= " + str(self.parent.ids.animg.height)
+                #mydim = self.parent.ids.animg.norm_image_size[1]
                 
-                hstate = RDpm.registerclicks(int(round(touch.x)), int(round(512-touch.y)))
+                #mydim = self.parent.ids.animg.texture_size[1]
+                imgdim = self.parent.ids.animg.texture_size[1]
+                RDpm.update_img_dimension(imgdim)
+                #expander = int(mydim/self.parent.ids.animg.texture_size[0])
+                #expanderx = int(expander * CBstate.windowsize[0])
+                #expandery = int(expander * CBstate.windowsize[1])
+                reductionfactor = imgdim/self.parent.ids.animg.size[1]
+                print ("red:")
+                print (reductionfactor)
+                hstate = RDpm.registerclicks(int(round(localisedxy[0] * reductionfactor)), int(round((mydim - localisedxy[1]) * reductionfactor)))
                 #vcallback = self.hidethebutton(vbutton)
                 #Clock.schedule_once(partial(self.hidethebutton, vbutton), 0.75)
-                view.dismiss()
                 if hstate == "finished":
+                    #view.dismiss()
+                
                     self.parent.ids.toplbl.text = "If OK with white on left then start game"
                     #self.root.ids.animg.source = mydir+'4.jpg'
                     #self.root.ids.animg.reload()
-                    self.size = (360, 360)
+                    
+                    print ("img height= " + str(self.parent.ids.animg.height))
+                    self.size = (mydim, mydim)
                     self.source = mydir+'redlines.jpg'
                     self.reload()
                     #App.get_running_app().stop()
@@ -132,12 +152,13 @@ class TouchApp(App):
         according to their captured time and date.
         '''
         #Parent.ids['myimg'] = self.img        
-        toptext = "Board image captured. Click on bottom left of board below."
+        toptext = "Image captured. Click on bottom left of board below."
         if btn.text == "I've moved!":
             toptext = "Board image captured"
         
         #timestr = time.strftime("%Y%m%d_%H%M%S")
-        self.camera.export_to_png(mydir+"1.png")
+        #self.camera.export_to_png(mydir+"1.png")
+        self.camera.texture.save(mydir+"1.png")
         print("Image captured")        
         self.toplabel.text = toptext
         aimg = cv2.imread(mydir+'1.png')
@@ -166,8 +187,8 @@ class TouchApp(App):
                 #CBint.getboard()
                 #CBint.fbmove()
             else:
-               self.toplabel.text = "Error: no serial port"
-               print("Error: no serial port")
+                self.toplabel.text = "Error: no serial port"
+                print("Error: no serial port")
         elif self.startrobotbtn.text == RD.startrobotbtntext2:
             
             RD.init2()# switch on steppers
@@ -196,9 +217,8 @@ class TouchApp(App):
         self.toplabel.text = "Computer move: " + CBint.toplabel
         
     def cameraclick(self, Parent):
-        pass
-
-    
+        self.orientation = 'vertical'
+           
     def clear_canvas(self,obj):
         self.ROI.canvas.clear()
         
@@ -233,67 +253,38 @@ class TouchApp(App):
         self.toplabel = Label(
             text="Let's play chess!",
             size_hint= (1.0, None),
-            height= 30,
+            font_size = '14sp',
+            height= '34dp',
             #width = 300
             )
                
         Parent.ids['toplbl'] = self.toplabel
         Parent.add_widget(self.toplabel)
-        '''        
-        mylabel = Label(
-            text='Calibrate camera?',
-            size_hint= (None, None),
-            height= 30,
-            width = 120
-            )
-        Parent.ids['lbl'] = mylabel
-        Parent.add_widget(mylabel)
-        
-        btny = Button(
-            text = 'Yes',
-            size_hint = (None, None),
-            height = '30dp',
-            width = '60dp',
-            on_press = self.cal
-            )
-        Parent.add_widget(btny)
-        '''
-        ##
-        '''
-        mytextinput = TextInput(
-            hint_text = "Enter text here",
-            size_hint= (20, None),
-            height= 30,
-            multiline= False
-            )
-        Parent.ids['textfield'] = mytextinput
-        Parent.add_widget(mytextinput)
-        
-       
-        #but = Button(text="clear", size_hint_x=0.2)
-        #but.bind(on_release=self.clear_canvas)
-        #Parent.add_widget(but)
-        #self.load_kv("overlay.kv")
-        #self.cameraclick(Parent)
-        '''
-        
+      
         self.camera = Camera(
-            resolution = CBstate.cameraresolution,
+            #resolution = CBstate.cameraresolution,
             #resolution = (640, 311),
+            #resolution = (960, 540),
+            allow_stretch = True,
+            keep_ratio = True,
+            #height = CBstate.cameraheight,
+            size_hint = (0.75,0.75),
+            #width = CBstate.windowsize[0], 
             index = CBstate.cameraportno,
             play = True
             )
-        
+        Parent.add_widget(self.camera)
         self.btn = Button(
             text = 'Calibrate chessboard?',
-            size_hint_y = None,
-            height = '48dp',
+            size_hint = (None, None),
+            width = CBstate.windowsize[0],
+            height = '34dp',
             on_press = self.capture
             )
         
         #self.btn.bind(on_press = self.capture)
         #self.capture(self.btn)
-        Parent.add_widget(self.camera)
+        
         Parent.add_widget(self.btn)
         # end camera
         
@@ -301,37 +292,40 @@ class TouchApp(App):
         #Parent.add_widget(self.ROI)
         
                 # Load Image
-        self.img_path = mydir + '1.jpg'
-        self.img = Image(source=self.img_path)
-        self.img.allow_stretch = True
-        self.img.keep_ratio = True
-        self.img.size = (640, 360)
-        self.img.pos = (0, 0)
-        self.img.opacity = 1
-
+        self.img = MyImage(
+            #source=mydir + '1.jpg',
+            allow_stretch = True,
+            keep_ratio = True,
+            width = CBstate.windowsize[0],            
+            size_hint_x = (None),
+            opacity = 1
+            )
         Parent.add_widget(self.img)
         Parent.ids['animg'] = self.img
         
         self.startbtn = Button(
             text = 'Start game',
-            size_hint_y = None,
-            height = '48dp',
+            size_hint = (None, None),
+            width = CBstate.windowsize[0],
+            height = '34dp',
             on_press = self.startgame
             )
         Parent.add_widget(self.startbtn)
         
         self.startrobotbtn = Button(
             text = RD.startrobotbtntext1,
-            size_hint_y = None,
-            height = '48dp',
+            size_hint = (None, None),
+            width = CBstate.windowsize[0],
+            height = '34dp',
             on_press = self.startrobot
             )
         Parent.add_widget(self.startrobotbtn)
         
         self.movebtn = Button(
             text = "I've moved!",
-            size_hint_y = None,
-            height = '48dp',
+            size_hint = (None, None),
+            width = CBstate.windowsize[0],
+            height = '34dp',
             on_press = self.playerhasmoved
             )
         Parent.add_widget(self.movebtn)

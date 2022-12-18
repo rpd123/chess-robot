@@ -40,7 +40,7 @@ Builder.load_string('''
 
 mydir = "images/"
          
-import homog
+import playermove_rpd as homog
 
 class fred():
     def freddy(a):
