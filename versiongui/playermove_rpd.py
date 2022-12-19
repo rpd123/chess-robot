@@ -430,7 +430,9 @@ def homolog():
     #im_out = cv2.warpPerspective(im_src, h, (im_dst.shape[1],im_dst.shape[0]))
     im_out = cv2.warpPerspective(im_src, h, (img_dimension+1, img_dimension+1), flags=cv2.INTER_LINEAR)
     if CBstate.rotation != -1:
-        im_out = cv2.rotate(im_out, CBstate.rotation)    
+        im_out = cv2.rotate(im_out, CBstate.rotation)
+    if CBstate.mirrorimage:
+        im_out = cv2.flip(im_out, 0)
     cv2.imwrite(mydir + "4.jpg", im_out)
     image = cv2.rotate(im_out, cv2.ROTATE_90_COUNTERCLOCKWISE)
     drawredlines()

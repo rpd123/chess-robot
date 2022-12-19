@@ -145,7 +145,8 @@ class MyImage(Image):
             print ("[outside]")
 class TouchApp(App):
    
-        
+    firstmove = 1
+    ccount = 0
     def capture(self, btn):
         '''
         Function to capture the images and give them the names
@@ -173,7 +174,7 @@ class TouchApp(App):
         self.toplabel.text = "Starting game"
         print("Starting game")
         RDpm.dummymove(CBint.chessboard.getBoard())
-        self.toplabel.text = "Game started"
+        self.toplabel.text = "Game started. Start robot"
         print ("Game started")
         
     def startrobot (self, startrobotbtn):
@@ -206,6 +207,10 @@ class TouchApp(App):
         
     def playerhasmoved(self, movebtn):
         # take picture
+        if self.firstmove:
+            self.firstmove = 0
+            #Start the clock
+            #Clock.schedule_interval(self.Callback_Clock, 2)
         self.capture(movebtn)
         self.toplabel.text = "Player has moved "
         print("Player has moved")
@@ -215,6 +220,11 @@ class TouchApp(App):
         CBint.fbmove()
         print (CBint.toplabel)
         self.toplabel.text = "Computer move: " + CBint.toplabel
+        
+    def Callback_Clock(self, dt):
+        self.ccount = self.ccount+1
+        print ("Updated %d...times"%self.count)
+        RD.receivemsg(sp)
         
     def cameraclick(self, Parent):
         self.orientation = 'vertical'

@@ -180,6 +180,7 @@ def scaraviastraight(xmm, adjymmint, zmm):
         #input("press enter")
 
 def movearmcoord (xmm, ymm, zmm):  # zmm is height
+    receivemsg(sp)
     adjymmint = int(ymm)+axistorow8
     theta = atan2(adjymmint, int(xmm))
     adjxmm = str(int(round(int(xmm) - (gripperoffset*cos(theta)))))   #gripperoffset 0 for SCARA

@@ -10,7 +10,7 @@ scale_percent = 100 # percent of original size, if required to make original ima
 # white should be on left of Straightened Image
 rotation = -1   # do not rotate
 #rotation = 0  #cv2.ROTATE_90_CLOCKWISE 
-#rotation = 1  #cv2.ROTATE_180
+rotation = 1  #cv2.ROTATE_180
 #rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
 
 if platform.system() == "Windows":
@@ -37,7 +37,7 @@ else:
     cameraresolution = (640, 480)
     #windowsize = cameraresolution
     windowsize = (1080, 1920)
-    #windowsize = (720, 1280)
+    windowsize = (720, 1280)  #Moto G (2nd Gen)
     
 # Huawei P10 Lite (1080, 1920)
 # R-P screen (720, 1480)
@@ -51,6 +51,7 @@ if 'ANDROID_STORAGE' in os.environ:
     bluetoothdevicename = 'HC-05'
     stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm/libstockfish15.so"
     #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm6/libstockfish15.so"
+    mirrorimage = True
 else:
     androidos = False 
     
