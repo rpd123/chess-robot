@@ -2,7 +2,7 @@ import CBstate
 if CBstate.androidos:
     import errno
     from jnius import autoclass
-    bmsgcount = 0
+    msgcount = 0
 
     BluetoothAdapter = autoclass('android.bluetooth.BluetoothAdapter')
     BluetoothDevice = autoclass('android.bluetooth.BluetoothDevice')
