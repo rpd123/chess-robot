@@ -16,7 +16,7 @@ import logging
 if CBstate.windowsos:    
     stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
 elif CBstate.androidos:
-    stockfish = Stockfish(path=CBstate.stockfishenginepath)
+    stockfish = Stockfish(path=CBstate.stockfishenginepath, depth=10, parameters=CBstate.stockfishparams)
 else:
     #stockfish = Stockfish(parameters=CBstate.stockfishparams)
     stockfish = Stockfish()
@@ -92,15 +92,17 @@ engine = subprocess.Popen(
 '''
     
 def checkvarious(): 
-    
+    global toplabel
     if chessboard.getLastMoveType() != -1 and chessboard.getLastMoveType() != 0:
         print((lastmovetype[chessboard.getLastMoveType()]))
     if chessboard.isCheck():
         print ("Check!")
         RD.speaker("Check!")
+        toplabel = toplabel + " Check!"
     if chessboard.isGameOver():
         print((gameresult[chessboard.getGameResult()]))
         RD.speaker(gameresult[chessboard.getGameResult()])
+        toplabel = toplabel + " " + gameresult[chessboard.getGameResult()]
         RD.quitter()
     return()
 

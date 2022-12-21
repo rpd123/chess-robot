@@ -267,7 +267,7 @@ def quitter():
         #time.sleep(2)
         print ("Game ends")
         speaker ("Game ends. Thankyou for playing.")
-    if not CBstate.kivy:
+    if not CBstate.androidos:
         engine.stop()
         sys.exit()
     return

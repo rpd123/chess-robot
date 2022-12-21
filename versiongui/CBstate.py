@@ -26,6 +26,7 @@ if platform.system() == "Windows":
     serialport = "COM3"
     cameraresolution = (1280,720)
     windowsize  = (cameraresolution[0]/2, 960)
+    stockfishparams={"Threads": 4}
 else:
     windowsos = False
     #mydir = "/media/sf_GitHub/chess-robot/version2/images/"
@@ -50,7 +51,8 @@ if 'ANDROID_STORAGE' in os.environ:
     androidos = True
     bluetoothdevicename = 'HC-05'
     stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm/libstockfish15.so"
-    #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm6/libstockfish15.so"
+    #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm64/libstockfish15.so"
+    stockfishparams={"Slow Mover": 50}
     mirrorimage = True
 else:
     androidos = False 
@@ -58,7 +60,7 @@ else:
 motorsareservos = False
 SCARA = False
 
-stockfishparams={"Threads": 4}
+
 
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False
