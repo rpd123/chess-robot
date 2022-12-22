@@ -118,8 +118,10 @@ class MyImage(Image):
                 #mydim = self.parent.ids.animg.norm_image_size[1]
                 
                 #mydim = self.parent.ids.animg.texture_size[1]
+                
                 imgdim = self.parent.ids.animg.texture_size[1]
                 RDpm.update_img_dimension(imgdim)
+                
                 #expander = int(mydim/self.parent.ids.animg.texture_size[0])
                 #expanderx = int(expander * CBstate.windowsize[0])
                 #expandery = int(expander * CBstate.windowsize[1])
@@ -147,6 +149,7 @@ class TouchApp(App):
    
     firstmove = 1
     ccount = 0
+    
     def capture(self, btn):
         '''
         Function to capture the images and give them the names
@@ -169,7 +172,10 @@ class TouchApp(App):
         #self.remove_widget(self.camera)
         #self.remove_widget(btn)
         
-    def startgame(self, startbtn):
+    def startgame(self, startbtn):        
+        self.capture(startbtn)            
+        imgdim = self.img.texture_size[1]
+        RDpm.update_img_dimension(imgdim)        
         
         self.toplabel.text = "Starting game"
         print("Starting game")
