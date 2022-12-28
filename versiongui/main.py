@@ -173,7 +173,7 @@ class TouchApp(App):
         #self.remove_widget(btn)        
         
     def startgame(self, startbtn):
-        self.startrobotbtn.text = RD.startrobotbtntext1
+        #self.startrobotbtn.text = RD.startrobotbtntext1
         CBint.fnewgame()
         self.capture(startbtn)            
         imgdim = self.img.texture_size[1]
@@ -208,7 +208,7 @@ class TouchApp(App):
         elif self.startrobotbtn.text == RD.startrobotbtntext3:
             RD.gohome()
             self.toplabel.text = RD.toplabeltext4
-            #self.startrobotbtn.text = ""
+            self.startrobotbtn.text = ""
             print(RD.toplabeltext4)
         else:
             print ("Error 17")
