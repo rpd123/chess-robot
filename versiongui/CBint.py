@@ -6,7 +6,7 @@
 # initiate chessboard
 from stockfish import Stockfish
 from ChessBoard import ChessBoard
-import subprocess, time
+#import subprocess, time
 import CBstate
 chessboard = ChessBoard()
 import robotmove as RD
@@ -47,11 +47,16 @@ Threads  :  4
 Hash  :  1024
 '''
 # depth 15
+#skill = "10"
+#movetime = "6000"
+#dummy = ""   
 
 RD.speaker("Hello! Let's play chess!")
 logging.debug("Start")
-dummy = "" 
+
 movelist = []
+bmessage = ""
+fmove = ""
 
 reasons = (
     "No reason",
@@ -166,11 +171,12 @@ def sendboard(stxt):
     toplabel = stxt
 
 def newgame():
-    global movelist
+    global movelist, bmessage
 
     chessboard.resetBoard()
     fmove=""
     movelist = []
+    bmessage = ""
     return fmove
 
 
@@ -314,11 +320,9 @@ def put(command):
 # assume new game
 print ("\nChess Program \n")
 #print ("Stockfish " + str(stockfish.get_stockfish_major_version()))
-
-skill = "10"
-movetime = "6000"
-fmove = newgame()
-bmessage = ""
+def fnewgame():
+    global fmove
+    fmove = newgame()
 
 def fbmove():
     global fmove, bmessage

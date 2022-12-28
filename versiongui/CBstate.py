@@ -20,6 +20,7 @@ if platform.system() == "Windows":
     cameraportno = 1
     #cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
+    #cameraportno = 'http://192.168.1.177:4747/video'
     #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'
     cameratype = 'usb'
     #cameratype = 'ip'
@@ -48,19 +49,17 @@ else:
     
 if 'ANDROID_STORAGE' in os.environ:
     print("Android!")
-    androidos = True
+    androidos = True    
     bluetoothdevicename = 'HC-05'
     stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm/libstockfish15.so"
     #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm64/libstockfish15.so"
     stockfishparams={"Slow Mover": 50}
     mirrorimage = True
 else:
-    androidos = False 
+    androidos = False
     
 motorsareservos = False
 SCARA = False
-
-
 
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False

@@ -3,7 +3,7 @@ mydir = CBstate.mydir
 
 import CBint
 import cv2
-import time
+#import time
 import kivy
 kivy.require("1.11.1")
 #from kivy.config import Config
@@ -11,8 +11,8 @@ kivy.require("1.11.1")
 #Config.set('graphics', 'height', '2280')
 print(kivy.__version__)
 from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.graphics.texture import Texture
+#from kivy.uix.widget import Widget
+#from kivy.graphics.texture import Texture
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.label import Label
@@ -21,18 +21,18 @@ from kivy.uix.boxlayout import BoxLayout
 #from kivy.uix.gridlayout import GridLayout
 #from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.relativelayout import RelativeLayout
-from kivy.uix.modalview import ModalView
+#from kivy.uix.modalview import ModalView
 from kivy.graphics import *
-from kivy.clock import Clock
-from kivy.uix.textinput import TextInput
+#from kivy.clock import Clock
+#from kivy.uix.textinput import TextInput
 
 #Config.set('graphics', 'height', '780')
 #Config.set('graphics', 'height', '2280')
 from kivy.core.window import Window
 Window.size = CBstate.windowsize
 
-from functools import partial
-from kivy.uix.popup import Popup
+#from functools import partial
+#from kivy.uix.popup import Popup
 from kivy.lang import Builder
 from kivy.uix.camera import Camera
 #from kivy.config import Config
@@ -170,9 +170,11 @@ class TouchApp(App):
         self.img.source = mydir+'1.jpg'
         self.img.reload()
         #self.remove_widget(self.camera)
-        #self.remove_widget(btn)
+        #self.remove_widget(btn)        
         
-    def startgame(self, startbtn):        
+    def startgame(self, startbtn):
+        self.startrobotbtn.text = RD.startrobotbtntext1
+        CBint.fnewgame()
         self.capture(startbtn)            
         imgdim = self.img.texture_size[1]
         RDpm.update_img_dimension(imgdim)        
@@ -206,7 +208,7 @@ class TouchApp(App):
         elif self.startrobotbtn.text == RD.startrobotbtntext3:
             RD.gohome()
             self.toplabel.text = RD.toplabeltext4
-            self.startrobotbtn.text = ""
+            #self.startrobotbtn.text = ""
             print(RD.toplabeltext4)
         else:
             print ("Error 17")
@@ -320,7 +322,7 @@ class TouchApp(App):
         Parent.ids['animg'] = self.img
         
         self.startbtn = Button(
-            text = 'Start game',
+            text = 'New game',
             size_hint = (None, None),
             width = CBstate.windowsize[0],
             height = '34dp',

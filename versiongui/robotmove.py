@@ -15,7 +15,7 @@ if not CBstate.androidos:
 else:
     import bluetrpd
 from subprocess import call                         
-import time     # import the time library for the sleep function
+#import time     # import the time library for the sleep function
 from math import sin, cos, atan2, sqrt, atan
 
 import serial
@@ -121,7 +121,7 @@ toplabeltext3 = "Steppers are on. Adjust ROBOT placement, then press button"
 toplabeltext4 = "Make move, then press 'I've moved' button"
 
 firsttime = 1
-gtoplabel = ""
+#gtoplabel = ""
 sp = 0
 send_stream = 0
 
@@ -139,6 +139,12 @@ def spflush():
         pass
     else:
         sp.flush()
+        
+def flushout():
+    if CBstate.androidos:
+        send_stream.flush()
+    else:
+        pass
     
 def receivemsg(sp):
     global msgcount
@@ -242,7 +248,7 @@ def closegripper(amount, piecetype):
 def speaker(text):
     if True:
         if CBstate.androidos:
-            return()
+            return
         engine.setProperty('voice', 'english_rp+f3')
         engine.say(text)
         engine.runAndWait()
@@ -259,15 +265,17 @@ def quitter():
     if sp:
         if CBstate.SCARA:
             gohome()
-        print ("reset all steppers")
+        #print ("reset all steppers")
         spflush()
-        send_stream.write(("M18" + "\r").encode())
+        #send_stream.write(("M18" + "\r").encode())
         receivemsg(sp)
-        sp.close()               
+        #sp.close()               
         #time.sleep(2)
         print ("Game ends")
         speaker ("Game ends. Thankyou for playing.")
-    if not CBstate.androidos:
+    if CBstate.androidos:
+        gohome()
+    else:
         engine.stop()
         sys.exit()
     return
@@ -333,7 +341,7 @@ def iscastling (sourcesquarename):
         rtargetxmm = xmtrans["d"] * squaresize
         rtargetymm = (8-int("8")) * squaresize
     else:
-        return()
+        return
     print("Castling " + sourcesquarename)   
     movearmcoord (rsourcexmm, rsourceymm, gripperfloatheight)
     

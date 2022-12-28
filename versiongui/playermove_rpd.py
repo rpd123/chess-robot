@@ -7,8 +7,8 @@
 # Can tell which squares are empty by standard deviation being below a certain value
 # After which we distinguish between black (brown) and white because max mean for brown is less than min mean for white
 
-import time 
-import os
+#import time 
+#import os
 import cv2
 import sys
 import numpy
@@ -332,7 +332,7 @@ def getplayermove(board, validkingmoves):
     #print (minRw + minGw + minBw)
     #print (maxRb + maxGb + maxBb)
     
-    constructmove = list("m    ")
+    constructmove = list("ma1a1")
     for row in range(8):    
         for col in range(8):
 
@@ -445,7 +445,7 @@ def registerclicks(x,y):
     pts8[(pointscount*2)+1] = y
     # displaying the coordinates
     # on the image window
-    font = cv2.FONT_HERSHEY_SIMPLEX
+    #font = cv2.FONT_HERSHEY_SIMPLEX
     #cv2.putText(im_src, str(x) + ',' + str(y), (x,y), font, 1, (255, 0, 0), 2)
     #cv2.imshow('image', im_src)
     pointscount += 1
