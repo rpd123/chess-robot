@@ -12,13 +12,13 @@ rotation = -1   # do not rotate
 #rotation = 0  #cv2.ROTATE_90_CLOCKWISE 
 rotation = 1  #cv2.ROTATE_180
 #rotation = 2  #cv2.ROTATE_90_COUNTERCLOCKWISE
-
+mirrorimage = False
 if platform.system() == "Windows":
     windowsos = True
     mydir = r'C:\Users\Richard\Github\chess-robot\versiongui\images' + "\\"
     stockfishexe = r'C:\Program Files\Stockfish\stockfish.exe'
     cameraportno = 1
-    #cameraportno = 0
+    cameraportno = 0
     #cameraportno = 'http://192.168.1.189:8080/video'
     #cameraportno = 'http://192.168.1.177:4747/video'
     #cameraportno = 'rtsp://tapoadmin:tapoadmin@192.168.1.127:554/stream1'

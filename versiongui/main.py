@@ -212,9 +212,19 @@ class TouchApp(App):
             print(RD.toplabeltext4)
         else:
             print ("Error 17")
+            
+    def showredlines(self):
+        ##
+        mydim = int(round(self.img.size[1]))
+        self.img.size = (mydim, mydim)
+        self.img.source = mydir+'redlines.jpg'
+        self.img.reload()        
+        ##
         
     def playerhasmoved(self, movebtn):
-        # take picture
+        ##
+        self.showredlines()        
+        ##
         if self.firstmove:
             self.firstmove = 0
             #Start the clock
@@ -228,7 +238,9 @@ class TouchApp(App):
         CBint.fbmove()
         print (CBint.toplabel)
         self.toplabel.text = "Computer move: " + CBint.toplabel
-        
+        ##
+        self.showredlines()        
+        ##
     def Callback_Clock(self, dt):
         self.ccount = self.ccount+1
         print ("Updated %d...times"%self.count)
