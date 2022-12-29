@@ -327,6 +327,7 @@ class TouchApp(App):
         self.img = MyImage(
             #source=mydir + '1.jpg',
             allow_stretch = True,
+            nocache=True,
             keep_ratio = True,
             width = CBstate.windowsize[0],            
             size_hint_x = (None),
