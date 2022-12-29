@@ -222,6 +222,7 @@ class TouchApp(App):
         ##
         
     def playerhasmoved(self, movebtn):
+        self.capture(movebtn)
         ##
         self.showredlines()        
         ##
@@ -229,7 +230,7 @@ class TouchApp(App):
             self.firstmove = 0
             #Start the clock
             #Clock.schedule_interval(self.Callback_Clock, 2)
-        self.capture(movebtn)
+        
         self.toplabel.text = "Player has moved "
         print("Player has moved")
         print (CBint.toplabel)
@@ -237,10 +238,11 @@ class TouchApp(App):
         #CBint.getboard()
         CBint.fbmove()
         print (CBint.toplabel)
-        self.toplabel.text = "Computer move: " + CBint.toplabel
+        self.capture(movebtn)               
         ##
         self.showredlines()        
         ##
+        self.toplabel.text = "Computer move: " + CBint.toplabel 
     def Callback_Clock(self, dt):
         self.ccount = self.ccount+1
         print ("Updated %d...times"%self.count)
