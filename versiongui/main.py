@@ -208,7 +208,7 @@ class TouchApp(App):
         elif self.startrobotbtn.text == RD.startrobotbtntext3:
             RD.gohome()
             self.toplabel.text = RD.toplabeltext4
-            self.startrobotbtn.text = ""
+            self.startrobotbtn.text = RD.startrobotbtntext1
             print(RD.toplabeltext4)
         else:
             print ("Error 17")

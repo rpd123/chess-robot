@@ -456,7 +456,13 @@ def settop(t):
  '''   
 def init():
     global sp, send_stream
-    
+    if sp:
+        # re-calibrate robot
+        sp.close()
+        send_stream.close()
+        sp = 0
+        send_stream = 0
+
     if CBstate.androidos:
         sp, send_stream = bluetrpd.get_socket_stream(CBstate.bluetoothdevicename)
         '''
