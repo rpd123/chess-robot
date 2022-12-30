@@ -152,10 +152,10 @@ class TouchApp(App):
     
     def capture(self, btn):
         '''
-        Function to capture the images and give them the names
-        according to their captured time and date.
+        Capture the image
         '''
-        #Parent.ids['myimg'] = self.img        
+        #Parent.ids['myimg'] = self.img
+        self.img.width = CBstate.windowsize[0]
         toptext = "Image captured. Click on bottom left of board below."
         if btn.text == "I've moved!":
             toptext = "Board image captured"

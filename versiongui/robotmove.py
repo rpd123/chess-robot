@@ -486,7 +486,7 @@ def init():
             quitter()
             return False
     #time.sleep(0.2)
-    
+    initsteppers()   # turn steppers off and initialize them
     try:
         print ("Start")        
         receivemsg(sp)
@@ -502,7 +502,7 @@ def init():
         quitter()
        
 def init2():
-    initsteppers()   # turn steppers off and initialize them
+    #initsteppers()   # turn steppers off and initialize them
     steppers_on()    # prompt user to switch on steppers
 
     if CBstate.SCARA:
