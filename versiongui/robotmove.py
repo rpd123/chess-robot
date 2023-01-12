@@ -33,6 +33,16 @@ endstops = False
 graveyard = "i6"
 msgcount = 0
 
+# stepper gripper
+axistorow8 = 120  # mm
+servoonleft = False
+gripperfloatheight = 55
+grippergrabheight = -26 
+gripperoffset = 53
+openamount = 40 #degrees
+closeamount = -15 #degrees
+# end stepper gripper
+
 if CBstate.SCARA:
     debugrobot = False
     axistorow8 = 35
@@ -114,7 +124,7 @@ lastmovetype = (
 
 startrobotbtntext1 = "Start robot"
 startrobotbtntext2 = "Switch on steppers"
-startrobotbtntext3 = "Adjust ROBOT BASE placement, then click"
+startrobotbtntext3 = "Adjust ROBOT BASE rotation, then click"
 
 toplabeltext2 = "Steppers are off. Place robot in start position and then switch on steppers"
 toplabeltext3 = "Steppers are on. Adjust ROBOT placement, then press button"
