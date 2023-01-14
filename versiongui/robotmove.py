@@ -43,7 +43,7 @@ piecewidths = {
 }
 
 if CBstate.steppergripper:
-    axistorow8 = 120  # mm
+    axistorow8 = 100  # mm
     servoonleft = True
     gripperfloatheight = 57
     grippergrabheight = -14 
