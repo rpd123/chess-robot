@@ -45,11 +45,11 @@ piecewidths = {
 if CBstate.steppergripper:
     axistorow8 = 120  # mm
     servoonleft = True
-    gripperfloatheight = 55
-    grippergrabheight = -18 
+    gripperfloatheight = 57
+    grippergrabheight = -14 
     gripperoffset = 53
     openamount = 45 #degrees
-    closeamount = -15 #degrees
+    closeamount = -18 #degrees
     
     piecewidths = {
         "p": 0,     # degrees
