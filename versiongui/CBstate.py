@@ -60,6 +60,7 @@ else:
     
 motorsareservos = False
 SCARA = False
+steppergripper = True
 
 logging.basicConfig(level=logging.DEBUG, filename = mydir + 'chesslog.log', filemode='w', format='%(levelname)s-%(message)s')
 kingincheck = False

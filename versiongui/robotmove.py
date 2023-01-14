@@ -33,14 +33,32 @@ endstops = False
 graveyard = "i6"
 msgcount = 0
 
-# stepper gripper
-axistorow8 = 120  # mm
-servoonleft = False
-gripperfloatheight = 55
-grippergrabheight = -26 
-gripperoffset = 53
-openamount = 40 #degrees
-closeamount = -15 #degrees
+piecewidths = {
+    "p": 0,     # degrees
+    "r": 3,
+    "n": 0,
+    "b": 3,
+    "q": 4,
+    "k": 4
+}
+
+if CBstate.steppergripper:
+    axistorow8 = 120  # mm
+    servoonleft = True
+    gripperfloatheight = 55
+    grippergrabheight = -18 
+    gripperoffset = 53
+    openamount = 45 #degrees
+    closeamount = -15 #degrees
+    
+    piecewidths = {
+        "p": 0,     # degrees
+        "r": 3,
+        "n": 0,
+        "b": 3,
+        "q": 4,
+        "k": 4
+    }
 # end stepper gripper
 
 if CBstate.SCARA:
@@ -103,15 +121,6 @@ pieceheights = {
     "k": 5.3    # grab lower
 }
 maxpieceheight = 2.5    # inches
-
-piecewidths = {
-    "p": 0,     # degrees
-    "r": 3,
-    "n": 0,
-    "b": 3,
-    "q": 4,
-    "k": 4
-}
 
 gameresult = ("No result", "Checkmate! White wins", "Checkmate! Black wins", "Stalemate", "50 moves rule", "3 repetitions rule")
 lastmovetype = (
@@ -441,7 +450,7 @@ def gohome():
         #time.sleep(0.2)
         receivemsg(sp)
     else:
-        movearmcoord (0, -10+gripperoffset, 180)
+        movearmcoord (0, -30+gripperoffset, 180)
 
 def initsteppers():
     #time.sleep(0.2)
