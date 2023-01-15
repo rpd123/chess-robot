@@ -48,7 +48,7 @@ if CBstate.steppergripper:
     gripperfloatheight = 57
     grippergrabheight = -14 
     gripperoffset = 53
-    openamount = 45 #degrees
+    openamount = 45 #degrees. Do not change
     closeamount = -24 #degrees
     
     piecewidths = {
