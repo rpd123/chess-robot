@@ -14,6 +14,7 @@ if not CBstate.androidos:
     engine.setProperty('rate', 125) # Decrease the Speed Rate
 else:
     import bluetrpd
+    from plyer import tts
 from subprocess import call                         
 #import time     # import the time library for the sleep function
 from math import sin, cos, atan2, sqrt, atan
@@ -49,10 +50,10 @@ if CBstate.steppergripper:
     grippergrabheight = -14 
     gripperoffset = 53
     openamount = 45 #degrees. Do not change
-    closeamount = -24 #degrees
+    closeamount = -37 #degrees
     
     piecewidths = {
-        "p": 0,     # degrees
+        "p": 0,     # additional degrees
         "r": 3,
         "n": 0,
         "b": 3,
@@ -265,13 +266,13 @@ def closegripper(amount, piecetype):
     #waiter(0.5)
 
 def speaker(text):
-    if True:
-        if CBstate.androidos:
-            return
+    if CBstate.androidos:
+        tts.speak(text)
+    else:
         engine.setProperty('voice', 'english_rp+f3')
         engine.say(text)
         engine.runAndWait()
-    else:
+        return
         cmd_beg= 'espeak -ven+f4 -s100 '
         cmd_end= ' | aplay ' + mydir + 'Text.wav  2>/dev/null' # To play back the stored .wav file and to dump the std errors to /dev/null
         cmd_out= '--stdout >' + mydir + 'Text.wav ' # To store the voice file

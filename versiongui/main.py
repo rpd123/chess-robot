@@ -11,6 +11,7 @@ kivy.require("1.11.1")
 #Config.set('graphics', 'height', '2280')
 print(kivy.__version__)
 from kivy.app import App
+#from kivy.properties import ObjectProperty
 #from kivy.uix.widget import Widget
 #from kivy.graphics.texture import Texture
 from kivy.uix.image import Image
@@ -36,7 +37,7 @@ Window.size = CBstate.windowsize
 from kivy.lang import Builder
 from kivy.uix.camera import Camera
 #from kivy.config import Config
-
+#from plyer import tts
 Builder.load_string('''
 <CameraClick>:
     orientation: 'vertical'
