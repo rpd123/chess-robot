@@ -13,37 +13,23 @@ import robotmove as RD
 import playermove_rpd as RDpm
 import logging
 
-if CBstate.sunfishengine:
-    ##import sys
-    ##stockfish = Stockfish(path=[sys.executable,CBstate.myfish], depth=CBstate.depth, parameters=CBstate.stockfishparams)
-    import subprocess
-    import sys
-    engine = subprocess.Popen(
-        [sys.executable, "-u", CBstate.myfish],
-        universal_newlines=True,
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        #shell=True
-        )
-elif CBstate.windowsos:    
+if CBstate.windowsos:    
     stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
 elif CBstate.androidos:
-    stockfish = Stockfish(path=CBstate.stockfishenginepath, depth=CBstate.depth, parameters=CBstate.stockfishparams)
+    stockfish = Stockfish(path=CBstate.stockfishenginepath, depth=10, parameters=CBstate.stockfishparams)
 else:
     #stockfish = Stockfish(parameters=CBstate.stockfishparams)
     stockfish = Stockfish()
 mydir = CBstate.mydir
 toplabel = ""
-##print ("Stockfish:")
-##print(str(stockfish.get_stockfish_major_version()))
-
+print ("Stockfish:")
+print(str(stockfish.get_stockfish_major_version()))
 #stockfish.update_engine_parameters({"Threads": 4})   
 #stockparams = stockfish.get_parameters()
 #for key, value in stockparams.items():
 #    print(key, ' : ', value)
 '''
 Stockfish 14 Windows, stockfish module 3.24.0
-
 Debug Log File  :  
 Contempt  :  0
 Min Split Depth  :  0
@@ -61,7 +47,7 @@ Hash  :  1024
 '''
 # depth 15
 #skill = "10"
-movetime = "2000"
+#movetime = "6000"
 #dummy = ""   
 
 RD.speaker("Hello! Let's play chess!")
@@ -108,7 +94,7 @@ engine = subprocess.Popen(
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,)
 '''
-  
+    
 def checkvarious(): 
     global toplabel
     if chessboard.getLastMoveType() != -1 and chessboard.getLastMoveType() != 0:
@@ -125,31 +111,28 @@ def checkvarious():
     return()
 
 def get():
-    ##return stockfish.get_best_move()
+    return stockfish.get_best_move()
     # using the 'isready' command (engine has to answer 'readyok')
     # to indicate current last line of stdout
     stx=""
     engine.stdin.write('isready\n')
-    engine.stdin.flush()
     print('\nengine:')
     while True :
         text = engine.stdout.readline().strip()
         if text == 'readyok':
-            print (text)
             break
         if text !='':   
             print(('\t'+text))
         if text[0:8] == 'bestmove':
         
             return text
-
+'''
 def sget():
     
     # using the 'isready' command (engine has to answer 'readyok')
     # to indicate current last line of stdout
     stx=""
     engine.stdin.write('isready\n')
-    engine.stdin.flush()
     print('\nengine:')
     while True :
         text = engine.stdout.readline().strip()
@@ -161,7 +144,7 @@ def sget():
         if text[0:8] == 'bestmove':
             mtext=text
             return mtext
-
+'''
 def getboard():
     """ gets a text string from the board """
     #btxt = raw_input("\nYour move: ").lower()
@@ -188,10 +171,7 @@ def sendboard(stxt):
 
 def newgame():
     global movelist, bmessage
-    get ()
-    put('uci')
-    get ()
-    put('ucinewgame')
+
     chessboard.resetBoard()
     fmove=""
     movelist = []
@@ -216,7 +196,7 @@ def bmove(fmove):
         # send move to engine & get engines move
 
         
-        put("go movetime " +movetime)
+        ##put("go movetime " +movetime)
         # time.sleep(6)
         # text = get()
         # put('stop')
@@ -295,19 +275,19 @@ def bmove(fmove):
         # put('ucinewgame')
         # get()
        
-        put(cmove)
-        ##put(movelist)   # 3
+        ##put(cmove)
+        put(movelist)   # 3
         # send move to engine & get engines move
         
-        put("go movetime " +movetime)
+        ##put("go movetime " +movetime)
         # time.sleep(6)
         # text = get()
         # put('stop')
         
-        text = sget()
+        text = get()
         ##print(("text: " + text))
-        smove = text[9:13]
-        ##smove = text
+        ##smove = text[9:13]
+        smove = text
         hint = text[21:25]
         if chessboard.addTextMove(smove) != True :
             stxt = "Error: " + reasons[chessboard.getReason()] + " in move " + smove
@@ -332,10 +312,9 @@ def bmove(fmove):
 
 def put(command):
     print(command)
-    engine.stdin.write(command+'\n')
-    engine.stdin.flush()
+    #engine.stdin.write(command+'\n')
     #stockfish.make_moves_from_current_position([command])
-    ##stockfish.set_position(command)
+    stockfish.set_position(command)
 
 # assume new game
 print ("\nChess Program \n")

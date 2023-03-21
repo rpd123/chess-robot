@@ -304,7 +304,7 @@ def quitter():
 def pickuppiece(xmm, ymm, piecetype):
     global pieceheights
     print ("open gripper")
-    #opengripper(openamount)
+    opengripper(openamount)
     print("go down to pick up")
     movearmcoord (xmm, ymm, grippergrabheight + (pieceheights[piecetype]*10))  # go down half way
     #waiter(1)
@@ -312,7 +312,7 @@ def pickuppiece(xmm, ymm, piecetype):
     #input ("press enter")    
     movearmcoord (xmm, ymm, grippergrabheight) # go down
     delayarduino(5)
-    #print("close gripper")
+    print("close gripper")
     closegripper(closeamount, piecetype)
     #waiter(1)
     delayarduino(5)
@@ -325,7 +325,7 @@ def droppiece(xmm, ymm):
     print("go down to drop piece")
     #movearmcoord (xmm, ymm, halfway)
     movearmcoord (xmm, ymm, grippergrabheight + 3)  # go down
-    #print ("open gripper")
+    print ("open gripper")
     delayarduino(5)
     opengripper(openamount)
     delayarduino(5)

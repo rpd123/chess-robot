@@ -1,0 +1,50 @@
+#:kivy 1.7.1
+
+#: import window kivy.core.window.Window
+
+<SayThis>:
+    orientation: 'vertical'
+    button_font_size: '30sp'
+    padding: '8sp','8sp'
+    canvas:
+        Rectangle:
+            source: 'images/background.png'
+            pos: self.pos
+            size: self.size
+    saywhat_text: saywhat_text
+    Label:
+        text: 'Say This!'
+        font_size: '45sp'
+        size_hint: 1, None
+        height: self.texture_size[1] + (2 * root.padding[1])
+    BoxLayout:
+        orientation: 'horizontal' if window.width > window.height else 'vertical'
+        Slider:
+            id: font_slider
+            orientation: 'vertical' if window.width > window.height else 'horizontal'
+            min: 1
+            max: 100
+            value: 15
+            size: ('50sp', 0) if window.width > window.height else (0, '50sp')
+            size_hint: (None, 1) if window.width > window.height else (1, None)
+        TextInput:
+            id: saywhat_text
+            text: 'Hello, world!'
+            font_size: str(font_slider.value)+'sp'
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, None
+        height: sayit_button.height
+        Button:
+            id: sayit_button
+            text: 'Say it!'
+            font_size: root.button_font_size
+            size_hint: 1, None
+            height: self.texture_size[1] + (2 * root.padding[1])
+            on_press: root.say_something(saywhat_text.text)
+        Button:
+            text: 'Clear'
+            font_size: root.button_font_size
+            size_hint: 1, None
+            height: self.texture_size[1] + (2 * root.padding[1])
+            on_press: root.clear()

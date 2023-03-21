@@ -46,26 +46,17 @@ else:
 #HP Webcam 2300 (720, 1280)
 #straightenedimagedimension = 0
 #cameraheight = 520
-sunfishengine = True    
+    
 if 'ANDROID_STORAGE' in os.environ:
     print("Android!")
     androidos = True    
-    bluetoothdevicename = 'HC-05'    
+    bluetoothdevicename = 'HC-05'
     stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm/libstockfish15.so"
     #stockfishenginepath = "/data/app/ccc.chess.engine.stockfish-1/lib/arm64/libstockfish15.so"
-    depth = 10
     stockfishparams={"Slow Mover": 50}
     mirrorimage = True
 else:
     androidos = False
-    
-if sunfishengine:
-    import sys
-    #myfish = r'C:\Users\Richard\Github\chess-robot\versionsunfish\sunfish.py'
-    myfish = "sunfish.py"
-    #stockfishenginepath = "['"+sys.executable + "', '" + myfish+"']"
-    #print (stockfishenginepath)
-    depth = 4
     
 motorsareservos = False
 SCARA = False

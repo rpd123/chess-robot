@@ -1,0 +1,7 @@
+<Launch>:
+ 
+    Button:
+         
+        size: 100,32
+        pos:0,0
+        
