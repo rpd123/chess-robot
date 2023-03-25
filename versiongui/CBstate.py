@@ -47,7 +47,7 @@ else:
 #HP Webcam 2300 (720, 1280)
 #straightenedimagedimension = 0
 #cameraheight = 520
-sunfishengine = False
+sunfishengine = True
 
 if 'ANDROID_STORAGE' in os.environ:
     print("Android!")
@@ -62,7 +62,7 @@ else:
     androidos = False
     
 if sunfishengine:
-    import sys
+    #import sys
     #myfish = r'C:\Users\Richard\Github\chess-robot\versionsunfish\sunfish.py'
     myfish = "sunfish.py"
     #chessenginepath = "['"+sys.executable + "', '" + myfish+"']"
