@@ -4,9 +4,9 @@
 
 
 # initiate chessboard
-from stockfish import Stockfish
+#from stockfish import Stockfish
 from ChessBoard import ChessBoard
-#import subprocess, time
+import subprocess, sys
 import CBstate
 chessboard = ChessBoard()
 import robotmove as RD
@@ -15,9 +15,7 @@ import logging
 
 if CBstate.sunfishengine:
     ##import sys
-    ##stockfish = Stockfish(path=[sys.executable,CBstate.myfish], depth=CBstate.depth, parameters=CBstate.stockfishparams)
-    import subprocess
-    import sys
+    ##engine = Stockfish(path=[sys.executable,CBstate.myfish], depth=CBstate.depth, parameters=CBstate.stockfishparams)
     engine = subprocess.Popen(
         [sys.executable, "-u", CBstate.myfish],
         universal_newlines=True,
@@ -26,12 +24,30 @@ if CBstate.sunfishengine:
         #shell=True
         )
 elif CBstate.windowsos:    
-    stockfish = Stockfish(CBstate.stockfishexe, parameters=CBstate.stockfishparams)
+    #engine = Stockfish(path=CBstate.stockfishexe, parameters=CBstate.stockfishparams)
+    engine = subprocess.Popen(
+        CBstate.stockfishexe,
+        universal_newlines=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        )
 elif CBstate.androidos:
-    stockfish = Stockfish(path=CBstate.stockfishenginepath, depth=CBstate.depth, parameters=CBstate.stockfishparams)
+    #engine = Stockfish(path=CBstate.stockfishenginepath, depth=CBstate.depth, parameters=CBstate.stockfishparams)
+    engine = subprocess.Popen(
+        CBstate.chessenginepath,
+        universal_newlines=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        )
 else:
-    #stockfish = Stockfish(parameters=CBstate.stockfishparams)
-    stockfish = Stockfish()
+    #engine = Stockfish(parameters=CBstate.stockfishparams)
+    #engine = Stockfish()
+    engine = subprocess.Popen(
+        CBstate.chessenginepath,
+        universal_newlines=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        )
 mydir = CBstate.mydir
 toplabel = ""
 ##print ("Stockfish:")
@@ -61,7 +77,7 @@ Hash  :  1024
 '''
 # depth 15
 #skill = "10"
-movetime = "2000"
+
 #dummy = ""   
 
 RD.speaker("Hello! Let's play chess!")
@@ -125,7 +141,7 @@ def checkvarious():
     return()
 
 def get():
-    ##return stockfish.get_best_move()
+    ##return engine.get_best_move()
     # using the 'isready' command (engine has to answer 'readyok')
     # to indicate current last line of stdout
     stx=""
@@ -191,6 +207,9 @@ def newgame():
     get ()
     put('uci')
     get ()
+    if not CBstate.sunfishengine:
+        put('setoption name Slow Mover value ' + CBstate.slowmover)
+        get ()
     put('ucinewgame')
     chessboard.resetBoard()
     fmove=""
@@ -208,7 +227,7 @@ def bmove(fmove):
     brdmove = bmessage[1:5].lower()
     print ("brdmove: " + brdmove)
     #brdmove = bmessage[1:6]    # allow for O-O-O, etc
-    # Code added here make computer play white by sending null message "ma9a9" to Stockfish
+    # Code added here make computer play white by sending null message "ma9a9" to engine
     if brdmove =="a9a9":
         fmove = ""
         print ("Me First")
@@ -216,7 +235,7 @@ def bmove(fmove):
         # send move to engine & get engines move
 
         
-        put("go movetime " +movetime)
+        put("go movetime " + CBstate.movetime + " depth " + CBstate.depth)
         # time.sleep(6)
         # text = get()
         # put('stop')
@@ -299,7 +318,7 @@ def bmove(fmove):
         ##put(movelist)   # 3
         # send move to engine & get engines move
         
-        put("go movetime " +movetime)
+        put("go movetime " + CBstate.movetime)
         # time.sleep(6)
         # text = get()
         # put('stop')
@@ -334,12 +353,12 @@ def put(command):
     print(command)
     engine.stdin.write(command+'\n')
     engine.stdin.flush()
-    #stockfish.make_moves_from_current_position([command])
-    ##stockfish.set_position(command)
+    #engine.make_moves_from_current_position([command])
+    ##engine.set_position(command)
 
 # assume new game
 print ("\nChess Program \n")
-#print ("Stockfish " + str(stockfish.get_stockfish_major_version()))
+#print ("Stockfish " + str(engine.get_stockfish_major_version()))
 def fnewgame():
     global fmove
     fmove = newgame()

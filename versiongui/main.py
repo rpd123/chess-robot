@@ -53,11 +53,10 @@ class MyImage(Image):
     def __init__(self, **kwargs):
         super(MyImage, self).__init__(**kwargs)
         
-
         #self.start_pos = [0, 0]
         #self.end_pos = [0, 0]
         #self.img_path = mydir+'1.jpg'
-        
+       
        
     def dispop(self, myx, myy):
     #def show_popup():
