@@ -33,8 +33,8 @@ msgcount = 0
 if CBstate.SCARA:
     debugrobot = False
     axistorow8 = 35
-    gripperfloatheight = 40
-    grippergrabheight = -15
+    #gripperfloatheight = 40
+    #grippergrabheight = -15
     gripperfloatheight = 20  # do not change
     grippergrabheight = -63
     halfway = (gripperfloatheight + grippergrabheight) / 2
