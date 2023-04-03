@@ -35,8 +35,8 @@ if CBstate.SCARA:
     axistorow8 = 35
     #gripperfloatheight = 40
     #grippergrabheight = -15
-    gripperfloatheight = 20  # do not change
-    grippergrabheight = -63
+    gripperfloatheight = 0  # was 20, do not change
+    grippergrabheight = -83  # was -63
     halfway = (gripperfloatheight + grippergrabheight) / 2
     gripperoffset = 0  # indeed!
     openamount = 50 #degrees

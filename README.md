@@ -1,6 +1,6 @@
 # chess-robot  
   
-For the Android /GUI version see the instructions in the versiongui directory.
+For the Android/GUI version see the instructions in the versiongui directory.
     
 3D printed chess robot, Python code for Raspberry Pi, other Linux or Windows PC. New users should use version 2.
 
@@ -15,7 +15,7 @@ pip install pyttsx3
 
 Run CBint.py from Thonny or elsewhere.
 
-The camera should be positioned directly over the centre of the chess board and lined up pretty well. Then camera calibration asks you to click on the four corners of the playing area of the chessboard (on the image), and you are shown the result. Click them in the order requested. (The robot arm should not be in the way, and all the pieces must be in their correct starting positions). By "playing area" we mean the chessboard squares, NOT including any external margin.
+The camera should be positioned directly over the centre of the chess board and lined up pretty well. Then camera calibration asks you to click on the four corners of the playing area of the chessboard (on the image), and you are shown the result. Click them in the order requested. (The robot arm should not be in the way, and all the pieces must be in their correct starting positions). By "playing area" we mean the chessboard squares, NOT including any external margin).
 
 The calibration is remembered even if all systems are shut down, so if the robot, board and camera have not been moved, recalibration can optionally be avoided when a new game is started
 
