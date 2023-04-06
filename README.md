@@ -33,7 +33,8 @@ The RPi or PC is connected to the Arduino by a USB A/B cable (printer cable). Or
 Both USB and IP cameras are supported. Calibration for fish-eye distortion is provided, and is more likely to be needed for IP cameras. USB cameras are often OK without it.
   
 ===  
-Version 1 only:  
-pip install pillow  
+Version1-old only:  
+pip install pillow
+pip install psutil  
 On RPi install fswebcam, aplay
 
