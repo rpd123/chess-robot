@@ -47,7 +47,7 @@ else:
 #HP Webcam 2300 (720, 1280)
 #straightenedimagedimension = 0
 #cameraheight = 520
-sunfishengine = True
+sunfishengine = False
 
 if 'ANDROID_STORAGE' in os.environ:
     print("Android!")
