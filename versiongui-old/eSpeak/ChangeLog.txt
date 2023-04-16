@@ -19,6 +19,8 @@ Language changes include: da, en, fa, gu, hu, it, nl, pt, ta
 
 Started new language: eu (Basque).
 
+*_rules files:
+Allow $p_alt1, $p_alt2, etc in pre-conditions.  The rule matches if the
 characters before the current point in the word occur as an entry in the
 *_list file with the corresponding $alt attibute.
 
