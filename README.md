@@ -31,6 +31,8 @@ Axistorow8 is the distance in mm horizontally along the y coordinate, between th
 The RPi or PC is connected to the Arduino by a USB A/B cable (printer cable). Or alternatively via Bluetooth (not BLE), using an HC-05 Bluetooth module.
 
 Both USB and IP cameras are supported. Calibration for fish-eye distortion is provided, and is more likely to be needed for IP cameras. USB cameras are often OK without it.
+
+Arduino code is at https://github.com/rpd123/Arduino-Firmware 
   
 ===  
 Version1-old only:  
