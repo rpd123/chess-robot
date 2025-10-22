@@ -429,7 +429,7 @@ def init():
                 receivemsg(sp)
             else:
                 movearmcoord (0, (squaresize*3.5), grippergrabheight)
-            input("Adjust robot position slightly if not in centre of board. Press Enter to continue")
+            input("Rotate robot slightly if necessary. Press Enter to continue")
         gohome()
 
                       
